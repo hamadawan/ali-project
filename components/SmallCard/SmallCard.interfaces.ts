@@ -1,7 +1,8 @@
 export interface SmallCardProps {
   id: string;
-  url: string;
+  img: string;
   title: string;
-  description: string;
   price: number;
+  url: string;
+  description?: string;
 }

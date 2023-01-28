@@ -13,10 +13,10 @@ const FeaturedCategory: React.FunctionComponent<FeaturedCategoryProps> = ({
     <div className="border-2 m-2 rounded-xl">
       <div className="flex m-2">
         <Icon type={icon as IconType} />
-        <h2>{title}</h2>
+        <h2 className="ml-2">{title}</h2>
       </div>
         {items.map((item) => (
-          <SmallCard key={item.id} title={item.title} price={item.price} url={item.url} />
+          <SmallCard id={item.id} key={item.id} title={item.title} price={item.price} img={item.img} url={item.url} />
         ))}
     </div>
   );
