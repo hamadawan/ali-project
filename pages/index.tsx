@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Banner from "@/components/Banner";
 import SmallCard from "@/components/SmallCard";
 import FeaturedCategory from "@/components/FeaturedCategory";
+import Footer from "@/components/Footer";
 
 
 export default function Home(props) {
@@ -39,8 +40,8 @@ export default function Home(props) {
             }
           </div>
         </section>
-
       </main>
+      <Footer />
     </div>
   )
 }

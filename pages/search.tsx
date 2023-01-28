@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import FilterChip from "@/components/FilterChip";
 import { useRouter } from "next/router";
 import InfoCard from "@/components/InfoCard";
+import Footer from "@/components/Footer";
 
 const Search = (props) => {
   console.log(props)
@@ -46,8 +47,8 @@ const Search = (props) => {
           ))
           }
         </section>
-
       </main>
+      <Footer />
     </div>
   );
 };
