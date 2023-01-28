@@ -15,7 +15,7 @@ const FilterChip: React.FC<FilterChipProps> = ({
 }) => (
   <p
     onClick={() => onClick(id)}
-    className={`${active ? 'bg-purple-200' : null} px-4 py-2 border rounded-full cursor-pointer hover: shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100`}>
+    className={`${active ? 'bg-violet-600 font-semibold text-white' : null} mx-2 px-4 py-2 border rounded-full cursor-pointer hover: shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100`}>
     {title}
   </p>
 );
