@@ -34,7 +34,12 @@ export default function Home(props) {
             { categories.map((category, index) => {
               const { icon, title } = category;
               return (
-                <FeaturedCategory title={title} icon={icon} items={parsedItems.slice(index+ 5, index + 8)} />
+                <FeaturedCategory
+                  key={title}
+                  title={title}
+                  icon={icon}
+                  items={parsedItems.slice(index+ 5, index + 8)}
+                />
               )
             })
             }
