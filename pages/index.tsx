@@ -6,7 +6,7 @@ import FeaturedCategory from "@/components/FeaturedCategory";
 import Footer from "@/components/Footer";
 
 
-export default function Home(props) {
+export default function Home(props: any) {
   const { products } = props;
   console.log(products)
   const parsedItems = products?.map((item) => ({

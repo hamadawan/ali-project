@@ -23,7 +23,7 @@ const Icon: React.FunctionComponent<IconProps> = ({ type, className }) => {
     case 'chat':
       return <ChatIcon className={className ?? 'h-5'} />
     default:
-      <div>icon does not exist</div>
+      return <div>icon does not exist</div>
   }
 };
 

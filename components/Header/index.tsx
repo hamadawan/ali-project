@@ -10,6 +10,7 @@ const Header: React.FunctionComponent<HeaderProps> = () => {
     const [searchInput, setSearchInput] = React.useState<string>('');
     const router = useRouter();
     const { query } = router.query;
+    console.log(query)
     const search = () => {
         router.push({
           pathname: '/search',
@@ -33,7 +34,7 @@ const Header: React.FunctionComponent<HeaderProps> = () => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           className="flex-grow pl-5 bg-transparent outline-none"
-          type="text" placeholder={query ?? 'What are you looking for...'}
+          type="text" placeholder={(query ?? 'What are you looking for...') as string}
           onKeyDown={(e) => e.key === 'Enter' && search()}
           onSubmit={search}
         />
