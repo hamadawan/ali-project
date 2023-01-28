@@ -22,7 +22,7 @@ const Search = (props) => {
   return (
     <div>
       <Header />
-      <main className="flex">
+      <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="w-90 m-auto">
           <h1 className="text-3xl font-semibold mt-2 mb-2">Search Results for { query }</h1>
           <div className="hidden lg:inline-flex">
