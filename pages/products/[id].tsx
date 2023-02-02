@@ -7,13 +7,14 @@ import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {useQuery} from "@apollo/client";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 const ProductPage = (props) => {
-  console.log('ProductPage');
+
   const products = getProducts().products;
   console.log(products);
   const router = useRouter();
