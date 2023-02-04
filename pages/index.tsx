@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
 import Banner from "@/components/Banner";
-import SmallCard from "@/components/SmallCard";
 import FeaturedCategory from "@/components/FeaturedCategory";
 import Footer from "@/components/Footer";
-
+import { useProductsQuery } from "@/graphql/queries/useProductsQuery";
 
 export default function Home(props: any) {
   const { products } = props;
+  const { data } = useProductsQuery();
   console.log(products)
   const parsedItems = products?.map((item) => ({
     id: item.id,

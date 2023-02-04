@@ -14,7 +14,6 @@ function classNames(...classes) {
 }
 
 const ProductPage = (props) => {
-
   const products = getProducts().products;
   console.log(products);
   const router = useRouter();

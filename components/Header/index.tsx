@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/outline";
 import { GlobeAltIcon, MenuAlt1Icon, UserCircleIcon } from "@heroicons/react/solid";
 import logo from '../../public/logo-mid.png'
+import Link from "next/link";
 
 const Header: React.FunctionComponent = () => {
   const [searchInput, setSearchInput] = React.useState<string>('');
@@ -44,7 +45,9 @@ const Header: React.FunctionComponent = () => {
       </div>
       <div className="flex space-x-4 justify-end text-gray-500">
         <div className="flex items-center space-x-2 cursor-pointer">
-          <p className="hidden md:inline">Sign Up</p>
+          <p className="hidden md:inline">
+            <Link href="/signup">Sign Up</Link>
+          </p>
           <GlobeAltIcon className="h-6" />
         </div>
         <div className="flex items-center space-x-2 border-2 p-2 rounded-full cursor-pointer">
