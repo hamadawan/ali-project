@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from "@/components/Header";
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,10 @@ const SignUp = () => {
   };
 
   return (
+    <div>
+      <Header />
     <div className="flex items-center justify-center h-screen">
+      <div className="w-96">
       <form onSubmit={handleSubmit} className="bg-white p-5 rounded-lg shadow-xl">
         <h2 className="text-lg font-medium mb-4">Sign Up</h2>
         <div className="mb-4">
@@ -100,6 +104,8 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+      </div>
+    </div>
     </div>
   );
 };

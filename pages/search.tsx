@@ -6,7 +6,6 @@ import InfoCard from "@/components/InfoCard";
 import Footer from "@/components/Footer";
 
 const Search = (props) => {
-  console.log(props)
   const { products } = props;
   const router = useRouter()
   const { query } = router.query
@@ -56,11 +55,25 @@ const Search = (props) => {
 export default Search;
 
 export async function getServerSideProps(context) {
-  console.log('context', context)
+  const { query } = context?.query
   const result = getProducts();
   const products = result?.products;
+  const filteredProducts = products
+    .filter((product) => {
+    if (!query) return true;
+    if (product.title.toLowerCase().includes(query.toLowerCase())) {
+      return true;
+    }
+    if (product.description.toLowerCase().includes(query.toLowerCase())) {
+      return true;
+    }
+    return false;
+    });
+
   return {
-    props: { products },
+    props: {
+      products: filteredProducts,
+    },
   }
 }
 function getProducts() {

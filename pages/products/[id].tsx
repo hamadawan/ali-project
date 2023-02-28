@@ -7,7 +7,6 @@ import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {useQuery} from "@apollo/client";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -31,7 +30,6 @@ const ProductPage = (props) => {
   const { reviews, breadcrumbs, highlights } = product;
   const [selectedColor, setSelectedColor] = React.useState('blue')
   const [selectedSize, setSelectedSize] = React.useState('M')
-  console.log(product)
 
   return (
     <div className="bg-white">
