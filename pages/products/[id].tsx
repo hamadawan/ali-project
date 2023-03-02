@@ -7,6 +7,7 @@ import Image from "next/image";
 import {formatCurrency} from "@/utils/formatCurrency";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {useProductsQuery} from "@/graphql/queries/useProductsQuery";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -14,7 +15,6 @@ function classNames(...classes) {
 
 const ProductPage = (props) => {
   const products = getProducts().products;
-  console.log(products);
   const router = useRouter();
   const { id } = router.query;
   const rawProduct = (products ?? []).find((product) => `${product.id}` === id) ?? {};
