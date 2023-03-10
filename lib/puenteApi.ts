@@ -1,3 +1,4 @@
+import removeAuthCookies from "@/auth/removeAuthCookies";
 
 const host = 'http://localhost:8000';
 export const PuenteApi = {
@@ -19,6 +20,17 @@ export const PuenteApi = {
       },
       body: JSON.stringify({ email, password }),
     });
-    return await response.json();
+    removeAuthCookies();
+
+    const body = await response.json();
+    const accessToken = body?.token?.token;
+    const uid = body?.user?.uid;
+    const client = body?.token?.client;
+    return {
+      ...body,
+      accessToken,
+      client,
+      uid,
+    }
   }
 }

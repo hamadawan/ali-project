@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { PuenteApi } from "@/lib/puenteApi";
 import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
+import setAuthCookies from "@/auth/setAuthCookies";
 
 const SignIn = () => {
   const router = useRouter();
@@ -13,14 +14,17 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await PuenteApi.signin(email, password);
+
     if (!isEmpty(response?.errors)) {
       const errors = response?.errors;
       setErrors(errors);
     }
-    if (response?.data) {
+
+    if (response?.user && response?.accessToken) {
       setErrors(null);
-      console.log('go to home')
-      router.push('/');
+      const { accessToken, uid, client } = response;
+      setAuthCookies({ accessToken, uid, client });
+      await router.push('/');
     }
   };
 

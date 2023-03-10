@@ -8,7 +8,7 @@ import { useProductsQuery } from "@/graphql/queries/useProductsQuery";
 export default function Home(props: any) {
   const { products } = props;
   const { data } = useProductsQuery();
-  console.log(products)
+  console.log('useProductsQuery', data)
   const parsedItems = products?.map((item) => ({
     id: item.id,
     img: item.images[0],

@@ -12,8 +12,10 @@ const GET_PRODUCTS = gql`
 
 
 export const useProductsQuery = () => {
-  const { data, loading, error } = useQuery(GET_PRODUCTS);
-
+	console.log('useProductsQuery');
+  const result = useQuery(GET_PRODUCTS);
+	const { data, loading, error } = result;
+	console.log(result)
   return {
     data,
     loading,
