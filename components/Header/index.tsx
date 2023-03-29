@@ -21,13 +21,13 @@ const Header: React.FunctionComponent = () => {
     });
   }
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-4 md:px-10">
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image
           onClick={() => router.push('/')}
           src={logo}
           alt="Puente logo"
-          width={80}
+          width={150}
         />
       </div>
       <div className="flex items-center border-2 rounded-full md:shadow-sm">
