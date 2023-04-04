@@ -29,7 +29,7 @@ import authLogoutLink from "@/lib/apollo/authLogoutLink";
 //   ]);
 // }
 
-const httpLink = createHttpLink({ uri: settings.graphQLEndpoint });
+const httpLink = createHttpLink({ uri: settings?.graphQLEndpoint });
 
 const authLink = setContext((_, { headers }) => {
   return {

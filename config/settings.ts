@@ -1,4 +1,4 @@
-const settings = {
+const settings: any = {
   development: {
     home: 'http://localhost:3000',
     apiUrl: 'http://localhost:8000/api/v1',
