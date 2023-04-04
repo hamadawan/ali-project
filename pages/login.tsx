@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
 import setAuthCookies from "@/auth/setAuthCookies";
 
-const SignIn = () => {
+const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -89,4 +89,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;

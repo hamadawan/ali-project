@@ -46,7 +46,7 @@ export default function createApolloClient() {
   const { possibleTypes } = FragmentTypes;
   return new ApolloClient({
     assumeImmutableResults: true,
-    link: ApolloLink.from([authLink, authLogoutLink, httpLink]),
+    link: ApolloLink.from([authLink, httpLink]),
     cache: new InMemoryCache(),
   });
 }

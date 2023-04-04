@@ -16,7 +16,7 @@ const authLogoutLink = onError(({graphQLErrors, networkError}) => {
     console.log(`[Network error]: ${networkError}`);
     removeAuthCookies();
     if (typeof document !== 'undefined') {
-      // document.location = '/login'
+      document.location = '/login'
     }
   }
 });
