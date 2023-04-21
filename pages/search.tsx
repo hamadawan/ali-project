@@ -4,6 +4,7 @@ import FilterChip from "@/components/FilterChip";
 import { useRouter } from "next/router";
 import InfoCard from "@/components/InfoCard";
 import Footer from "@/components/Footer";
+import { isPresent } from "@/utils/isPresent";
 
 const Search = (props) => {
   const { products } = props;
@@ -22,7 +23,7 @@ const Search = (props) => {
     <div>
       <Header />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
-        <section className="w-90 m-auto">
+        <section className="w-90 min-h-screen  m-auto">
           <h1 className="text-3xl font-semibold mt-2 mb-2">Search Results for { query }</h1>
           <div className="hidden lg:inline-flex">
             <FilterChip active={activeFilters['all']} id="all" title="All" onClick={toggleFilter} />
@@ -30,6 +31,12 @@ const Search = (props) => {
             <FilterChip active={activeFilters['ready-to-ship']} id="ready-to-ship" title="Ready to Ship" onClick={toggleFilter} />
             <FilterChip active={activeFilters['verified']} id="verified" title="Verified Only" onClick={toggleFilter} />
           </div>
+          { isPresent(products) && (
+            <div>
+              No products found. Try searching for other products
+            </div>
+          )
+          }
           { products.map((product) => (
             <InfoCard
               key={product.id}
