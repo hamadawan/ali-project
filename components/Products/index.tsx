@@ -18,7 +18,7 @@ const Products = () => {
             <button
               onClick={() => setViewMode('card')}
               className={`px-4 py-2 mr-2 rounded-md ${
-                viewMode === 'card' ? 'bg-blue-600 text-white' : 'bg-gray-200'
+                viewMode === 'card' ? 'bg-[#26b9f1] text-white' : 'bg-gray-200'
               }`}
             >
               Card View
@@ -26,7 +26,7 @@ const Products = () => {
             <button
               onClick={() => setViewMode('table')}
               className={`px-4 py-2 rounded-md ${
-                viewMode === 'table' ? 'bg-blue-600 text-white' : 'bg-gray-200'
+                viewMode === 'table' ? 'bg-[#26b9f1] text-white' : 'bg-gray-200'
               }`}
             >
               Table View
@@ -34,7 +34,7 @@ const Products = () => {
           </div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-blue-600 text-white px-6 py-2 rounded-md"
+            className="bg-[#26b9f1] text-white px-6 py-2 rounded-md"
           >
             Add Product
           </button>
