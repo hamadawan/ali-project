@@ -11,6 +11,7 @@ const Search = (props) => {
   const router = useRouter()
   const { query } = router.query
   const [activeFilters, setFilter] = React.useState({});
+  console.log(products)
   const toggleFilter = (id: string) => {
     setFilter({ ...activeFilters, [id]: !activeFilters[id] });
   };
@@ -31,8 +32,8 @@ const Search = (props) => {
             <FilterChip active={activeFilters['ready-to-ship']} id="ready-to-ship" title="Ready to Ship" onClick={toggleFilter} />
             <FilterChip active={activeFilters['verified']} id="verified" title="Verified Only" onClick={toggleFilter} />
           </div>
-          { isPresent(products) && (
-            <div>
+          { !isPresent(products) && (
+            <div className="m-8">
               No products found. Try searching for other products
             </div>
           )
