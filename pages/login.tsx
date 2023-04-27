@@ -24,7 +24,7 @@ const Login = () => {
       setErrors(null);
       const { accessToken, uid, client } = response;
       setAuthCookies({ accessToken, uid, client });
-      await router.push('/');
+      await router.push('/dashboard');
     }
   };
 

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Header from "@/components/Header";
 import { PuenteApi } from "@/lib/puenteApi";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 const SignUp = () => {
+  const router = useRouter();
   const [companyName, setCompanyName] = useState('');
   const [errors, setErrors] = useState(null);
   const [tradeRole, setTradeRole] = useState('');
@@ -27,8 +29,11 @@ const SignUp = () => {
     if (response?.status === 'error') {
       const errors = response?.errors?.full_messages;
       setErrors(errors);
-    } else {
+    }
+    if (response?.status === 'success') {
       setErrors(null);
+      router.push('/login');
+
     }
   };
 
