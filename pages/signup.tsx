@@ -20,11 +20,10 @@ const SignUp = () => {
     const response = await PuenteApi.signup({
       email,
       password,
-      confirmPassword,
-      firstName,
-      lastName,
-      companyName,
-      tradeRole,
+      first_name: firstName,
+      last_name: lastName,
+      company_name: companyName,
+      trade_role: tradeRole,
     });
     if (response?.status === 'error') {
       const errors = response?.errors?.full_messages;
