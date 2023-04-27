@@ -15,13 +15,6 @@ import Header from "@/components/Header";
 
 
 const LandingPage = () => {
-  // React.useEffect(() => {
-  //   AOS.init({
-  //     duration: 1000,
-  //     offset: 180
-  //   });
-  // }, []);
-
   const [language, setlanguage] = React.useState(true);
 
   const toggleLang = () => {
