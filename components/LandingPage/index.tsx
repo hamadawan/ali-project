@@ -15,12 +15,12 @@ import Header from "@/components/Header";
 
 
 const LandingPage = () => {
-  React.useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      offset: 180
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000,
+  //     offset: 180
+  //   });
+  // }, []);
 
   const [language, setlanguage] = React.useState(true);
 
@@ -35,10 +35,6 @@ const LandingPage = () => {
         <FeatureSection lang={language} />
       </div>
         <HowItWorksSection lang={language} />
-        <FeaturesSpotlights lang={language} />
-        <IntelligenceSection lang={language} />
-        <WhyUs lang={language} />
-        <Testimonials lang={language} />
         <CallToAction lang={language} />
 
       <Footer lang={language} />

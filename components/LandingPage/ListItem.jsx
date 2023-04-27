@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const ListItem = (props) => {
     return (
-        <div data-aos="fade-up" className=" md:flex items-center justify-center">
+        <div className=" md:flex items-center justify-center">
             <div className="flex-shrink-0 flex items-center justify-center">
                 <div className=" w-12 h-12 rounded-md">
-                    <Image fill src={props.bullet} alt="" className=''/>
+                    <Image src={props.bullet} alt="" className=''/>
                 </div>
             </div>
             <div className="px-3 mt-6 md:mt-0 md:px-0 md:ml-4">

@@ -21,12 +21,12 @@ const List = (props) => {
                         <ListItem bullet={bullet4} text={props.lang ? "Guaranteed Quality: We guarantee the quality and reliability of our manufacturers thanks to our rigorous vetting process. Only suppliers that meet our stringent standards are included in our network of trusted partners." : "Calidad garantizada: Garantizamos la calidad y confiabilidad de nuestras fábricas gracias a nuestro riguroso proceso de selección. Solo los proveedores que cumplen con nuestros estándares se incluyen en nuestra red de socios de confianza."} />
                         <ListItem bullet={bullet5} text={props.lang ? "Dedicated Customer Service: Our team is here to assist you throughout the entire process, ensuring that you can focus on your business while we take care of your sourcing needs. We prioritize your satisfaction, and will do everything in our power to ensure your experience is top-notch." : "Dedicated Customer Service: Nuestro equipo está aquí para ayudarte en todo el proceso, asegurándose de que puedas enfocarte en tu negocio mientras nosotros nos encargamos de tus necesidades de abastecimiento. Tu satisfacción es nuestra prioridad, y haremos todo lo posible para que tu experiencia sea la mejor."} />
                     </div>
-                    <div className=' mt-20 text-center'>
-                        <StorefrontButton text={'Create my storefront'} />
+                    <div className="mt-20 text-center">
+                        <StorefrontButton text="Create my storefront" />
                     </div>
                 </div>
-                <div data-aos="fade-up" className="mt-10 md:w-[700px] lg:mt-14 lg:col-start-1 lg:row-start-1">
-                    <Image fill src={img} alt="" className="" />
+                <div className="mt-10 md:w-[700px] lg:mt-14 lg:col-start-1 lg:row-start-1">
+                    <Image src={img} alt="" className="" />
                 </div>
             </div>
         </div>

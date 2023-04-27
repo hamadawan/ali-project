@@ -30,7 +30,7 @@ const CallToAction = () => {
 
   return (
     <section className=" my-32 px-6 md:px-0">
-      <div data-aos="fade-up" className="container bg-[#26b9f1] md:max-w-screen-lg rounded-2xl mx-auto flex flex-col justify-center p-4 py-10 space-y-10 md:p-10 md:px-16 lg:space-y-0 lg:space-x-12 lg:justify-between lg:flex-row">
+      <div className="container bg-[#26b9f1] md:max-w-screen-lg rounded-2xl mx-auto flex flex-col justify-center p-4 py-10 space-y-10 md:p-10 md:px-16 lg:space-y-0 lg:space-x-12 lg:justify-between lg:flex-row">
         <div className="flex flex-col space-y-4 text-center lg:text-left text-white">
           <h1 className="md:text-[40px] text-3xl font-bold leading-none">Subscribe To Our</h1>
           <h1 className="md:text-[40px] text-3xl font-bold leading-none">Weekly Newsletter</h1>

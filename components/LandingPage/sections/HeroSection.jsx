@@ -7,7 +7,7 @@ const HeroSection = (props) => {
     return (
         <section className="bg-white mt-4">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-                <div data-aos="fade-right" className="flex flex-col justify-center p-3 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left ">
+                <div className="flex flex-col justify-center p-3 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left ">
                     <h1 className="text-4xl font-bold leading-none sm:text-5xl text-[#202020]">
                         {props.lang ?  "Quality manufacturing companies in Mexico, just a click away." : "Fábricas de calidad en México, a solo un clic."}
                     </h1>
@@ -17,7 +17,7 @@ const HeroSection = (props) => {
                         <Button text={props.lang ? <span>Start sourcing today</span> : <span>Empieza hoy mismo.</span>} />
                     </div>
                 </div>
-                <div data-aos="fade-left" className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+                <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
                     <Image
                       src={heroImage}
                       alt="Man with digitalstore"
