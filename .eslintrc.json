@@ -1,3 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb"]
+  "extends": ["next/core-web-vitals", "airbnb-typescript"],
+  "rules": {
+    "import/extensions": "off"
+  }
 }
