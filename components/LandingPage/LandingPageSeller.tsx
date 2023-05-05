@@ -14,7 +14,7 @@ import 'aos/dist/aos.css';
 import Header from "@/components/Header";
 
 
-const LandingPageBuyer = () => {
+const LandingPageSeller = () => {
   const [language, setlanguage] = React.useState(true);
 
   const toggleLang = () => {
@@ -27,12 +27,12 @@ const LandingPageBuyer = () => {
         <HeroSection lang={language} />
         <FeatureSection lang={language} />
       </div>
-        <HowItWorksSection lang={language} />
-        <CallToAction lang={language} />
+      <HowItWorksSection lang={language} />
+      <CallToAction lang={language} />
 
       <Footer lang={language} />
     </div>
   );
 };
 
-export default LandingPageBuyer;
+export default LandingPageSeller;
