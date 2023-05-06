@@ -12,10 +12,12 @@ import Footer from './sections/Footer'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Header from "@/components/Header";
+import FormModal from "@/components/LandingPage/FormModal";
 
 
 const LandingPageBuyer = () => {
   const [language, setlanguage] = React.useState(true);
+  const [showModal, toggleModalVisibility] = React.useState(false);
 
   const toggleLang = () => {
     setlanguage(prevState => !prevState)
@@ -24,7 +26,7 @@ const LandingPageBuyer = () => {
     <div className="overflow-hidden">
       <Header />
       <div className="flex flex-col mx-auto justify-center max-w-5xl">
-        <HeroSection lang={language} />
+        <HeroSection lang={language} onClick={() => toggleModalVisibility(!showModal)} />
         <FeatureSection lang={language} />
       </div>
         <HowItWorksSection lang={language} />
