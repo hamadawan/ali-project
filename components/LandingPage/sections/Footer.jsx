@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="grid gap-24 md:gap-40 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="sm:col-span-2 text-white">
                     <h1 className=' text-5xl '>Let us help you.</h1>
-                    <p className=' mt-5 text-lg mb-12'>Reach out for an exploratory conversation.</p>
+                    <p className=' mt-5 text-lg mb-12'>Reach out to start sourcing today.</p>
                     <div className=' text-center md:text-left'>
                         <Button text={'Contact us'} />
                     </div>
@@ -23,7 +23,7 @@ const Footer = () => {
                             title="Our phone"
                             className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
                         >
-                            (123) 456-7890
+                            (619) 564-1131
                         </Link>
                     </div>
                     <div className=" mb-7 text-gray-100">
@@ -34,7 +34,7 @@ const Footer = () => {
                             title="Our email"
                             className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
                         >
-                            alejandrok93@gmail.com
+                            contact@puentify.com
                         </Link>
                     </div>
                     <div className="flex items-center mt-1 space-x-3 justify-center md:justify-start">

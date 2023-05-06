@@ -11,7 +11,6 @@ const CallToAction = () => {
   const faliure = () => toast("Something went wrong.");
 
   const handleInput = (e) => {
-    console.log(e.target.value);
     setInput(e.target.value)
   }
   const sendEmail = (e) => {
