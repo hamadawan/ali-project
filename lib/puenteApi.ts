@@ -1,6 +1,7 @@
 import removeAuthCookies from "@/auth/removeAuthCookies";
+import settings from "@/config/settings";
 
-const host = 'http://localhost:8000';
+const host = settings.apiUrl;
 export const PuenteApi = {
   signup: async (values) => {
     const response = await fetch(host + '/auth', {
