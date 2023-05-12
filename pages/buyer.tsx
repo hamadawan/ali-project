@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LandingPageBuyer from '@/components/LandingPage/index';
+import LandingPageBuyer from '@/components/LandingPage/LandingPageBuyer';
 export default function Buyer(props: any) {
 
   return (

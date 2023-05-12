@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 import Header from "@/components/Header";
 
 
-const LandingPageSeller = () => {
+const LandingPageBuyer = () => {
   const [language, setlanguage] = React.useState(true);
   const [showModal, toggleModalVisibility] = React.useState(false);
 
@@ -22,10 +22,19 @@ const LandingPageSeller = () => {
     <div className="overflow-hidden">
       <Header />
       <div className="flex flex-col mx-auto justify-center max-w-5xl">
-        <HeroSection lang={language} onClick={() => toggleModalVisibility(!showModal)} />
+        <HeroSection
+          title="Quality manufacturing companies in Mexico, just a click away"
+          subtitle="Say goodbye to uncertainty in your manufacturing process. Our online marketplace connects you with quality manufacturing companies in Mexico, complete with reliable information, secure transactions, and exceptional customer service"
+          buttonText="Start sourcing today"
+          onClick={() => toggleModalVisibility(!showModal)}
+        />
         <FeatureSection lang={language} />
       </div>
-      <HowItWorksSection lang={language} />
+      <HowItWorksSection
+        lang={language}
+        title="How it works"
+        subtitle="Puentify makes finding quality suppliers so effortless, you can finally relax with a siesta and leave the work to us"
+      />
       <CallToAction lang={language} />
 
       <Footer lang={language} />
@@ -34,4 +43,4 @@ const LandingPageSeller = () => {
   );
 };
 
-export default LandingPageSeller;
+export default LandingPageBuyer;
