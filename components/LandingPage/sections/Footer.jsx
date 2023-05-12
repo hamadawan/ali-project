@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="grid gap-24 md:gap-40 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="sm:col-span-2 text-white">
                     <h1 className=' text-5xl '>Let us help you.</h1>
-                    <p className=' mt-5 text-lg mb-12'>Reach out to start sourcing today.</p>
+                    <p className=' mt-5 text-lg mb-12'>Start today</p>
                     <div className=' text-center md:text-left'>
                         <Button text={'Contact us'} />
                     </div>
@@ -29,7 +29,7 @@ const Footer = () => {
                     <div className=" mb-7 text-gray-100">
                         <p className="mr-1 mb-3 contact">Email:</p>
                         <Link
-                            href="mailto:info@lorem.mail"
+                            href="mailto:alejandro@puentify.com"
                             aria-label="Our email"
                             title="Our email"
                             className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"

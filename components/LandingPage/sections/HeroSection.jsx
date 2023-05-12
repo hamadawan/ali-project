@@ -1,4 +1,5 @@
 import React from 'react'
+import { PopupButton } from "@typeform/embed-react";
 import heroImage from '@/public/assets/4.webp'
 import Button from '../Button'
 import Image from "next/image";
@@ -7,6 +8,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 const HeroSection = ({
   title,
   subtitle,
+  isTypeFormButton,
   buttonText,
   onClick,
 }) => {
@@ -21,9 +23,20 @@ const HeroSection = ({
                       { subtitle }
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <PrimaryButton onClick={onClick}>
-                            <span> { buttonText }</span>
-                        </PrimaryButton>
+                      { isTypeFormButton ? (
+                        <PopupButton
+                          className="primary-button self-center text-white text-lg md:text-[21px] md:whitespace-nowrap px-20 py-5 rounded-l-full rounded-r-full bg-gradient-to-l from-cyan-300 to-cyan-500"
+                          id="lt9mrdZP"
+                        >
+                          { buttonText }
+                        </PopupButton>
+                        ) : (
+                          <PrimaryButton onClick={onClick}>
+                            <span>
+                             {buttonText}
+                            </span>
+                      </PrimaryButton>
+                        )}
                     </div>
                 </div>
                 <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">

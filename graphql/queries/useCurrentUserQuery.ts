@@ -13,7 +13,6 @@ const GET_CURRENT_USER = gql`
 export const useCurrentUserQuery = () => {
   const result = useQuery(GET_CURRENT_USER);
   const { data, loading, error } = result;
-  console.log(result)
 
   return {
     data,

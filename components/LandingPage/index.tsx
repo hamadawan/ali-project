@@ -1,18 +1,11 @@
 import * as React from 'react';
-import Navbar from './sections/Navbar'
 import HeroSection from './sections/HeroSection'
-import FeatureSection from './sections/FeatureSection'
 import HowItWorksSection from './sections/HowItWorksSection'
-import FeaturesSpotlights from './sections/FeaturesSpotlights'
-import IntelligenceSection from './sections/IntelligenceSection'
-import WhyUs from './sections/WhyUs'
-import Testimonials from './sections/Testimonials'
 import CallToAction from './sections/CallToAction'
+import { Widget } from '@typeform/embed-react'
 import Footer from './sections/Footer'
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Header from "@/components/Header";
-import FormModal from "@/components/LandingPage/FormModal";
 
 
 const LandingPageSeller = () => {
@@ -31,6 +24,7 @@ const LandingPageSeller = () => {
           subtitle="Abre las puertas a un mundo de oportunidades y aumenta tus ventas en el mercado mas grande del mundo"
           buttonText="Comienza a exportar"
           onClick={() => toggleModalVisibility(!showModal)}
+          isTypeFormButton
         />
       </div>
         <HowItWorksSection
@@ -41,6 +35,7 @@ const LandingPageSeller = () => {
         />
         <CallToAction lang={language} />
       <Footer lang={language} />
+      <Widget id="lt9mrdZP" style={{ width: '50%' }} className="my-form" />
     </div>
   );
 };
