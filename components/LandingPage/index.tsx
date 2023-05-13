@@ -2,7 +2,6 @@ import * as React from 'react';
 import HeroSection from './sections/HeroSection'
 import HowItWorksSection from './sections/HowItWorksSection'
 import CallToAction from './sections/CallToAction'
-import { Widget } from '@typeform/embed-react'
 import Footer from './sections/Footer'
 import 'aos/dist/aos.css';
 import Header from "@/components/Header";
@@ -35,7 +34,6 @@ const LandingPageSeller = () => {
         />
         <CallToAction lang={language} />
       <Footer lang={language} />
-      <Widget id="lt9mrdZP" style={{ width: '50%' }} className="my-form" />
     </div>
   );
 };
