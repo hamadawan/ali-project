@@ -1,7 +1,7 @@
 const settings: any = {
   development: {
     home: 'http://localhost:3000',
-    apiUrl: 'http://localhost:8000/api/v1',
+    apiUrl: 'http://localhost:8000',
     cookieDomain: 'localhost',
     graphQLEndpoint: 'http://localhost:8000/graphql',
   },
@@ -13,9 +13,9 @@ const settings: any = {
   },
   production: {
     home: 'https://puentify.com',
-    apiUrl: 'https://api.puentify.com',
+    apiUrl: 'https://puentify-api.up.railway.app/',
     cookieDomain: 'localhost',
-    graphQLEndpoint: 'https://api.puentify.com/graphql',
+    graphQLEndpoint: 'https://puentify-api.up.railway.app/graphql',
   }
 };
 

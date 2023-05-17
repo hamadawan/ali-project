@@ -15,6 +15,7 @@
     "@emailjs/browser": "^3.10.0",
     "@heroicons/react": "^1.0.6",
     "@next/font": "13.1.5",
+    "@radix-ui/react-slot": "^1.0.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@typeform/embed-react": "^2.21.0",
     "@types/node": "18.11.18",

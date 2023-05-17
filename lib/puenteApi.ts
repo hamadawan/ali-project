@@ -11,7 +11,12 @@ export const PuenteApi = {
       },
       body: JSON.stringify({...values, confirm_success_url: host + '/confirm'}),
     });
-    return await response.json();
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.log(response);
+      return response;
+    }
   },
   signin: async (email: string, password: string) => {
     const response = await fetch(host + '/auth/sign_in', {
