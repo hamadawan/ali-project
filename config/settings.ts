@@ -13,7 +13,7 @@ const settings: any = {
   },
   production: {
     home: 'https://puentify.com',
-    apiUrl: 'https://puentify-api.up.railway.app/',
+    apiUrl: 'https://puentify-api.up.railway.app',
     cookieDomain: 'localhost',
     graphQLEndpoint: 'https://puentify-api.up.railway.app/graphql',
   }
