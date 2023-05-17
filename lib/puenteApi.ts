@@ -7,6 +7,7 @@ export const PuenteApi = {
     const response = await fetch(host + '/auth', {
       method: 'POST',
       headers: {
+        'Access-Control-Allow-Origin': settings.apiUrl,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({...values, confirm_success_url: host + '/confirm'}),
