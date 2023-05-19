@@ -3,7 +3,7 @@ import settings from "@/config/settings";
 
 const host = settings.apiUrl;
 export const PuenteApi = {
-  signup: async (values) => {
+  signup: async (values: any) => {
     const response = await fetch(host + '/auth', {
       method: 'POST',
       headers: {
@@ -11,12 +11,7 @@ export const PuenteApi = {
       },
       body: JSON.stringify({...values, confirm_success_url: host + '/confirm'}),
     });
-    if (response.ok) {
-      return await response.json();
-    } else {
-      console.log(response);
-      return response;
-    }
+    return await response.json();
   },
   signin: async (email: string, password: string) => {
     const response = await fetch(host + '/auth/sign_in', {
@@ -37,6 +32,6 @@ export const PuenteApi = {
       accessToken,
       client,
       uid,
-    }
+    };
   }
 }
