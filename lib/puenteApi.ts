@@ -11,6 +11,7 @@ export const PuenteApi = {
       },
       body: JSON.stringify({...values, confirm_success_url: host + '/confirm'}),
     });
+    console.log(response)
     return await response.json();
   },
   signin: async (email: string, password: string) => {
