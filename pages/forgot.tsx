@@ -3,28 +3,31 @@ import Header from "@/components/Header";
 import { PuenteApi } from "@/lib/puenteApi";
 import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
-import setAuthCookies from "@/auth/setAuthCookies";
 import Link from "next/link";
-const Login = () => {
+import { clearTimeout } from 'timers';
+const Forgot = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
   const [errors, setErrors] = useState<any>(null);
-
-  const handleSubmit = async (event:any)=> {
+  const [success, setSuccess] = useState<any>(null);
+  const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.signin(email, password);
-
-    if (!isEmpty(response?.errors)) {
-      const errors = response?.errors;
-      setErrors(errors);
+    const response = await PuenteApi.forgot_password(email);
+    if (!isEmpty(response?.error)) {
+        const errors = response?.error;
+        setErrors(errors);
+        setSuccess(null);
     }
-
-    if (response?.user && response?.accessToken) {
-      setErrors(null);
-      const { accessToken, uid, client } = response;
-      setAuthCookies({ accessToken, uid, client });
-      await router.push('/dashboard');
+    if (response?.status === 'success') {
+        const success = response?.status;
+        const timer = setTimeout(() => {
+          setSuccess(null);
+          router.push('/login');
+        }, 9000);
+        setSuccess(success);
+        setErrors(null);
+        setEmail('');
+        return() => clearTimeout(timer);
     }
   };
 
@@ -43,11 +46,16 @@ const Login = () => {
               </ul>
             </div>
           )}
+          {success && (
+            <div className="bg-white-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+              <strong className="font-bold">Please check your Email. Forgot password link has been sent in your email.</strong>
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
-            <h2 className="text-lg font-medium mb-4">Sign in</h2>
+            <h2 className="text-lg font-medium mb-4">Forgot Password</h2>
             <div className="mb-4">
               <label htmlFor="email" className="block font-medium text-gray-700 mb-2">
-                Email
+                Please Enter Email
               </label>
               <input
                 required={true}
@@ -59,35 +67,18 @@ const Login = () => {
                 className="w-full border border-gray-400 p-2"
               />
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="password"
-                className="block font-medium text-gray-700 mb-2"
-              >
-                Password
-              </label>
-              <input
-                required={true}
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                className="w-full border border-gray-400 p-2"
-              />
-            </div>
             <button
               type="submit"
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
             >
-              Sign In
+              Submit
             </button>
           </form>
-          <div className="pt-2 text-center">Forgot Password? <Link href="/forgot" className="underline">Click here</Link></div>
+          <div className="pt-2 text-center"><Link href="/login" className="underline">Sign in here</Link></div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Forgot;

@@ -34,5 +34,29 @@ export const PuenteApi = {
       client,
       uid,
     };
+  },
+  forgot_password: async (email: string) => {
+    const response = await fetch(host + '/passwords/forgot', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+    removeAuthCookies();
+    return await response.json();
+  },
+  reset_password: async (password: string) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    const response = await fetch(host + '/passwords/reset', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ password, token }),
+    });
+    removeAuthCookies();
+    return await response.json();
   }
 }

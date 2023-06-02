@@ -6,16 +6,16 @@ import {useRouter} from "next/router";
 
 const SignUp = () => {
   const router = useRouter();
-  const [companyName, setCompanyName] = useState('');
-  const [errors, setErrors] = useState(null);
-  const [tradeRole, setTradeRole] = useState('');
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [companyName, setCompanyName] = useState<string>('');
+  const [errors, setErrors] = useState<any>(null);
+  const [tradeRole, setTradeRole] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event:any) => {
     event.preventDefault();
     const response = await PuenteApi.signup({
       email,
@@ -45,7 +45,7 @@ const SignUp = () => {
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
             <strong className="font-bold">Please fix the following:</strong>
             <ul>
-              {errors.map((error) => (
+              {errors.map((error:any) => (
                 <span key={error} className="block sm:inline">{error}</span>
               ))}
             </ul>
