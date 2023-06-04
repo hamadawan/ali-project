@@ -5,15 +5,23 @@ import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
 import Link from "next/link";
 import { clearTimeout } from 'timers';
-const Forgot = () => {
+import { getResetPasswordToken } from "@/lib/auth";
+
+const ResetPassword = () => {
   const router = useRouter();
-  const [email, setEmail] = useState<string>('');
-  const [errors, setErrors] = useState<string[]>();
+  const [password, setPassword] = useState<string>();
+  const [confirmedPassword, setConfirmedPassword] = useState<string>();
+  const [errors, setErrors] = useState<string[]>([]);
   const [success, setSuccess] = useState<string>();
   const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.forgotPassword(email);
-    console.log(response)
+
+    if (password !== confirmedPassword) {
+      setErrors(['Passwords must be equal'])
+      return;
+    }
+    const token = getResetPasswordToken();
+    const response = await PuenteApi.resetPassword(password as string, token as string);
     if (!isEmpty(response?.error)) {
         const errors = response?.error;
         setErrors(errors);
@@ -27,10 +35,15 @@ const Forgot = () => {
         }, 9000);
         setSuccess(success);
         setErrors([]);
-        setEmail('');
+        clearPasswords();
         return() => clearTimeout(timer);
     }
   };
+
+  const clearPasswords = () => {
+    setPassword('');
+    setConfirmedPassword('');
+  }
 
   return (
     <div>
@@ -39,7 +52,6 @@ const Forgot = () => {
         <div className="w-96 bg-white p-5 rounded-lg shadow-xl">
           {!isEmpty(errors) && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-              <strong className="font-bold">Please fix the following:</strong>
               <ul>
                 {errors?.map((error:any) => (
                   <span key={error} className="block sm:inline">{error}</span>
@@ -55,16 +67,36 @@ const Forgot = () => {
           <form onSubmit={handleSubmit}>
             <h2 className="text-lg font-medium mb-4">Forgot Password</h2>
             <div className="mb-4">
-              <label htmlFor="email" className="block font-medium text-gray-700 mb-2">
-                Please Enter Email
+              <label
+                htmlFor="password"
+                className="block font-medium text-gray-700 mb-2"
+              >
+                Password
               </label>
               <input
                 required={true}
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                className="w-full border border-gray-400 p-2"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="confirmPassword"
+                className="block font-medium text-gray-700 mb-2"
+              >
+                Confirm Password
+              </label>
+              <input
+                required={true}
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={confirmedPassword}
+                onChange={(event) => setConfirmedPassword(event.target.value)}
                 className="w-full border border-gray-400 p-2"
               />
             </div>
@@ -82,4 +114,4 @@ const Forgot = () => {
   );
 };
 
-export default Forgot;
+export default ResetPassword;

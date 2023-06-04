@@ -5,40 +5,42 @@ import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
 import Link from "next/link";
 import { clearTimeout } from 'timers';
-const Forgot = () => {
+
+const ForgotPassword = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
-  const [errors, setErrors] = useState<any>(null);
-  const [success, setSuccess] = useState<any>(null);
+  const [errors, setErrors] = useState<string[]>();
+  const [success, setSuccess] = useState<string>();
   const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.resetPassword(email);
+    const response = await PuenteApi.forgotPassword(email);
+
     if (!isEmpty(response?.error)) {
         const errors = response?.error;
         setErrors(errors);
-        setSuccess(null);
+        setSuccess('');
     }
     if (response?.status === 'success') {
         const success = response?.status;
         const timer = setTimeout(() => {
-          setSuccess(null);
+          setSuccess('');
           router.push('/login');
         }, 9000);
         setSuccess(success);
-        setErrors(null);
+        setErrors([]);
         setEmail('');
         return() => clearTimeout(timer);
     }
   };
 
+  console.log('errors', errors)
   return (
     <div>
       <Header />
       <div className="flex items-center justify-center h-screen">
         <div className="w-96 bg-white p-5 rounded-lg shadow-xl">
-          {errors && (
+          {!isEmpty(errors) && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-              <strong className="font-bold">Please fix the following:</strong>
               <ul>
                 {errors?.map((error:any) => (
                   <span key={error} className="block sm:inline">{error}</span>
@@ -81,4 +83,4 @@ const Forgot = () => {
   );
 };
 
-export default Forgot;
+export default ForgotPassword;
