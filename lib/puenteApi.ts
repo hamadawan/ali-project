@@ -34,5 +34,27 @@ export const PuenteApi = {
       client,
       uid,
     };
+  },
+  forgotPassword: async (email: string) => {
+    const response = await fetch(host + '/passwords/forgot', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+    removeAuthCookies();
+    return await response.json();
+  },
+  resetPassword: async ({ password, confirmedPassword, token }) => {
+    const response = await fetch(host + '/passwords/reset', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ password, confirmedPassword, token }),
+    });
+    removeAuthCookies();
+    return await response.json();
   }
 }

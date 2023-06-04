@@ -4,14 +4,14 @@ import { PuenteApi } from "@/lib/puenteApi";
 import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
 import setAuthCookies from "@/auth/setAuthCookies";
-
+import Link from "next/link";
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState(null);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errors, setErrors] = useState<any>(null);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event:any)=> {
     event.preventDefault();
     const response = await PuenteApi.signin(email, password);
 
@@ -37,7 +37,7 @@ const Login = () => {
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
               <strong className="font-bold">Please fix the following:</strong>
               <ul>
-                {errors.map((error) => (
+                {errors?.map((error:any) => (
                   <span key={error} className="block sm:inline">{error}</span>
                 ))}
               </ul>
@@ -83,6 +83,7 @@ const Login = () => {
               Sign In
             </button>
           </form>
+          <div className="pt-2 text-center">Forgot Password? <Link href="/forgot-password" className="underline">Click here</Link></div>
         </div>
       </div>
     </div>
