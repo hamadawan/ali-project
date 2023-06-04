@@ -35,7 +35,7 @@ export const PuenteApi = {
       uid,
     };
   },
-  forgot_password: async (email: string) => {
+  forgotPassword: async (email: string) => {
     const response = await fetch(host + '/passwords/forgot', {
       method: 'POST',
       headers: {
@@ -46,9 +46,7 @@ export const PuenteApi = {
     removeAuthCookies();
     return await response.json();
   },
-  reset_password: async (password: string) => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
+  resetPassword: async (password: string, token: string) => {
     const response = await fetch(host + '/passwords/reset', {
       method: 'POST',
       headers: {

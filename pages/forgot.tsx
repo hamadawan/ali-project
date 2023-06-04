@@ -8,24 +8,25 @@ import { clearTimeout } from 'timers';
 const Forgot = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
-  const [errors, setErrors] = useState<any>(null);
-  const [success, setSuccess] = useState<any>(null);
+  const [errors, setErrors] = useState<string[]>();
+  const [success, setSuccess] = useState<string>();
   const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.forgot_password(email);
+    const response = await PuenteApi.forgotPassword(email);
+    console.log(response)
     if (!isEmpty(response?.error)) {
         const errors = response?.error;
         setErrors(errors);
-        setSuccess(null);
+        setSuccess('');
     }
     if (response?.status === 'success') {
         const success = response?.status;
         const timer = setTimeout(() => {
-          setSuccess(null);
+          setSuccess('');
           router.push('/login');
         }, 9000);
         setSuccess(success);
-        setErrors(null);
+        setErrors([]);
         setEmail('');
         return() => clearTimeout(timer);
     }
@@ -36,7 +37,7 @@ const Forgot = () => {
       <Header />
       <div className="flex items-center justify-center h-screen">
         <div className="w-96 bg-white p-5 rounded-lg shadow-xl">
-          {errors && (
+          {!isEmpty(errors) && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
               <strong className="font-bold">Please fix the following:</strong>
               <ul>

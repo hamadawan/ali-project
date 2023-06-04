@@ -12,7 +12,7 @@ const Forgot = () => {
   const [success, setSuccess] = useState<any>(null);
   const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.forgot_password(email);
+    const response = await PuenteApi.resetPassword(email);
     if (!isEmpty(response?.error)) {
         const errors = response?.error;
         setErrors(errors);
