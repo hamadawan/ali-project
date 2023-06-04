@@ -10,15 +10,14 @@ const ForgotPassword = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
   const [errors, setErrors] = useState<string[]>();
-  const [success, setSuccess] = useState<string>();
+  const [success, setSuccess] = useState<string | null>();
   const handleSubmit = async (event:any) => {
     event.preventDefault();
     const response = await PuenteApi.forgotPassword(email);
 
     if (!isEmpty(response?.error)) {
-        const errors = response?.error;
-        setErrors(errors);
-        setSuccess('');
+        setErrors([response?.error]);
+        setSuccess(null);
     }
     if (response?.status === 'success') {
         const success = response?.status;
@@ -33,7 +32,6 @@ const ForgotPassword = () => {
     }
   };
 
-  console.log('errors', errors)
   return (
     <div>
       <Header />
@@ -43,7 +41,7 @@ const ForgotPassword = () => {
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
               <ul>
                 {errors?.map((error:any) => (
-                  <span key={error} className="block sm:inline">{error}</span>
+                  <li key={error}>{error}</li>
                 ))}
               </ul>
             </div>

@@ -12,7 +12,7 @@ const ResetPassword = () => {
   const [password, setPassword] = useState<string>();
   const [confirmedPassword, setConfirmedPassword] = useState<string>();
   const [errors, setErrors] = useState<string[]>([]);
-  const [success, setSuccess] = useState<string>();
+  const [success, setSuccess] = useState<string | null>();
   const handleSubmit = async (event:any) => {
     event.preventDefault();
 
@@ -21,11 +21,14 @@ const ResetPassword = () => {
       return;
     }
     const token = getResetPasswordToken();
-    const response = await PuenteApi.resetPassword(password as string, token as string);
+    const response = await PuenteApi.resetPassword({
+      password,
+      confirmedPassword,
+      token,
+    });
     if (!isEmpty(response?.error)) {
-        const errors = response?.error;
-        setErrors(errors);
-        setSuccess('');
+        setErrors([response?.error]);
+        setSuccess(null);
     }
     if (response?.status === 'success') {
         const success = response?.status;
@@ -54,14 +57,14 @@ const ResetPassword = () => {
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
               <ul>
                 {errors?.map((error:any) => (
-                  <span key={error} className="block sm:inline">{error}</span>
+                  <li key={error}>{error}</li>
                 ))}
               </ul>
             </div>
           )}
           {success && (
             <div className="bg-white-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-              <strong className="font-bold">Please check your Email. Forgot password link has been sent in your email.</strong>
+              <strong className="font-bold">New password has been set. Please log in using new password</strong>
             </div>
           )}
           <form onSubmit={handleSubmit}>
