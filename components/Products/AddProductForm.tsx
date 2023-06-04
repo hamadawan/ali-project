@@ -15,9 +15,11 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
 
   const [imageUrl, setImageUrl] = useState('');
 
-  const onSubmit = () => {
-    console.log('hi', { name, description, price, minQuantity, maxQuantity, imageUrl}, 'hi')
-  addProduct({ variables: { name, description, price, minQuantity, maxQuantity, imageUrl}})
+  const onSubmit = async () => {
+    const result = await addProduct({ variables: {
+      name, description, price, minQuantity, maxQuantity,
+    }});
+    console.log(result)
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -61,7 +63,7 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
         <input
           type="number"
           id="price"
-          value={minQuantity}
+          value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
         />
