@@ -22,7 +22,7 @@ const Header: React.FunctionComponent = ({
     });
   };
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-2 bg-white shadow-md p-4 md:px-10">
+    <header className="fixed left-0 right-0 backdrop-blur-lg top-0 z-50 grid grid-cols-2 shadow-md p-4 md:px-10">
       <div className="relative flex items-center h-15 cursor-pointer my-auto">
         <Image
           onClick={() => router.push('/')}

@@ -31,8 +31,8 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="flex items-center justify-center h-screen">
-        <div className="w-96 bg-white p-5 rounded-lg shadow-xl">
+      <div id='login' className="flex items-center h-screen justify-center bg-[url('/background.png')] bg-no-repeat bg-cover bg-right bg-[#ECF0F2]">
+        <div className="w-96 bg-white p-5 rounded-[20px] px-10 py-8 shadow-xl">
           {errors && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
               <strong className="font-bold">Please fix the following:</strong>
