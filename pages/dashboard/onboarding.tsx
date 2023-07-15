@@ -17,12 +17,13 @@ const ProgressBar = ({ completion }) => (
 );
 
 const Step = ({ title, content, isActive, onClick }) => (
-  <div className={`border rounded-md p-4 mb-4 ${isActive ? 'bg-white' : 'bg-gray-100'}`}>
+  <div className={'py-6 bg-white'}>
     <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
       <h2 className="font-bold">{title}</h2>
       <span>{isActive ? '-' : '+'}</span>
     </div>
     {isActive && <div className="mt-2">{content}</div>}
+    <hr className="border-gray-100 mt-4" />
   </div>
 );
 
@@ -37,9 +38,13 @@ const Onboarding = () => {
     <div className="p-4 mx-auto max-w-3xl">
       <div className="h-30 mb-8">
         <h1 className="font-bold text-2xl mb-4 text-center">Comienza a vender</h1>
-        <h2 className="text-center">{`${activeStep} de ${steps.length} tareas completadas`}</h2>
+        <p className="text-center">
+          <span className="font-bold"> {`${activeStep} de ${steps.length} `}</span>
+          tareas completadas
+        </p>
         <ProgressBar completion={activeStep + 1} />
       </div>
+      <hr className="border-gray-100 mt-4" />
       {steps.map((step, index) => (
         <Step
           key={index}
