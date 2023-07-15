@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Header from "@/components/Header";
 import { PuenteApi } from "@/lib/puenteApi";
 import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
 import setAuthCookies from "@/auth/setAuthCookies";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<any>(null);
 
-  const handleSubmit = async (event:any)=> {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     const response = await PuenteApi.signin(email, password);
 
@@ -24,66 +27,74 @@ const Login = () => {
       setErrors(null);
       const { accessToken, uid, client } = response;
       setAuthCookies({ accessToken, uid, client });
-      await router.push('/dashboard');
+      await router.push("/dashboard");
     }
   };
 
   return (
     <div>
       <Header />
-      <div id='login' className="flex items-center h-screen justify-center bg-[url('/background.png')] bg-no-repeat bg-cover bg-right bg-[#ECF0F2]">
-        <div className="w-96 bg-white p-5 rounded-[20px] px-10 py-8 shadow-xl">
+      <div
+        id="login"
+        className="flex items-center h-screen justify-center bg-[url('/background.png')] bg-no-repeat bg-right bg-[#ECF0F2] bg-[size:100%_100%]"
+      >
+        <div className="w-[540px] bg-white  rounded-[20px] px-10 py-8 shadow-xl">
           {errors && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <div
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+              role="alert"
+            >
               <strong className="font-bold">Please fix the following:</strong>
               <ul>
-                {errors?.map((error:any) => (
-                  <span key={error} className="block sm:inline">{error}</span>
+                {errors?.map((error: any) => (
+                  <span key={error} className="block sm:inline">
+                    {error}
+                  </span>
                 ))}
               </ul>
             </div>
           )}
           <form onSubmit={handleSubmit}>
-            <h2 className="text-lg font-medium mb-4">Sign in</h2>
-            <div className="mb-4">
-              <label htmlFor="email" className="block font-medium text-gray-700 mb-2">
-                Email
-              </label>
-              <input
-                required={true}
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="w-full border border-gray-400 p-2"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="password"
-                className="block font-medium text-gray-700 mb-2"
-              >
-                Password
-              </label>
-              <input
-                required={true}
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                className="w-full border border-gray-400 p-2"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
+            <h2 className="text-3xl font-bold mb-6 leading-10">Sign in</h2>
+            <Input
+              required={true}
+              type="email"
+              id="email"
+              name="email"
+              label="Email"
+              placeholder="Email o nombre de usuario"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              containerClass="mb-4"
+            />
+            <Input
+              required={true}
+              type="password"
+              id="password"
+              label="Password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              containerClass="mb-8"
+            />
+            <Button type="submit" variant="primary" className="mb-8">
               Sign In
-            </button>
+            </Button>
           </form>
-          <div className="pt-2 text-center">Forgot Password? <Link href="/forgot-password" className="underline">Click here</Link></div>
+          <hr />
+          <div className="mt-6 font-normal text-sm text-center text-[#6F6C90] leading-5">
+            Forgot Password?{" "}
+            <Link href="/forgot-password" className="underline text-[#0860C6]">
+              Click here
+            </Link>
+          </div>
+          <div className="mt-4 font-normal text-sm text-center text-[#6F6C90] leading-5">
+            Don't have a account?{"  "}
+            <Link href="/signup" className="underline text-[#0860C6]">
+              Create account
+            </Link>
+          </div>
         </div>
       </div>
     </div>
