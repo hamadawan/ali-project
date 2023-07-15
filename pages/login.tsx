@@ -7,12 +7,15 @@ import setAuthCookies from "@/auth/setAuthCookies";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<any>(null);
+  const { t } = useTranslation("login");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -38,7 +41,7 @@ const Login = () => {
         id="login"
         className="flex items-center h-screen justify-center bg-[url('/background.png')] bg-no-repeat bg-right bg-[#ECF0F2] bg-[size:100%_100%]"
       >
-        <div className="w-[540px] bg-white  rounded-[20px] px-10 py-8 shadow-xl">
+        <div className="w-[540px] bg-white rounded-[20px] px-10 py-8 shadow-xl">
           {errors && (
             <div
               className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
@@ -55,13 +58,13 @@ const Login = () => {
             </div>
           )}
           <form onSubmit={handleSubmit}>
-            <h2 className="text-3xl font-bold mb-6 leading-10">Sign in</h2>
+            <h2 className="text-3xl font-bold mb-6 leading-10">{t("heading")}</h2>
             <Input
               required={true}
               type="email"
               id="email"
               name="email"
-              label="Email"
+              label={t("email")}
               placeholder="Email o nombre de usuario"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
@@ -71,7 +74,7 @@ const Login = () => {
               required={true}
               type="password"
               id="password"
-              label="Password"
+              label={t("password")}
               name="password"
               placeholder="Password"
               value={password}
@@ -79,20 +82,20 @@ const Login = () => {
               containerClass="mb-8"
             />
             <Button type="submit" variant="primary" className="mb-8">
-              Sign In
+              {t("signin")}
             </Button>
           </form>
           <hr />
           <div className="mt-6 font-normal text-sm text-center text-[#6F6C90] leading-5">
-            Forgot Password?{" "}
+            {t("forgotPasswordText")}?{" "}
             <Link href="/forgot-password" className="underline text-[#0860C6]">
               Click here
             </Link>
           </div>
           <div className="mt-4 font-normal text-sm text-center text-[#6F6C90] leading-5">
-            Don't have a account?{"  "}
+            {t("signupText")}?{"  "}
             <Link href="/signup" className="underline text-[#0860C6]">
-              Create account
+              {t("signup")}
             </Link>
           </div>
         </div>
@@ -100,5 +103,11 @@ const Login = () => {
     </div>
   );
 };
+
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "en", ["login"])),
+  },
+});
 
 export default Login;

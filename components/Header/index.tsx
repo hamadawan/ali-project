@@ -1,21 +1,22 @@
-import * as React from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { SearchIcon } from '@heroicons/react/outline';
-import { MenuAlt1Icon, UserCircleIcon } from '@heroicons/react/solid';
-import SignUpIcon from '@/components/SignUpIcon';
-import logo from '../../public/puentify-logo.svg';
+import * as React from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { SearchIcon } from "@heroicons/react/outline";
+import { MenuAlt1Icon, UserCircleIcon } from "@heroicons/react/solid";
+import SignUpIcon from "@/components/SignUpIcon";
+import logo from "../../public/puentify-logo.svg";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
-const Header: React.FunctionComponent = ({
-  showSearchBar = false,
-}) => {
-  const [searchInput, setSearchInput] = React.useState<string>('');
+const Header: React.FunctionComponent = ({ showSearchBar = false }) => {
+  const [searchInput, setSearchInput] = React.useState<string>("");
   const router = useRouter();
   const { query } = router.query;
+  const { i18n } = useTranslation();
 
   const search = () => {
     router.push({
-      pathname: '/search',
+      pathname: "/search",
       query: {
         query: searchInput,
       },
@@ -24,22 +25,17 @@ const Header: React.FunctionComponent = ({
   return (
     <header className="fixed left-0 right-0 backdrop-blur-lg top-0 z-50 grid grid-cols-2 shadow-md p-4 md:px-10">
       <div className="relative flex items-center h-15 cursor-pointer my-auto">
-        <Image
-          onClick={() => router.push('/')}
-          src={logo}
-          alt="Puentify logo"
-          width={150}
-        />
+        <Image onClick={() => router.push("/")} src={logo} alt="Puentify logo" width={150} />
       </div>
-      { showSearchBar && (
+      {showSearchBar && (
         <div className="flex items-center border-2 rounded-full md:shadow-sm">
           <input
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             className="flex-grow pl-5 bg-transparent outline-none"
             type="text"
-            placeholder={(query ?? 'Search') as string}
-            onKeyDown={(e) => e.key === 'Enter' && search()}
+            placeholder={(query ?? "Search") as string}
+            onKeyDown={(e) => e.key === "Enter" && search()}
             onSubmit={search}
           />
           <SearchIcon
@@ -51,6 +47,9 @@ const Header: React.FunctionComponent = ({
       <div className="flex space-x-4 justify-end text-gray-500">
         <div className="flex items-center space-x-2 cursor-pointer">
           <SignUpIcon />
+          <Link href="#" locale={i18n.language == "en" ? "es" : "en"}>
+            {i18n.language == "en" ? "Spanish" : "English"}
+          </Link>
         </div>
       </div>
     </header>
