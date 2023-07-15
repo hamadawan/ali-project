@@ -37,7 +37,7 @@ const Onboarding = () => {
   return (
     <div className="p-4 mx-auto max-w-3xl">
       <div className="h-30 mb-8">
-        <h1 className="font-bold text-2xl mb-4 text-center">Comienza a vender</h1>
+        <h1 className="font-bold text-2xl mb-4 text-center text-secondary">Comienza a vender</h1>
         <p className="text-center">
           <span className="font-bold"> {`${activeStep} de ${steps.length} `}</span>
           tareas completadas
