@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "@/components/Header";
-import Steps from "@/components/Steps";
 import { PuenteApi } from "@/lib/puenteApi";
 import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
@@ -58,7 +57,6 @@ const Login = () => {
               </ul>
             </div>
           )}
-          <Steps finished="false"/>
           <form onSubmit={handleSubmit}>
             <h2 className="text-3xl font-bold mb-6 leading-10">{t("heading")}</h2>
             <Input
