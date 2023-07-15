@@ -8,8 +8,14 @@ import logo from "../../public/puentify-logo.svg";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
-const Header: React.FunctionComponent = ({ showSearchBar = false }) => {
-  const [searchInput, setSearchInput] = React.useState<string>("");
+interface HeaderProps {
+  showSearchBar?: boolean;
+}
+
+const Header = ({
+  showSearchBar = false,
+}: HeaderProps) => {
+  const [searchInput, setSearchInput] = React.useState<string>('');
   const router = useRouter();
   const { query } = router.query;
   const { i18n } = useTranslation();

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Image from "next/image";
-import { formatCurrency } from "@/utils/formatCurrency";
-import { SmallCardProps } from "@/components/SmallCard/SmallCard.interfaces";
-import Link from "next/link";
+import Image from 'next/image';
+import { formatCurrency } from '@/utils/formatCurrency';
+import { SmallCardProps } from '@/components/SmallCard/SmallCard.interfaces';
+import Link from 'next/link';
 
 const SmallCard: React.FunctionComponent<SmallCardProps> = ({
   img,
@@ -25,7 +25,7 @@ const SmallCard: React.FunctionComponent<SmallCardProps> = ({
         </div>
       </div>
     </Link>
-  )
+  );
 };
 
 export default SmallCard;

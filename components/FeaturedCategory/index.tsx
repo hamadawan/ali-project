@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { FeaturedCategoryProps } from "./FeaturedCategory.interfaces";
-import SmallCard from "@/components/SmallCard";
-import Icon from "@/components/Icon";
-import { IconType } from "@/components/Icon/Icon.interfaces";
+import { FeaturedCategoryProps } from './FeaturedCategory.interfaces';
+import SmallCard from '@/components/SmallCard';
+import Icon from '@/components/Icon';
+import { IconType } from '@/components/Icon/Icon.interfaces';
 
 const FeaturedCategory: React.FunctionComponent<FeaturedCategoryProps> = ({
   title,

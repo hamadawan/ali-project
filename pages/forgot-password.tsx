@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from "@/components/Header";
-import { PuenteApi } from "@/lib/puenteApi";
-import { useRouter } from "next/router";
-import { isEmpty } from "@/utils/isEmpty";
-import Link from "next/link";
+import Header from '@/components/Header';
+import { PuenteApi } from '@/lib/puenteApi';
+import { useRouter } from 'next/router';
+import { isEmpty } from '@/utils/isEmpty';
+import Link from 'next/link';
 import { clearTimeout } from 'timers';
 
 const ForgotPassword = () => {
@@ -16,19 +16,19 @@ const ForgotPassword = () => {
     const response = await PuenteApi.forgotPassword(email);
 
     if (!isEmpty(response?.error)) {
-        setErrors([response?.error]);
-        setSuccess(null);
+      setErrors([response?.error]);
+      setSuccess(null);
     }
     if (response?.status === 'success') {
-        const success = response?.status;
-        const timer = setTimeout(() => {
-          setSuccess('');
-          router.push('/login');
-        }, 9000);
-        setSuccess(success);
-        setErrors([]);
-        setEmail('');
-        return() => clearTimeout(timer);
+      const success = response?.status;
+      const timer = setTimeout(() => {
+        setSuccess('');
+        router.push('/login');
+      }, 9000);
+      setSuccess(success);
+      setErrors([]);
+      setEmail('');
+      return () => clearTimeout(timer);
     }
   };
 

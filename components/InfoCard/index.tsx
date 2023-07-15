@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Image from "next/image";
-import { InfoCardProps } from "@/components/InfoCard/InfoCard.intefaces";
-import Icon from "@/components/Icon";
-import {formatCurrency} from "@/utils/formatCurrency";
-import Link from "next/link";
+import Image from 'next/image';
+import { InfoCardProps } from '@/components/InfoCard/InfoCard.intefaces';
+import Icon from '@/components/Icon';
+import { formatCurrency } from '@/utils/formatCurrency';
+import Link from 'next/link';
 
 const InfoCard: React.FunctionComponent<InfoCardProps> = ({
   id,

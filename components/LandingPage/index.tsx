@@ -1,10 +1,10 @@
 import * as React from 'react';
-import HeroSection from './sections/HeroSection'
-import HowItWorksSection from './sections/HowItWorksSection'
-import CallToAction from './sections/CallToAction'
-import Footer from './sections/Footer'
+import HeroSection from './sections/HeroSection';
+import HowItWorksSection from './sections/HowItWorksSection';
+import CallToAction from './sections/CallToAction';
+import Footer from './sections/Footer';
 import 'aos/dist/aos.css';
-import Header from "@/components/Header";
+import Header from '@/components/Header';
 
 
 const LandingPageSeller = () => {
@@ -12,8 +12,8 @@ const LandingPageSeller = () => {
   const [showModal, toggleModalVisibility] = React.useState(false);
 
   const toggleLang = () => {
-    setlanguage(prevState => !prevState)
-  }
+    setlanguage(prevState => !prevState);
+  };
   return (
     <div className="overflow-hidden">
       <Header />

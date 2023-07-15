@@ -1,9 +1,9 @@
-import {onError} from "@apollo/client/link/error";
-import removeAuthCookies from "@/auth/removeAuthCookies";
+import { onError } from '@apollo/client/link/error';
+import removeAuthCookies from '@/auth/removeAuthCookies';
 
-const authLogoutLink = onError(({graphQLErrors, networkError}) => {
+const authLogoutLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.map(({message, locations, path}) => {
+    graphQLErrors.map(({ message, locations, path }) => {
       if (message === 'Invalid login credentials. Please try again.') {
         removeAuthCookies();
         if (typeof document !== 'undefined') {
@@ -16,7 +16,7 @@ const authLogoutLink = onError(({graphQLErrors, networkError}) => {
     console.log(`[Network error]: ${networkError}`);
     removeAuthCookies();
     if (typeof document !== 'undefined') {
-      document.location = '/login'
+      document.location = '/login';
     }
   }
 });

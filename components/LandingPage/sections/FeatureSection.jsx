@@ -1,11 +1,11 @@
-import React from 'react'
-import FeatureCard from '../FeatureCard'
-import icon1 from '@/public/assets/1.svg'
-import icon2 from '@/public/assets/2.svg'
-import icon3 from '@/public/assets/3.svg'
+import React from 'react';
+import FeatureCard from '../FeatureCard';
+import icon1 from '@/public/assets/1.svg';
+import icon2 from '@/public/assets/2.svg';
+import icon3 from '@/public/assets/3.svg';
 
 const FeatureSection = (props) => {
-    return (
+  return (
         <section className="mt-36 mx-8 md:mt-36 md:m-8 bg-white text-[#323232]">
             <div className="container mx-auto grid justify-center gap-28 md:gap-12 sm:grid-cols-2 lg:grid-cols-3">
                 <FeatureCard
@@ -25,7 +25,7 @@ const FeatureSection = (props) => {
                 />
             </div>
         </section>
-    )
-}
+  );
+};
 
-export default FeatureSection
+export default FeatureSection;

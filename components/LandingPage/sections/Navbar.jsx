@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import logo from '@/public/assets/Puente-Logo2.webp'
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import React, { useState } from 'react';
+import logo from '@/public/assets/Puente-Logo2.webp';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import Button from '../Button';
-import Image from "next/image";
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Navbar = (props) => {
-    const [openMenu, setOpenMenu] = useState(false)
-    function toggleMenu() {
-        setOpenMenu(prevState => !prevState)
-    }
+  const [openMenu, setOpenMenu] = useState(false);
+  function toggleMenu() {
+    setOpenMenu(prevState => !prevState);
+  }
 
-    return (
+  return (
         <header className="lg:pt-8 lg:pb-4 p-4 lg:px-12 shadow-lg transition-all duration-500">
             <div className="container flex justify-between items-center h-16 mx-auto transition-all duration-500">
                 <div className=" w-full pr-8 pl-4 flex items-center justify-between md:mx-auto md:max-w-[1450px] h-24 overflow-x-hidden">
@@ -44,7 +44,7 @@ const Navbar = (props) => {
                         </div>
                         <h1 onClick={toggleMenu} className=" block md:hidden">{!openMenu && <AiOutlineMenu size={28} />}</h1>
                     </div>
-                    <div className={openMenu ? " z-10 fixed flex flex-col md:hidden h-full ease-in duration-500 bg-[#ECEBF0] w-[85%] top-0 right-0 " : " z-10 fixed flex flex-col md:hidden h-full top-0 right-0 w-[85%] bg-[#ECEBF0] ease-in-out duration-700 translate-x-full"}>
+                    <div className={openMenu ? ' z-10 fixed flex flex-col md:hidden h-full ease-in duration-500 bg-[#ECEBF0] w-[85%] top-0 right-0 ' : ' z-10 fixed flex flex-col md:hidden h-full top-0 right-0 w-[85%] bg-[#ECEBF0] ease-in-out duration-700 translate-x-full'}>
                         <div className=" mt-8 px-6 self-end w-full flex items-center justify-between">
                             <h1 className={!openMenu && 'animate-spin'} onClick={toggleMenu} ><AiOutlineClose size={28} /></h1>
                             <div className=''>
@@ -63,7 +63,7 @@ const Navbar = (props) => {
                 </div>
             </div>
         </header>
-    )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

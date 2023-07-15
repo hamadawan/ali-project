@@ -13,6 +13,10 @@ module.exports = {
       gridTemplateRows: {
         '[auto,auto,1fr]': 'auto auto 1fr',
       },
+      colors: {
+        'primary': '#0860C6',
+        'secondary': '#26B9F1',
+      },
     },
   },
   plugins: [
