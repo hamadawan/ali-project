@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Header from "@/components/Header";
-import { PuenteApi } from "@/lib/puenteApi";
-import { useRouter } from "next/router";
-import { isEmpty } from "@/utils/isEmpty";
-import setAuthCookies from "@/auth/setAuthCookies";
-import Link from "next/link";
+import Header from '@/components/Header';
+import { PuenteApi } from '@/lib/puenteApi';
+import { useRouter } from 'next/router';
+import { isEmpty } from '@/utils/isEmpty';
+import setAuthCookies from '@/auth/setAuthCookies';
+import Link from 'next/link';
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');

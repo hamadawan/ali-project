@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import LandingPageBuyer from '@/components/LandingPage/LandingPageBuyer';
 export default function Buyer(props: any) {
 
@@ -12,5 +12,5 @@ export default function Buyer(props: any) {
       </Head>
       <LandingPageBuyer />
     </div>
-  )
+  );
 }

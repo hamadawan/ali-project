@@ -1,4 +1,8 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"  // Your tsconfig file location
+  },
   "extends": ["next/core-web-vitals", "airbnb-typescript"],
   "rules": {
     "import/extensions": "off"

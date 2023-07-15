@@ -1,9 +1,9 @@
 import FragmentTypes from './fragmentTypes.json';
-import {ApolloClient, ApolloLink, createHttpLink, InMemoryCache} from "@apollo/client";
-import settings from "@/config/settings";
-import {setContext} from "@apollo/client/link/context";
-import { RetryLink } from "@apollo/client/link/retry";
-import authLogoutLink from "@/lib/apollo/authLogoutLink";
+import { ApolloClient, ApolloLink, createHttpLink, InMemoryCache } from '@apollo/client';
+import settings from '@/config/settings';
+import { setContext } from '@apollo/client/link/context';
+import { RetryLink } from '@apollo/client/link/retry';
+import authLogoutLink from '@/lib/apollo/authLogoutLink';
 
 
 // function getNetworkInterface(uri: string) {
@@ -38,8 +38,8 @@ const authLink = setContext((_, { headers }) => {
       uid: localStorage.getItem('uid'),
       client: localStorage.getItem('client'),
       ...headers,
-    }
-  }
+    },
+  };
 });
 
 export default function createApolloClient() {

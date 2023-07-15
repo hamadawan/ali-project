@@ -1,5 +1,5 @@
-import removeAuthCookies from "@/auth/removeAuthCookies";
-import settings from "@/config/settings";
+import removeAuthCookies from '@/auth/removeAuthCookies';
+import settings from '@/config/settings';
 
 const host = settings.apiUrl;
 export const PuenteApi = {
@@ -9,10 +9,10 @@ export const PuenteApi = {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({...values, confirm_success_url: host + '/confirm'}),
+      body: JSON.stringify({ ...values, confirm_success_url: host + '/confirm' }),
     });
-    console.log(response)
-    return await response.json();
+    console.log(response);
+    return response.json();
   },
   signin: async (email: string, password: string) => {
     const response = await fetch(host + '/auth/sign_in', {
@@ -44,7 +44,7 @@ export const PuenteApi = {
       body: JSON.stringify({ email }),
     });
     removeAuthCookies();
-    return await response.json();
+    return response.json();
   },
   resetPassword: async ({ password, confirmedPassword, token }) => {
     const response = await fetch(host + '/passwords/reset', {
@@ -55,6 +55,6 @@ export const PuenteApi = {
       body: JSON.stringify({ password, confirmedPassword, token }),
     });
     removeAuthCookies();
-    return await response.json();
-  }
-}
+    return response.json();
+  },
+};

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from "@/components/Header";
-import { PuenteApi } from "@/lib/puenteApi";
-import Link from "next/link";
-import {useRouter} from "next/router";
+import Header from '@/components/Header';
+import { PuenteApi } from '@/lib/puenteApi';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const SignUp = () => {
   const router = useRouter();

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import Navbar from './sections/Navbar'
-import HeroSection from './sections/HeroSection'
-import FeatureSection from './sections/FeatureSection'
-import HowItWorksSection from './sections/HowItWorksSection'
-import FormModal from "@/components/LandingPage/FormModal";
-import CallToAction from './sections/CallToAction'
-import Footer from './sections/Footer'
+import Navbar from './sections/Navbar';
+import HeroSection from './sections/HeroSection';
+import FeatureSection from './sections/FeatureSection';
+import HowItWorksSection from './sections/HowItWorksSection';
+import FormModal from '@/components/LandingPage/FormModal';
+import CallToAction from './sections/CallToAction';
+import Footer from './sections/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Header from "@/components/Header";
+import Header from '@/components/Header';
 
 
 const LandingPageBuyer = () => {
@@ -16,8 +16,8 @@ const LandingPageBuyer = () => {
   const [showModal, toggleModalVisibility] = React.useState(false);
 
   const toggleLang = () => {
-    setlanguage(prevState => !prevState)
-  }
+    setlanguage(prevState => !prevState);
+  };
   return (
     <div className="overflow-hidden">
       <Header />

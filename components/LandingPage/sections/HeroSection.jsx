@@ -1,9 +1,9 @@
-import React from 'react'
-import { PopupButton } from "@typeform/embed-react";
-import heroImage from '@/public/assets/4.webp'
-import Button from '../Button'
-import Image from "next/image";
-import PrimaryButton from "@/components/PrimaryButton";
+import React from 'react';
+import { PopupButton } from '@typeform/embed-react';
+import heroImage from '@/public/assets/4.webp';
+import Button from '../Button';
+import Image from 'next/image';
+import PrimaryButton from '@/components/PrimaryButton';
 
 const HeroSection = ({
   title,
@@ -12,7 +12,7 @@ const HeroSection = ({
   buttonText,
   onClick,
 }) => {
-    return (
+  return (
         <section className="bg-white mt-4">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                 <div className="flex flex-col justify-center p-3 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left ">
@@ -30,13 +30,13 @@ const HeroSection = ({
                         >
                           { buttonText }
                         </PopupButton>
-                        ) : (
+                      ) : (
                           <PrimaryButton onClick={onClick}>
                             <span>
                              {buttonText}
                             </span>
                       </PrimaryButton>
-                        )}
+                      )}
                     </div>
                 </div>
                 <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
@@ -49,7 +49,7 @@ const HeroSection = ({
                 </div>
             </div>
         </section>
-    )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
