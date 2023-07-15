@@ -75,7 +75,7 @@ const Dashboard = () => {
           </nav>
         </div>
         <div className="flex-1 p-6 md:p-8 bg-gray-100">
-          <div className="bg-white shadow-md p-8 mx-auto rounded-md max-w-3xl">
+          <div className="bg-white shadow-md p-8 rounded-md">
             {navItems[activeNavItemIndex].content}
           </div>
         </div>

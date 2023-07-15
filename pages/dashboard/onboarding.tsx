@@ -8,9 +8,9 @@ const steps = [
 ];
 
 const ProgressBar = ({ completion }) => (
-  <div className="h-2 w-full bg-gray-200">
+  <div className="h-2 w-full bg-gray-200 rounded">
     <div
-      className="h-2 bg-secondary"
+      className="h-2 bg-secondary rounded"
       style={{ width: `${(completion / steps.length) * 100}%` }}
     ></div>
   </div>
@@ -34,7 +34,7 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 mx-auto max-w-3xl">
       <div className="h-30 mb-8">
         <h1 className="font-bold text-2xl mb-4 text-center">Comienza a vender</h1>
         <h2 className="text-center">{`${activeStep} de ${steps.length} tareas completadas`}</h2>
