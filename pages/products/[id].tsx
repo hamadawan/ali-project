@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import {StarIcon} from "@heroicons/react/solid";
-import { RadioGroup } from '@headlessui/react'
-import {getProducts} from "@/utils/getProducts";
-import Image from "next/image";
-import {formatCurrency} from "@/utils/formatCurrency";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import {useProductsQuery} from "@/graphql/queries/useProductsQuery";
+import { StarIcon } from '@heroicons/react/solid';
+import { RadioGroup } from '@headlessui/react';
+import { getProducts } from '@/utils/getProducts';
+import Image from 'next/image';
+import { formatCurrency } from '@/utils/formatCurrency';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { useProductsQuery } from '@/graphql/queries/useProductsQuery';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 const ProductPage = (props) => {
@@ -20,16 +20,16 @@ const ProductPage = (props) => {
   const rawProduct = (products ?? []).find((product) => `${product.id}` === id) ?? {};
   const product = {
     ...rawProduct,
-    reviews: { href: '#', totalCount: 3, average: 4.0},
+    reviews: { href: '#', totalCount: 3, average: 4.0 },
     colors: [],
     sizes: ['S', 'M', 'L', 'XL'],
-    breadcrumbs: ['Home', 'Products', 'Hello'].map(b => ({id: b, name: b, href: '#'})),
+    breadcrumbs: ['Home', 'Products', 'Hello'].map(b => ({ id: b, name: b, href: '#' })),
     highlights: [],
     images: rawProduct.images ?? [],
   };
   const { reviews, breadcrumbs, highlights } = product;
-  const [selectedColor, setSelectedColor] = React.useState('blue')
-  const [selectedSize, setSelectedSize] = React.useState('M')
+  const [selectedColor, setSelectedColor] = React.useState('blue');
+  const [selectedSize, setSelectedSize] = React.useState('M');
 
   return (
     <div className="bg-white">
@@ -124,7 +124,7 @@ const ProductPage = (props) => {
                       key={rating}
                       className={classNames(
                         reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
-                        'h-5 w-5 flex-shrink-0'
+                        'h-5 w-5 flex-shrink-0',
                       )}
                       aria-hidden="true"
                     />
@@ -154,7 +154,7 @@ const ProductPage = (props) => {
                             color.selectedClass,
                             active && checked ? 'ring ring-offset-1' : '',
                             !active && checked ? 'ring-2' : '',
-                            '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none'
+                            '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
                           )
                         }
                       >
@@ -166,7 +166,7 @@ const ProductPage = (props) => {
                           aria-hidden="true"
                           className={classNames(
                             color.class,
-                            'h-8 w-8 border border-black border-opacity-10 rounded-full'
+                            'h-8 w-8 border border-black border-opacity-10 rounded-full',
                           )}
                         />
                       </RadioGroup.Option>
@@ -198,7 +198,7 @@ const ProductPage = (props) => {
                               ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                               : 'bg-gray-50 text-gray-200 cursor-not-allowed',
                             active ? 'ring-2 ring-indigo-500' : '',
-                            'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                            'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
                           )
                         }
                       >
@@ -210,7 +210,7 @@ const ProductPage = (props) => {
                                 className={classNames(
                                   active ? 'border' : 'border-2',
                                   checked ? 'border-indigo-500' : 'border-transparent',
-                                  'pointer-events-none absolute -inset-px rounded-md'
+                                  'pointer-events-none absolute -inset-px rounded-md',
                                 )}
                                 aria-hidden="true"
                               />

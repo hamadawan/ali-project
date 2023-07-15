@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Image from "next/image";
-import banner from '../../public/banner.png'
+import Image from 'next/image';
+import banner from '../../public/banner.png';
 
 const Banner: React.FunctionComponent = () => {
-    return (
+  return (
         <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">
             <Image
               fill
@@ -15,7 +15,7 @@ const Banner: React.FunctionComponent = () => {
               <button className="text-violet-500 bg-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90">Find products</button>
             </div>
         </div>
-    );
+  );
 };
 
 export default Banner;

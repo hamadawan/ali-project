@@ -6,7 +6,7 @@ import Orders from '@/components/Orders';
 import Image from 'next/image';
 import logo from '@/public/logo-mid.png';
 import Header from '@/components/Header';
-import Onboarding from "@/pages/dashboard/onboarding";
+import Onboarding from '@/pages/dashboard/onboarding';
 
 
 type NavItem = {

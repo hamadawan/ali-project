@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import { useProductsQuery } from "@/graphql/queries/useProductsQuery";
-import ProductsTable from "@/components/Products/ProductsTable";
+import { useProductsQuery } from '@/graphql/queries/useProductsQuery';
+import ProductsTable from '@/components/Products/ProductsTable';
 
 type ProductData = {
   id: string;

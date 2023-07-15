@@ -12,7 +12,7 @@ const ProductCard: React.FC<ProductProps> = ({
   id,
   name,
   imageUrl,
-  onOptionsClick
+  onOptionsClick,
 }) => {
   return (
     <div className="bg-white shadow-md rounded-lg p-4">

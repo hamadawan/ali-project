@@ -5,14 +5,14 @@ import emailjs from '@emailjs/browser';
 const CallToAction = () => {
 
   const form = useRef();
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
-  const success = () => toast("Subscribed Sucessfully.");
-  const faliure = () => toast("Something went wrong.");
+  const success = () => toast('Subscribed Sucessfully.');
+  const faliure = () => toast('Something went wrong.');
 
   const handleInput = (e) => {
-    setInput(e.target.value)
-  }
+    setInput(e.target.value);
+  };
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -22,7 +22,7 @@ const CallToAction = () => {
       }, (error) => {
         faliure();
       });
-    setInput("")
+    setInput('');
   };
 
 
@@ -54,7 +54,7 @@ const CallToAction = () => {
         theme="light"
       />
     </section>
-  )
-}
+  );
+};
 
-export default CallToAction
+export default CallToAction;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useProductsQuery } from '@/graphql/queries/useProductsQuery';
-import ProductsList from "@/components/Products/ProductsList";
-import AddProductModal from "@/components/Products/AddProductModal";
+import ProductsList from '@/components/Products/ProductsList';
+import AddProductModal from '@/components/Products/AddProductModal';
 
 type ViewMode = 'card' | 'table';
 

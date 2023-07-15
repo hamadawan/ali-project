@@ -1,8 +1,8 @@
-import React from 'react'
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 const ListItem = (props) => {
-    return (
+  return (
         <div className=" md:flex items-center justify-center">
             <div className="flex-shrink-0 flex items-center justify-center">
                 <div className=" w-12 h-12 rounded-md">
@@ -13,7 +13,7 @@ const ListItem = (props) => {
                 <p className="text-base dark:text-gray-400 text-center">{props.text}</p>
             </div>
         </div>
-    )
-}
+  );
+};
 
-export default ListItem
+export default ListItem;

@@ -1,6 +1,6 @@
-import React from 'react'
-import List from '@/components/LandingPage/List'
-import SellerList from "@/components/LandingPage/SellerList";
+import React from 'react';
+import List from '@/components/LandingPage/List';
+import SellerList from '@/components/LandingPage/SellerList';
 
 const HowItWorksSection = ({
   title,
@@ -8,7 +8,7 @@ const HowItWorksSection = ({
   lang,
   isSeller,
 }) => {
-    return (
+  return (
         <section className="bg-white mt-32 text-[#323232]">
             <div className="container max-w-xl p-6 py-0 mx-auto space-y-16 text-gray-400 lg:px-8 lg:max-w-7xl">
                 <div>
@@ -20,7 +20,7 @@ const HowItWorksSection = ({
               { isSeller ? <SellerList /> : <List lang={lang}/>}
             </div>
         </section>
-    )
-}
+  );
+};
 
-export default HowItWorksSection
+export default HowItWorksSection;
