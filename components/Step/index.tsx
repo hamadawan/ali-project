@@ -1,12 +1,9 @@
 import * as React from "react";
 
-const Step: React.FunctionComponent = ({
-  finished,
-  number,
-}: {
+const Step: React.FunctionComponent<{
   finished: boolean;
   number: number;
-}) => {
+}> = ({ finished, number }) => {
   return (
     <div>
       {finished ? (
