@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import SignUp from "./signup";
+import SignUpStep1 from "../components/SignUpStep1";
+import SignUpStep2 from "@/components/SignUpStep2";
 
 const Login = () => {
   const router = useRouter();
@@ -100,6 +103,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <SignUpStep1/>
+      <SignUpStep2/>
     </div>
   );
 };
