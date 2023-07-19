@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import { isEmpty } from "@/utils/isEmpty";
 import setAuthCookies from "@/auth/setAuthCookies";
 import Link from "next/link";
+
+
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
@@ -86,6 +88,7 @@ const Login = () => {
           <div className="pt-2 text-center">Forgot Password? <Link href="/forgot-password" className="underline">Click here</Link></div>
         </div>
       </div>
+      
     </div>
   );
 };
