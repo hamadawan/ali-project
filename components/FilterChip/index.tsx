@@ -19,4 +19,4 @@ const FilterChip: React.FC<FilterChipProps> = ({
     {title}
   </p>
 );
-  export default FilterChip;
+export default FilterChip;

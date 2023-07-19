@@ -1,8 +1,8 @@
-import React, {Fragment, useState, useRef} from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import Button from './Button';
-import emailjs from "@emailjs/browser";
-import {toast} from "react-toastify";
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 interface FormData {
   userType: 'buyer' | 'supplier';
@@ -45,7 +45,7 @@ const FormModal: React.FC = ({ isOpen, setIsOpen }) => {
       emailjs.sendForm('service_ywgtkst', 'template_g5zq0pi', form.current, 'Z2qGEhfSte7EUC8t9');
       setFormData(defaultFormData);
     } catch (err) {
-      toast.error("Something went wrong.");
+      toast.error('Something went wrong.');
       console.log(err);
     }
     setIsOpen(false);

@@ -6,9 +6,13 @@ import { MenuAlt1Icon, UserCircleIcon } from '@heroicons/react/solid';
 import SignUpIcon from '@/components/SignUpIcon';
 import logo from '../../public/puentify-logo.svg';
 
-const Header: React.FunctionComponent = ({
+interface HeaderProps {
+  showSearchBar?: boolean;
+}
+
+const Header = ({
   showSearchBar = false,
-}) => {
+}: HeaderProps) => {
   const [searchInput, setSearchInput] = React.useState<string>('');
   const router = useRouter();
   const { query } = router.query;

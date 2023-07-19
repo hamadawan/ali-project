@@ -1,13 +1,13 @@
-import React from 'react'
-import ListItem from './ListItem'
-import bullet1 from '@/public/assets/6.svg'
-import bullet2 from '@/public/assets/7.svg'
-import bullet3 from '@/public/assets/8.svg'
-import bullet4 from '@/public/assets/9.svg'
-import bullet5 from '@/public/assets/10.svg'
-import img from '@/public/assets/5.webp'
-import StorefrontButton from './StorefrontButton'
-import Image from "next/image";
+import React from 'react';
+import ListItem from './ListItem';
+import bullet1 from '@/public/assets/6.svg';
+import bullet2 from '@/public/assets/7.svg';
+import bullet3 from '@/public/assets/8.svg';
+import bullet4 from '@/public/assets/9.svg';
+import bullet5 from '@/public/assets/10.svg';
+import img from '@/public/assets/5.webp';
+import StorefrontButton from './StorefrontButton';
+import Image from 'next/image';
 
 const SellerList = () => {
   return (
@@ -42,7 +42,7 @@ const SellerList = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SellerList
+export default SellerList;

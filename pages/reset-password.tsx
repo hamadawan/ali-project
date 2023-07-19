@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from "@/components/Header";
-import { PuenteApi } from "@/lib/puenteApi";
-import { useRouter } from "next/router";
-import { isEmpty } from "@/utils/isEmpty";
-import Link from "next/link";
+import Header from '@/components/Header';
+import { PuenteApi } from '@/lib/puenteApi';
+import { useRouter } from 'next/router';
+import { isEmpty } from '@/utils/isEmpty';
+import Link from 'next/link';
 import { clearTimeout } from 'timers';
-import { getResetPasswordToken } from "@/lib/auth";
+import { getResetPasswordToken } from '@/lib/auth';
 
 const ResetPassword = () => {
   const router = useRouter();
@@ -17,7 +17,7 @@ const ResetPassword = () => {
     event.preventDefault();
 
     if (password !== confirmedPassword) {
-      setErrors(['Passwords must be equal'])
+      setErrors(['Passwords must be equal']);
       return;
     }
     const token = getResetPasswordToken();
@@ -27,26 +27,26 @@ const ResetPassword = () => {
       token,
     });
     if (!isEmpty(response?.error)) {
-        setErrors([response?.error]);
-        setSuccess(null);
+      setErrors([response?.error]);
+      setSuccess(null);
     }
     if (response?.status === 'success') {
-        const success = response?.status;
-        const timer = setTimeout(() => {
-          setSuccess('');
-          router.push('/login');
-        }, 9000);
-        setSuccess(success);
-        setErrors([]);
-        clearPasswords();
-        return() => clearTimeout(timer);
+      const success = response?.status;
+      const timer = setTimeout(() => {
+        setSuccess('');
+        router.push('/login');
+      }, 9000);
+      setSuccess(success);
+      setErrors([]);
+      clearPasswords();
+      return () => clearTimeout(timer);
     }
   };
 
   const clearPasswords = () => {
     setPassword('');
     setConfirmedPassword('');
-  }
+  };
 
   return (
     <div>

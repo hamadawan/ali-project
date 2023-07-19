@@ -1,10 +1,10 @@
-import React from 'react'
-import Button from '../Button'
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import Link from "next/link";
+import React from 'react';
+import Button from '../Button';
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Link from 'next/link';
 
 const Footer = () => {
-    return (
+  return (
         <div className="px-4 pt-16 pb-20 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-32 bg-[#323232] text-white">
             <div className="grid gap-24 md:gap-40 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="sm:col-span-2 text-white">
@@ -60,7 +60,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-    )
-}
+  );
+};
 
-export default Footer
+export default Footer;

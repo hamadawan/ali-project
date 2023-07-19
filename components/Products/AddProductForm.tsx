@@ -18,9 +18,9 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
   const onSubmit = async () => {
     const result = await addProduct({ variables: {
       name, description, price, minQuantity, maxQuantity,
-    }});
-    console.log(result)
-  }
+    } });
+    console.log(result);
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
