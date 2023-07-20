@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-
+import Step1 from "@/components/ManufacturerInformation/Step1"
+import Step2 from "@/components/ManufacturerInformation/Step2"
+import Step3 from "@/components/ManufacturerInformation/Step3"
+import Step4 from "@/components/ManufacturerInformation/Step4"
 const steps = [
-  { title: '1. Informacion de fabricante', content: 'Step 1 content...' },
-  { title: '2. URL de la tienda', content: 'Step 2 content...' },
-  { title: '3. Agrega tu primer producto', content: 'Step 3 content...' },
-  { title: '4. Publicar tienda', content: 'Step 4 content...' },
+  { title: '1. Informacion de fabricante', content: <Step1 />},
+  { title: '2. URL de la tienda', content: <Step2 /> },
+  { title: '3. Agrega tu primer producto', content: <Step3 /> },
+  { title: '4. Publicar tienda', content: <Step4 /> },
 ];
 
 const ProgressBar = ({ completion }) => (
