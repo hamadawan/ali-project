@@ -1,0 +1,9 @@
+{
+  "heading": "Welcome",
+  "email": "Email",
+  "password": "Password",
+  "forgotPasswordText": "Forgot Password",
+  "signin": "Sign in",
+  "signupText": "Don't have account?",
+  "signup": "Sign up"
+}
