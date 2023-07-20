@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Input } from "../ui/input";
 
 const ManufacturerInformation: React.FunctionComponent = () => {
   return (
@@ -26,13 +27,12 @@ const ManufacturerInformation: React.FunctionComponent = () => {
                 >
                   Nombre de la empresa
                 </label>
-                <input
+                <Input
                   required={true}
                   type="Nombre de la empresa"
                   id="Nombre de la empresa"
                   name="Nombre de la empresa"
                   placeholder="Introducir nombre de la empresa"
-                  className="w-[340px] px-5 py-[15px]  border border-solid rounded-[10px] border-[#D2DAE2] "
                 />
               </div>
               <div>
@@ -116,7 +116,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
                 />
               </div>
             </div>
-            <button className="w-full mt-5 mb-[31px] w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#0860C6] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
+            <button className="w-full mt-5 mb-[31px] max-w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#0860C6] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
               Guardar
             </button>
             <hr />
@@ -138,10 +138,10 @@ const ManufacturerInformation: React.FunctionComponent = () => {
               placeholder="nombre-de-mi-tienda"
               className="w-full mt-2 px-5 py-[15px]  border border-solid rounded-[10px] border-[#D2DAE2] "
             />
-            <button className="mt-5 w-full w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#A9C3E2] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
+            <button className="mt-5 w-full max-w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#A9C3E2] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
               Agregar dominio personalizado
             </button>
-            <button className="mt-5 mb-[31px] w-full w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#0860C6] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
+            <button className="mt-5 mb-[31px] w-full max-w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#0860C6] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
               Guardar
             </button>
             <hr />
@@ -149,7 +149,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
               3 · Publicar tu primer producto
               <div className="w-[14px] h-[3px] bg-[#170F49] float float-right rounded-[2px] mt-3"></div>
             </div>
-            <button className="mt-[25px] mb-[31px] w-full w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#0860C6] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
+            <button className="mt-[25px] mb-[31px] w-full max-w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#0860C6] font-[Roboto] text-sm font-medium leading-[21px] text-[#FFFFFF]    ">
               Agregar primer producto
             </button>
             <hr />
@@ -157,7 +157,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
               4 · Publicar tienda
               <div className="w-[14px] h-[3px] bg-[#170F49] float float-right rounded-[2px] mt-3"></div>
             </div>
-            <button className="mt-[25px] w-full w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#7DF0CE] font-[Roboto] text-sm font-medium leading-[21px] text-[#085840]">
+            <button className="mt-[25px] w-full max-w-[700px] h-[53px] px-12 py-4  rounded-[8px] bg-[#7DF0CE] font-[Roboto] text-sm font-medium leading-[21px] text-[#085840]">
               Publicar ahora
             </button>
           </form>
