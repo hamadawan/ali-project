@@ -3,6 +3,7 @@ import Step1 from "@/components/ManufacturerInformation/Step1"
 import Step2 from "@/components/ManufacturerInformation/Step2"
 import Step3 from "@/components/ManufacturerInformation/Step3"
 import Step4 from "@/components/ManufacturerInformation/Step4"
+
 const steps = [
   { title: '1. Informacion de fabricante', content: <Step1 />},
   { title: '2. URL de la tienda', content: <Step2 /> },
