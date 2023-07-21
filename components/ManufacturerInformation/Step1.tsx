@@ -1,9 +1,9 @@
-import * as React from "react";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import * as React from 'react';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
 
 const ManufacturerInformation: React.FunctionComponent = () => {
-  const data = ["1123413", "2123213", "31312323"];
+  const data = ['1123413', '2123213', '31312323'];
   return (
     <div>
       <div className="grid grid-cols-2 gap-5 mt-[25px]">

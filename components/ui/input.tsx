@@ -1,37 +1,37 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { VariantProps, cva } from "class-variance-authority";
+import * as React from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { VariantProps, cva } from 'class-variance-authority';
 
 const inputVariants = cva(
-  "w-full border px-5 py-3 rounded-[10px] text-sm font-normal tracking-wide leading-5",
+  'w-full border px-5 py-3 rounded-[10px] text-sm font-normal tracking-wide leading-5',
   {
     variants: {
       variant: {
-        default: "bg-[#fff] border-[#D2DAE2] text-[#576D99]",
-        primary: "",
+        default: 'bg-[#fff] border-[#D2DAE2] text-[#576D99]',
+        primary: '',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
-  }
+  },
 );
 
-const labelVariants = cva("block font-normal text-sm mb-2 leading-5", {
+const labelVariants = cva('block font-normal text-sm mb-2 leading-5', {
   variants: {
     variant: {
-      default: "text-[#6F6C90] ",
-      primary: "",
+      default: 'text-[#6F6C90] ',
+      primary: '',
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: 'default',
   },
 });
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {
+  VariantProps<typeof inputVariants> {
   asChild?: boolean;
   label?: string;
   containerClass?: string;
@@ -39,7 +39,7 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ id, containerClass, label, className, variant, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "input";
+    const Comp = asChild ? Slot : 'input';
     return (
       <div className={containerClass}>
         {label && (
@@ -50,8 +50,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <Comp id={id} className={inputVariants({ variant, className })} ref={ref} {...props} />
       </div>
     );
-  }
+  },
 );
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
 export { Input, inputVariants };

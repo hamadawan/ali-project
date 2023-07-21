@@ -1,9 +1,9 @@
-import { ApolloProvider } from "@apollo/client";
-import createApolloClient from "@/lib/apollo/index";
-import '@/styles/globals.css'
-import '@/public/assets/fonts/fonts.css'
-import type { AppProps } from 'next/app'
-import { appWithTranslation } from 'next-i18next'
+import { ApolloProvider } from '@apollo/client';
+import createApolloClient from '@/lib/apollo/index';
+import '@/styles/globals.css';
+import '@/public/assets/fonts/fonts.css';
+import type { AppProps } from 'next/app';
+import { appWithTranslation } from 'next-i18next';
 
 const client = createApolloClient();
 
@@ -16,4 +16,4 @@ function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(App)
+export default appWithTranslation(App);
