@@ -23,8 +23,8 @@ const ProgressBar = ({ completion }) => (
 const Step = ({ title, content, isActive, onClick }) => (
   <div className={'py-6 bg-white'}>
     <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
-      <h2 className="font-bold text-2xl font-bold leading-8 text-[#170F49]">{title}</h2>
-      <span>{isActive ? '-' : '+'}</span>
+      <h2 className="font-bold text-2xl leading-8 text-[#170F49]">{title}</h2>
+      <span>{isActive ? <img src='/icons/minus.svg' /> : <img src='/icons/plus.svg' />}</span>
     </div>
     {isActive && <div className="mt-2">{content}</div>}
     <hr className="border-gray-100 mt-4" />
