@@ -1,30 +1,31 @@
 import * as React from 'react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-
+import { useTranslation } from 'next-i18next';
 
 const ManufacturerInformation: React.FunctionComponent = () => {
   const data = ['1123413', '2123213', '31312323'];
+  const { t } = useTranslation('dashboard');
   return (
     <div>
-      <div className="grid grid-cols-2 gap-5 mt-[25px]">
+      <div className="grid md:grid-cols-2 gap-5 mt-[25px]">
         <div>
           <Input
             required={true}
-            type="Nombre de la empresa"
-            id="Nombre de la empresa"
-            label="Nombre de la empresa"
-            name="Nombre de la empresa"
+            type="text"
+            id="company_name"
+            label={t('company_name')}
+            name="company_name"
             placeholder="Introducir nombre de la empresa"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="Nombre de contácto"
-            id="Nombre de contácto"
-            label="Nombre de contácto"
-            name="Nombre de contácto"
+            type="text"
+            id="contact_name"
+            label={t('Contact_name')}
+            name="contact_name"
             placeholder="Nombre completo"
             list="data"
           />
@@ -37,89 +38,90 @@ const ManufacturerInformation: React.FunctionComponent = () => {
         <div>
           <Input
             required={true}
-            type="Tamaño de la empresa"
-            id="Tamaño de la empresa"
-            label="Tamaño de la empresa"
-            name="Tamaño de la empresa"
+            type="number"
+            id="company_size"
+            label={t('company_size')}
+            name="company_size"
             placeholder="Mediana"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="Industria"
-            id="Industria"
-            label="Industria"
-            name="Industria"
+            type="text"
+            id="industry"
+            label={t('Industry')}
+            name="industry"
             placeholder="Textil"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="calle"
-            id="calle"
-            label="Calle"
-            name="calle"
+            type="text"
+            id="street"
+            label={t('Street')}
+            name="street"
             placeholder="Calle"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="Año de funcionamiento"
-            id="Año de funcionamiento"
-            label="Año de funcionamiento"
-            name="Año de funcionamiento"
+            type="number"
+            id="operation_year"
+            label={t('Operation_year')}
+            name="operation_year"
             placeholder="Textil"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="ciudad"
-            id="ciudad"
-            label="Ciudad"
-            name="ciudad"
+            type="text"
+            id="city"
+            label={t('City')}
+            name="city"
             placeholder="Ciudad"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="estado"
-            id="estado"
-            label="Estado"
-            name="estado"
+            type="text"
+            id="state"
+            label={t('State')}
+            name="state"
             placeholder="Estado"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="pais"
-            id="Pais"
-            label="Pais"
-            name="pais"
+            type="text"
+            id="country"
+            label={t('Country')}
+            name="country"
             placeholder="Pais"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="codigo postal"
-            id="codigo postal"
-            label="Codigo postal"
-            name="codigo postal"
+            type="number"
+            id="zipcode"
+            label={t('Zipcode')}
+            name="zipcode"
             placeholder="Codigo postal"
           />
         </div>
       </div>
-      <Button variant="primary" className="mt-5 mb-[31px]">
-        Guardar
+      <Button variant="primary" className="mt-5 mb-8">
+       {t('ButtonText')}
       </Button>
     </div>
   );
 };
+
 
 export default ManufacturerInformation;

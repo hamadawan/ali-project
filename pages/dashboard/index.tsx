@@ -5,6 +5,7 @@ import Products from '@/components/Products';
 import Orders from '@/components/Orders';
 import Header from '@/components/Header';
 import Onboarding from '@/pages/dashboard/onboarding';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type NavItem = {
   name: string;
@@ -71,8 +72,8 @@ const Dashboard = () => {
             </div>
           </nav>
         </div>
-        <div className="flex-1 p-6 md:p-8 bg-gray-100">
-          <div className="bg-white shadow-md p-8 rounded-md">
+        <div className="flex-1 p-5 md:p-8 bg-gray-100">
+          <div className="bg-white shadow-md p-2 md:p-8 rounded-md">
             {navItems[activeNavItemIndex].content}
           </div>
         </div>
@@ -81,4 +82,9 @@ const Dashboard = () => {
   );
 };
 
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['dashboard'])),
+  },
+});
 export default Dashboard;

@@ -3,6 +3,7 @@ import Step1 from '@/components/ManufacturerInformation/Step1';
 import Step2 from '@/components/ManufacturerInformation/Step2';
 import Step3 from '@/components/ManufacturerInformation/Step3';
 import Step4 from '@/components/ManufacturerInformation/Step4';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const steps = [
   { title: '1. Informacion de fabricante', content: <Step1 /> },
@@ -23,7 +24,7 @@ const ProgressBar = ({ completion }) => (
 const Step = ({ title, content, isActive, onClick }) => (
   <div className={'py-6 bg-white'}>
     <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
-      <h2 className="font-bold text-2xl leading-8 text-[#170F49]">{title}</h2>
+      <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
       <span>{isActive ? <img src='/icons/minus.svg' /> : <img src='/icons/plus.svg' />}</span>
     </div>
     {isActive && <div className="mt-2">{content}</div>}
@@ -61,5 +62,11 @@ const Onboarding = () => {
     </div>
   );
 };
+
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['dashboard'])),
+  },
+});
 
 export default Onboarding;

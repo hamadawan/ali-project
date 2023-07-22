@@ -1,0 +1,13 @@
+{
+    "companyName":"Company name",
+    "ContactName":"Contact name",
+    "companySize":"Size of the company",
+    "Industry":"Industry",
+    "Street":"Street",
+    "OperationYear":"Year of operation",
+    "City":"City",
+    "State":"State",
+    "Country":"Country",
+    "Zipcode":"Zipcode",
+    "ButtonText":"Keep"
+}
