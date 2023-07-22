@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 
 const WhyUsCard = (props) => {
@@ -13,7 +13,7 @@ const WhyUsCard = (props) => {
                         {props.overview}
                     </p>
                 </div>
-  )
-}
+  );
+};
 
-export default WhyUsCard
+export default WhyUsCard;

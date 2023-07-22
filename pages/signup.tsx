@@ -26,8 +26,8 @@ const SignUp = () => {
       trade_role: tradeRole,
     });
     if (response?.status === 'error') {
-      const errors = response?.errors?.full_messages;
-      setErrors(errors);
+      const newErrors = response?.errors?.full_messages;
+      setErrors(newErrors);
     }
     if (response?.status === 'success') {
       setErrors(null);

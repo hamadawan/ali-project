@@ -20,12 +20,11 @@ const ForgotPassword = () => {
       setSuccess(null);
     }
     if (response?.status === 'success') {
-      const success = response?.status;
       const timer = setTimeout(() => {
         setSuccess('');
         router.push('/login');
       }, 9000);
-      setSuccess(success);
+      setSuccess(response?.status);
       setErrors([]);
       setEmail('');
       return () => clearTimeout(timer);

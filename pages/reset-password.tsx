@@ -13,6 +13,12 @@ const ResetPassword = () => {
   const [confirmedPassword, setConfirmedPassword] = useState<string>();
   const [errors, setErrors] = useState<string[]>([]);
   const [success, setSuccess] = useState<string | null>();
+  
+  const clearPasswords = () => {
+    setPassword('');
+    setConfirmedPassword('');
+  };
+
   const handleSubmit = async (event:any) => {
     event.preventDefault();
 
@@ -31,21 +37,15 @@ const ResetPassword = () => {
       setSuccess(null);
     }
     if (response?.status === 'success') {
-      const success = response?.status;
       const timer = setTimeout(() => {
         setSuccess('');
         router.push('/login');
       }, 9000);
-      setSuccess(success);
+      setSuccess(response?.status);
       setErrors([]);
       clearPasswords();
       return () => clearTimeout(timer);
     }
-  };
-
-  const clearPasswords = () => {
-    setPassword('');
-    setConfirmedPassword('');
   };
 
   return (

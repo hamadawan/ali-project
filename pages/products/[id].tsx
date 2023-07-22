@@ -286,7 +286,7 @@ const ProductPage = () => {
 
 export default ProductPage;
 
-function getStaticProps() {
+export function getStaticProps() {
   const result = getProducts();
 
   return {

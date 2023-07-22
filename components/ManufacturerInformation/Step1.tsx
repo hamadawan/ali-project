@@ -30,7 +30,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           />
           <datalist id="data">
             {data.map((op) => (
-              <option>{op}</option>
+              <option key={op}>{op}</option>
             ))}
           </datalist>
         </div>

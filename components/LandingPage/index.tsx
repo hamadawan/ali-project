@@ -17,7 +17,7 @@ const LandingPageSeller = () => {
   return (
     <div className="overflow-hidden">
       <Header />
-      <div className="flex flex-col mx-auto justify-center max-w-5xl">
+      <div className="flex flex-col mx-auto justify-center max-w-5xl mt-[70px]">
         <HeroSection
           title="Conquista el mercado de Estados Unidos con Puentify"
           subtitle="Abre las puertas a un mundo de oportunidades y aumenta tus ventas en el mercado mas grande del mundo"

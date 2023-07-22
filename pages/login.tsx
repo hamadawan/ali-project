@@ -22,8 +22,7 @@ const Login = () => {
     const response = await PuenteApi.signin(email, password);
 
     if (!isEmpty(response?.errors)) {
-      const errors = response?.errors;
-      setErrors(errors);
+      setErrors(response?.errors);
     }
 
     if (response?.user && response?.accessToken) {

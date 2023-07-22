@@ -35,7 +35,7 @@ const FormModal: React.FC = ({ isOpen, setIsOpen }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = () => {
     if (!formData.firstName || !formData.email) {
       setIsOpen(false);
       return;
