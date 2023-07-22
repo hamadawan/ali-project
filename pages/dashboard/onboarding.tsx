@@ -3,7 +3,7 @@ import Step1 from '@/components/ManufacturerInformation/Step1';
 import Step2 from '@/components/ManufacturerInformation/Step2';
 import Step3 from '@/components/ManufacturerInformation/Step3';
 import Step4 from '@/components/ManufacturerInformation/Step4';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Image from 'next/image';
 
 const steps = [
   { title: '1. Informacion de fabricante', content: <Step1 /> },
@@ -14,7 +14,7 @@ const steps = [
 
 const ProgressBar = ({ completion }) => (
   <div className="h-4 w-full bg-gray-200 rounded-lg">
-    <div 
+    <div
       className="h-4 bg-secondary rounded-lg"
       style={{ width: `${(completion / steps.length) * 100}%` }}
     ></div>
@@ -25,7 +25,13 @@ const Step = ({ title, content, isActive, onClick }) => (
   <div className={'py-6 bg-white'}>
     <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
       <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
-      <span>{isActive ? <img src='/icons/minus.svg' /> : <img src='/icons/plus.svg' />}</span>
+      <span>
+        {isActive ? (
+          <Image src="/icons/minus.svg" alt="minus image" width={14} height={2} />
+        ) : (
+          <Image src="/icons/plus.svg" alt="plus image" width={14} height={14} />
+        )}
+      </span>
     </div>
     {isActive && <div className="mt-2">{content}</div>}
     <hr className="border-gray-100 mt-4" />
@@ -62,11 +68,5 @@ const Onboarding = () => {
     </div>
   );
 };
-
-export const getStaticProps = async ({ locale }: any) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['dashboard'])),
-  },
-});
 
 export default Onboarding;

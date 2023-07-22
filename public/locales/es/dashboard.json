@@ -1,13 +1,13 @@
 {
     "companyName":"Nombre de la empresa",
-    "ContactName":"Nombre de contácto",
+    "contactName":"Nombre de contácto",
     "companySize":"Nombre de contácto",
-    "Industry":"Industria",
-    "Street":"Calle",
-    "OperationYear":"Año de funcionamiento",
-    "City":"Ciudad",
-    "State":"Estado",
-    "Country":"Pais",
-    "Zipcode":"Codigo postal",
-    "ButtonText":"Guardar"
+    "industry":"Industria",
+    "street":"Calle",
+    "operationYear":"Año de funcionamiento",
+    "city":"Ciudad",
+    "state":"Estado",
+    "country":"Pais",
+    "zipCode":"Codigo postal",
+    "buttonText":"Guardar"
 }

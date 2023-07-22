@@ -13,9 +13,9 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           <Input
             required={true}
             type="text"
-            id="company_name"
-            label={t('company_name')}
-            name="company_name"
+            id="companyName"
+            label={t('companyName')}
+            name="companyName"
             placeholder="Introducir nombre de la empresa"
           />
         </div>
@@ -23,9 +23,9 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           <Input
             required={true}
             type="text"
-            id="contact_name"
-            label={t('Contact_name')}
-            name="contact_name"
+            id="contactName"
+            label={t('contactName')}
+            name="contactName"
             placeholder="Nombre completo"
             list="data"
           />
@@ -39,9 +39,9 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           <Input
             required={true}
             type="number"
-            id="company_size"
-            label={t('company_size')}
-            name="company_size"
+            id="companySize"
+            label={t('companySize')}
+            name="companySize"
             placeholder="Mediana"
           />
         </div>
@@ -50,7 +50,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
             required={true}
             type="text"
             id="industry"
-            label={t('Industry')}
+            label={t('industry')}
             name="industry"
             placeholder="Textil"
           />
@@ -60,7 +60,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
             required={true}
             type="text"
             id="street"
-            label={t('Street')}
+            label={t('street')}
             name="street"
             placeholder="Calle"
           />
@@ -69,9 +69,9 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           <Input
             required={true}
             type="number"
-            id="operation_year"
-            label={t('Operation_year')}
-            name="operation_year"
+            id="operationYear"
+            label={t('operationYear')}
+            name="operationYear"
             placeholder="Textil"
           />
         </div>
@@ -80,7 +80,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
             required={true}
             type="text"
             id="city"
-            label={t('City')}
+            label={t('city')}
             name="city"
             placeholder="Ciudad"
           />
@@ -90,7 +90,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
             required={true}
             type="text"
             id="state"
-            label={t('State')}
+            label={t('state')}
             name="state"
             placeholder="Estado"
           />
@@ -100,7 +100,7 @@ const ManufacturerInformation: React.FunctionComponent = () => {
             required={true}
             type="text"
             id="country"
-            label={t('Country')}
+            label={t('country')}
             name="country"
             placeholder="Pais"
           />
@@ -109,19 +109,18 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           <Input
             required={true}
             type="number"
-            id="zipcode"
-            label={t('Zipcode')}
-            name="zipcode"
+            id="zipCode"
+            label={t('zipCode')}
+            name="zipCode"
             placeholder="Codigo postal"
           />
         </div>
       </div>
       <Button variant="primary" className="mt-5 mb-8">
-       {t('ButtonText')}
+        {t('buttonText')}
       </Button>
     </div>
   );
 };
-
 
 export default ManufacturerInformation;
