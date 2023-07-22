@@ -1,4 +1,4 @@
-import FragmentTypes from './fragmentTypes.json';
+
 import { ApolloClient, ApolloLink, createHttpLink, InMemoryCache } from '@apollo/client';
 import settings from '@/config/settings';
 import { setContext } from '@apollo/client/link/context';

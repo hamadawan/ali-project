@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 type ProductData = {
   id: string;
   name: string;
@@ -26,7 +26,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ products }) => {
           className={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}
         >
           <td className="px-4 py-2">
-            <img
+            <Image
               src={product.imageUrl || 'https://via.placeholder.com/100x75'}
               alt={product.name}
               className="w-16 h-12 object-cover"

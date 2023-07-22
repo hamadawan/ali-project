@@ -2,7 +2,6 @@ import * as React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { SearchIcon } from '@heroicons/react/outline';
-import { MenuAlt1Icon, UserCircleIcon } from '@heroicons/react/solid';
 import SignUpIcon from '@/components/SignUpIcon';
 import logo from '../../public/puentify-logo.svg';
 import { useTranslation } from 'next-i18next';

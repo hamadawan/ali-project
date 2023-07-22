@@ -13,7 +13,7 @@ const steps = [
 
 const ProgressBar = ({ completion }) => (
   <div className="h-2 w-full bg-gray-200 rounded">
-    <div
+    <div 
       className="h-2 bg-secondary rounded"
       style={{ width: `${(completion / steps.length) * 100}%` }}
     ></div>
@@ -23,7 +23,7 @@ const ProgressBar = ({ completion }) => (
 const Step = ({ title, content, isActive, onClick }) => (
   <div className={'py-6 bg-white'}>
     <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
-      <h2 className="font-bold">{title}</h2>
+      <h2 className="font-bold text-2xl font-bold leading-8 text-[#170F49]">{title}</h2>
       <span>{isActive ? '-' : '+'}</span>
     </div>
     {isActive && <div className="mt-2">{content}</div>}

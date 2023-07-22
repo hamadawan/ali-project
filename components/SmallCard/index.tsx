@@ -7,7 +7,6 @@ import Link from 'next/link';
 const SmallCard: React.FunctionComponent<SmallCardProps> = ({
   img,
   title,
-  description,
   price,
   url,
 }) => {

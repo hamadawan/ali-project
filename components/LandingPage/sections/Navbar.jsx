@@ -26,7 +26,7 @@ const Navbar = (props) => {
                             </Link>
                         </div>
                     </div>
-                    <Search />
+                    
 
                     <div>
                         <div className=' flex gap-5 items-center'>
@@ -36,7 +36,7 @@ const Navbar = (props) => {
                             </div>
                             <div className=' hidden md:block'>
                                 <label for="Toggle4" className="inline-flex items-center p-1 cursor-pointer">
-                                    <input type="checkbox" id='Toggle4' checked={props.value} onChange={event => props.toggleLang()}  className="hidden peer" />
+                                    <input type="checkbox" id='Toggle4' checked={props.value} onChange={ props.toggleLang()}  className="hidden peer" />
                                     <span className="px-4 transition-all duration-300 py-2 text-white font-semibold bg-[#1990ff] peer-checked:bg-gray-100 peer-checked:text-black peer-checked:font-normal  rounded-s-lg">ESP</span>
                                     <span className="px-4 transition-all duration-300 py-2 bg-gray-100 peer-checked:text-white peer-checked:font-semibold peer-checked:bg-[#1990ff] rounded-e-lg">ENG</span>
                                 </label>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
                             <h1 className={!openMenu && 'animate-spin'} onClick={toggleMenu} ><AiOutlineClose size={28} /></h1>
                             <div className=''>
                                 <label for="Toggle4" className="inline-flex items-center p-1 cursor-pointer">
-                                    <input type="checkbox" id='Toggle4' checked={props.value} onChange={event => props.toggleLang()} className="hidden peer" />
+                                    <input type="checkbox" id='Toggle4' checked={props.value} onChange={ props.toggleLang()} className="hidden peer" />
                                     <span className="px-4 transition-all duration-300 py-2 text-white font-semibold bg-[#1990ff] peer-checked:bg-gray-100 peer-checked:text-black peer-checked:font-normal  rounded-s-lg">ESP</span>
                                     <span className="px-4 transition-all duration-300 py-2 bg-gray-100 peer-checked:text-white peer-checked:font-semibold peer-checked:bg-[#1990ff] rounded-e-lg">ENG</span>
                                 </label>

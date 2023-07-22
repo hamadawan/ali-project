@@ -17,9 +17,9 @@ const CallToAction = () => {
     e.preventDefault();
 
     emailjs.sendForm('service_ywgtkst', 'template_g5zq0pi', form.current, 'Z2qGEhfSte7EUC8t9')
-      .then((result) => {
+      .then(() => {
         success();
-      }, (error) => {
+      }, () => {
         faliure();
       });
     setInput('');

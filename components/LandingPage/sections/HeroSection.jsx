@@ -1,7 +1,6 @@
 import React from 'react';
 import { PopupButton } from '@typeform/embed-react';
 import heroImage from '@/public/assets/4.webp';
-import Button from '../Button';
 import Image from 'next/image';
 import PrimaryButton from '@/components/PrimaryButton';
 

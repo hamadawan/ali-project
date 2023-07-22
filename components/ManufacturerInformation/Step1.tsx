@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 
+
 const ManufacturerInformation: React.FunctionComponent = () => {
   const data = ['1123413', '2123213', '31312323'];
   return (
@@ -56,11 +57,11 @@ const ManufacturerInformation: React.FunctionComponent = () => {
         <div>
           <Input
             required={true}
-            type="street"
-            id="street"
-            label="Street"
-            name="street"
-            placeholder="Textil"
+            type="calle"
+            id="calle"
+            label="Calle"
+            name="calle"
+            placeholder="Calle"
           />
         </div>
         <div>
@@ -76,41 +77,41 @@ const ManufacturerInformation: React.FunctionComponent = () => {
         <div>
           <Input
             required={true}
-            type="city"
-            id="city"
-            label="City"
-            name="city"
-            placeholder="City"
+            type="ciudad"
+            id="ciudad"
+            label="Ciudad"
+            name="ciudad"
+            placeholder="Ciudad"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="state"
-            id="state"
-            label="State"
-            name="state"
-            placeholder="State"
+            type="estado"
+            id="estado"
+            label="Estado"
+            name="estado"
+            placeholder="Estado"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="country"
-            id="country"
-            label="Country"
-            name="country"
-            placeholder="Country"
+            type="pais"
+            id="Pais"
+            label="Pais"
+            name="pais"
+            placeholder="Pais"
           />
         </div>
         <div>
           <Input
             required={true}
-            type="zipcode"
-            id="zipcode"
-            label="Zipcode"
-            name="zpicode"
-            placeholder="Zipcode"
+            type="codigo postal"
+            id="codigo postal"
+            label="Codigo postal"
+            name="codigo postal"
+            placeholder="Codigo postal"
           />
         </div>
       </div>

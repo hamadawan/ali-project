@@ -8,7 +8,7 @@ const SignUp = () => {
   const router = useRouter();
   const [companyName, setCompanyName] = useState<string>('');
   const [errors, setErrors] = useState<any>(null);
-  const [tradeRole, setTradeRole] = useState<string>('');
+  const [tradeRole] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');

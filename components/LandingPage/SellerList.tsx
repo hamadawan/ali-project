@@ -6,7 +6,6 @@ import bullet3 from '@/public/assets/8.svg';
 import bullet4 from '@/public/assets/9.svg';
 import bullet5 from '@/public/assets/10.svg';
 import img from '@/public/assets/5.webp';
-import StorefrontButton from './StorefrontButton';
 import Image from 'next/image';
 
 const SellerList = () => {

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import LandingPageSeller from '@/components/LandingPage/index';
-export default function Home(props: any) {
+export default function Home() {
 
   return (
     <div>

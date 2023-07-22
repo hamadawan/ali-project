@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { FaHome, FaBoxOpen, FaClipboardList, FaEnvelope, FaCog } from 'react-icons/fa';
 import Products from '@/components/Products';
 import Orders from '@/components/Orders';
-import Image from 'next/image';
-import logo from '@/public/logo-mid.png';
 import Header from '@/components/Header';
 import Onboarding from '@/pages/dashboard/onboarding';
 

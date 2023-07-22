@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { GlobeAltIcon, UserCircleIcon } from '@heroicons/react/solid';
+import { UserCircleIcon } from '@heroicons/react/solid';
 import * as React from 'react';
 import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
 

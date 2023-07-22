@@ -8,12 +8,12 @@ import Header from '@/components/Header';
 
 
 const LandingPageSeller = () => {
-  const [language, setlanguage] = React.useState(true);
+  const [language] = React.useState(true);
   const [showModal, toggleModalVisibility] = React.useState(false);
 
-  const toggleLang = () => {
-    setlanguage(prevState => !prevState);
-  };
+  // const toggleLang = () => {
+  //   setlanguage(prevState => !prevState);
+  // };
   return (
     <div className="overflow-hidden">
       <Header />
