@@ -38,7 +38,7 @@ const Login = () => {
       <Header />
       <div
         id="login"
-        className="flex items-center h-screen justify-center bg-[url('/background.png')] bg-no-repeat bg-right bg-[#ECF0F2] bg-[size:100%_100%]"
+        className="flex items-center h-screen justify-center bg-[url('/background.png')] bg-no-repeat bg-right bg-[#ECF0F2] bg-[size:auto_100%] xl:bg-[size:100%_100%]"
       >
         <div className="w-[540px] bg-white rounded-[20px] px-10 py-8 shadow-xl">
           {errors && (
