@@ -20,20 +20,23 @@ const ManufacturerInformation: React.FunctionComponent = () => {
           />
         </div>
         <div>
-          <Input
-            required={true}
-            type="text"
+          <label
+            htmlFor="countries"
+            className="block font-normal text-sm mb-2 leading-5 text-[#6F6C90]"
+          >
+            {t('contactName')}
+          </label>
+          <select
             id="contactName"
-            label={t('contactName')}
+            required={true}
             name="contactName"
             placeholder="Nombre completo"
-            list="data"
-          />
-          <datalist id="data">
+            className="w-full border px-4 py-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
+          >
             {data.map((op) => (
               <option key={op}>{op}</option>
             ))}
-          </datalist>
+          </select>
         </div>
         <div>
           <Input
