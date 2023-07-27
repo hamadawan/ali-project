@@ -3,14 +3,14 @@ import { gql, useMutation } from '@apollo/client';
 interface AddManufacturerMutationVariables {
   input: {
     name: string
-    companySize: string
+    companySize: number
     industry: string
     street: string
     city: string
     state: string
     zipCode: string
-    yearEstablished: string
-    pointOfContactId: string
+    yearEstablished: number
+    pointOfContactId: number
   }
 }
 
