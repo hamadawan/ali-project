@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import LandingPageBuyer from '@/components/LandingPage/LandingPageBuyer';
-export default function Buyer(props: any) {
+export default function Buyer() {
 
   return (
     <div>

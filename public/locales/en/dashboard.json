@@ -1,0 +1,13 @@
+{
+    "companyName":"Company name",
+    "manufacturerUsers":"Manufacturer Users",
+    "companySize":"Size of the company",
+    "industry":"Industry",
+    "street":"Street",
+    "operationYear":"Year of operation",
+    "city":"City",
+    "state":"State",
+    "country":"Country",
+    "zipCode":"Zip Code",
+    "buttonText":"Keep"
+}

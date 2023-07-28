@@ -1,8 +1,8 @@
-import React from 'react'
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 const TestimonialCard = (props) => {
-    return (
+  return (
         <div data-aos="fade-left" data-aos-delay={props.animation} className=' w-[300px] rounded-2xl bg-[#26b9f1] text-white p-5'>
             <div>
                 <div className=' flex justify-end'>
@@ -21,7 +21,7 @@ const TestimonialCard = (props) => {
                 </p>
             </div>
         </div>
-    )
-}
+  );
+};
 
-export default TestimonialCard
+export default TestimonialCard;

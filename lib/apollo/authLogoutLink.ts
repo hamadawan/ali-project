@@ -3,7 +3,7 @@ import removeAuthCookies from '@/auth/removeAuthCookies';
 
 const authLogoutLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.map(({ message, locations, path }) => {
+    graphQLErrors.map(({ message }) => {
       if (message === 'Invalid login credentials. Please try again.') {
         removeAuthCookies();
         if (typeof document !== 'undefined') {

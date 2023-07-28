@@ -1,0 +1,13 @@
+{
+    "companyName":"Nombre de la empresa",
+    "manufacturerUsers":"Manufacturer Users",
+    "companySize":"Nombre de contácto",
+    "industry":"Industria",
+    "street":"Calle",
+    "operationYear":"Año de funcionamiento",
+    "city":"Ciudad",
+    "state":"Estado",
+    "country":"Pais",
+    "zipCode":"Codigo postal",
+    "buttonText":"Guardar"
+}

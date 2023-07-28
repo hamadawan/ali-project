@@ -8,7 +8,7 @@ const SignUp = () => {
   const router = useRouter();
   const [companyName, setCompanyName] = useState<string>('');
   const [errors, setErrors] = useState<any>(null);
-  const [tradeRole, setTradeRole] = useState<string>('');
+  const [tradeRole] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
@@ -26,8 +26,8 @@ const SignUp = () => {
       trade_role: tradeRole,
     });
     if (response?.status === 'error') {
-      const errors = response?.errors?.full_messages;
-      setErrors(errors);
+      const newErrors = response?.errors?.full_messages;
+      setErrors(newErrors);
     }
     if (response?.status === 'success') {
       setErrors(null);

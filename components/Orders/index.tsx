@@ -13,7 +13,7 @@ const initialOrders = [
 ];
 
 function Orders() {
-  const [orders, setOrders] = useState(initialOrders);
+  const [orders] = useState(initialOrders);
 
   const handleRowClick = (order) => {
     console.log('Selected order:', order);

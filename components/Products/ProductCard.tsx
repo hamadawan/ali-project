@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import Image from 'next/image';
 type ProductProps = {
   id: string;
   name: string;
@@ -17,7 +17,7 @@ const ProductCard: React.FC<ProductProps> = ({
   return (
     <div className="bg-white shadow-md rounded-lg p-4">
       <a href={`/product/${id}`}>
-        <img
+        <Image
           className="w-full h-48 object-cover rounded-lg"
           src={imageUrl || 'https://via.placeholder.com/300x200'}
           alt={name}

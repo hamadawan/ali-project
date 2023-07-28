@@ -5,6 +5,11 @@ const GET_CURRENT_USER = gql`
 		currentUser {
 			id
 			firstName
+      currentManufacturer {
+        id
+        name
+        email
+      }
 		}
 	}
 `;

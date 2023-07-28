@@ -1,7 +1,6 @@
-import React from 'react'
-import Button from './Button'
-import StorefrontButton from './StorefrontButton'
-import Image from "next/image";
+import React from 'react';
+import StorefrontButton from './StorefrontButton';
+import Image from 'next/image';
 
 const SpotlightCard = (props) => {
   return (
@@ -17,7 +16,7 @@ const SpotlightCard = (props) => {
             <div className=' md:ml-32 ml-20 absolute bg-[#0000004b] h-64 w-56 md:h-[500px] md:w-[200px] rounded-xl blur-xl'></div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default SpotlightCard
+export default SpotlightCard;

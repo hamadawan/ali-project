@@ -6,14 +6,14 @@ type AddProductFormProps = {
 };
 
 const AddProductForm: React.FC<AddProductFormProps> = () => {
-  const [addProduct, { loading, error }] = useAddProductMutation();
+  const [addProduct, {}] = useAddProductMutation();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
   const [minQuantity, setMinQuantity] = useState(0);
   const [maxQuantity, setMaxQuantity] = useState(0);
 
-  const [imageUrl, setImageUrl] = useState('');
+  const [ setImageUrl] = useState('');
 
   const onSubmit = async () => {
     const result = await addProduct({ variables: {

@@ -7,13 +7,12 @@ import Image from 'next/image';
 import { formatCurrency } from '@/utils/formatCurrency';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useProductsQuery } from '@/graphql/queries/useProductsQuery';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const ProductPage = (props) => {
+const ProductPage = () => {
   const products = getProducts().products;
   const router = useRouter();
   const { id } = router.query;
@@ -27,7 +26,7 @@ const ProductPage = (props) => {
     highlights: [],
     images: rawProduct.images ?? [],
   };
-  const { reviews, breadcrumbs, highlights } = product;
+  const { reviews } = product;
   const [selectedColor, setSelectedColor] = React.useState('blue');
   const [selectedSize, setSelectedSize] = React.useState('M');
 
@@ -287,7 +286,7 @@ const ProductPage = (props) => {
 
 export default ProductPage;
 
-function getStaticProps() {
+export function getStaticProps() {
   const result = getProducts();
 
   return {
