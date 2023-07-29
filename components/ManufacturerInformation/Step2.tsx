@@ -59,14 +59,6 @@ const ManufacturerInformation: React.FunctionComponent<{
         className="w-full mt-2"
         onChange={(e) => setSlug(e.target.value)}
       />
-      <Button
-        variant="primary"
-        className="mt-5"
-        disabled={!slug}
-        onClick={(e) => e.preventDefault()}
-      >
-        Agregar dominio personalizado
-      </Button>
       <Button type="submit" variant="primary" className="mt-5 mb-8">
         Guardar
       </Button>

@@ -1,3 +1,4 @@
+import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
 import React, { MouseEventHandler, useState } from 'react';
 import Image from 'next/image';
 import Step1 from '@/components/ManufacturerInformation/Step1';
@@ -40,38 +41,39 @@ const Step = ({
   isActive,
   onClick,
   handleStepClick,
-  setManufacturerId,
   manufacturerId,
   slug,
   setSlug,
-}: StepProps) => (
-  <div className={'py-6 bg-white'}>
-    <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
-      <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
-      <span>
+}: StepProps) => {
+  console.log('manufacturerId', manufacturerId)
+  return (
+    <div className={'py-6 bg-white'}>
+      <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
+        <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
+        <span>
         {isActive ? (
           <Image src="/icons/minus.svg" alt="minus image" width={14} height={2} />
         ) : (
           <Image src="/icons/plus.svg" alt="plus image" width={14} height={14} />
         )}
       </span>
+      </div>
+      <div className={`mt-2 ${isActive ? '' : 'hidden'}`}>
+        <Content
+          handleStepClick={handleStepClick}
+          manufacturerId={manufacturerId}
+          slug={slug}
+          setSlug={setSlug}
+        />
+      </div>
+      <hr className="border-gray-100 mt-4" />
     </div>
-    <div className={`mt-2 ${isActive ? '' : 'hidden'}`}>
-      <Content
-        handleStepClick={handleStepClick}
-        manufacturerId={manufacturerId}
-        setManufacturerId={setManufacturerId}
-        slug={slug}
-        setSlug={setSlug}
-      />
-    </div>
-    <hr className="border-gray-100 mt-4" />
-  </div>
-);
+  );
+}
 
 const Onboarding = () => {
+  const { data: currentUserData } = useCurrentUserQuery();
   const [activeStep, setActiveStep] = useState(0);
-  const [manufacturerId, setManufacturerId] = useState('');
   const [slug, setSlug] = useState('');
 
   const handleStepClick = (index: number) => {
@@ -97,8 +99,7 @@ const Onboarding = () => {
           isActive={index === activeStep}
           onClick={() => handleStepClick(index)}
           handleStepClick={handleStepClick}
-          setManufacturerId={setManufacturerId}
-          manufacturerId={manufacturerId}
+          manufacturerId={currentUserData?.currentUser?.currentManufacturer?.id}
           slug={slug}
           setSlug={setSlug}
         />

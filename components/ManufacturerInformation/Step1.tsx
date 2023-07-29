@@ -1,17 +1,17 @@
+import { useUpdateManufacturerMutation } from '@/graphql/mutations/useUpdateManufacturerMutation';
 import React, { useState } from 'react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { useTranslation } from 'next-i18next';
-import { useAddManufacturerMutation } from '@/graphql/mutations/useAddManufacturerMutation';
-import ManufacturerUsers from '../ManufacturerUsers';
+import UserSelect from '../UserSelect';
 import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
 
 const ManufacturerInformation: React.FunctionComponent<{
+  manufacturerId: string,
   handleStepClick: Function;
-  setManufacturerId: Function;
-}> = ({ handleStepClick, setManufacturerId }) => {
+}> = ({ handleStepClick, manufacturerId }) => {
   const { t } = useTranslation('dashboard');
-  const [createManufacturer] = useAddManufacturerMutation();
+  const [updateManufacturer] = useUpdateManufacturerMutation();
   const { data } = useCurrentUserQuery();
 
   const [companyName, setCompanyName] = useState('');
@@ -27,8 +27,11 @@ const ManufacturerInformation: React.FunctionComponent<{
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const result = await createManufacturer({
+    console.log('handleSubmit');
+    console.log('submiiiiiit')
+    const result = await updateManufacturer({
       variables: {
+        manufacturerId,
         input: {
           name: companyName,
           companySize: companySize || 0,
@@ -43,14 +46,14 @@ const ManufacturerInformation: React.FunctionComponent<{
       },
     });
 
-    if (result.data?.createManufacturer) {
-      setManufacturerId(result.data.createManufacturer.id);
+    if (result.data?.updateManufacturer) {
       handleStepClick(1);
     } else {
       setErrors(['Something went wrong!']);
     }
   };
 
+  console.log('manufacturerId', manufacturerId)
   return (
     <>
       {errors && (
@@ -89,7 +92,7 @@ const ManufacturerInformation: React.FunctionComponent<{
             >
               {t('manufacturerUsers')}
             </label>
-            <ManufacturerUsers
+            <UserSelect
               manufacturerId={+data?.currentUser?.currentManufacturer?.id}
               onChange={(e) => setPointOfContactId(+e.target.value)}
               id="manufacturerUsers"
