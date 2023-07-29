@@ -5,21 +5,16 @@ import { useRouter } from 'next/router';
 import InfoCard from '@/components/InfoCard';
 import Footer from '@/components/Footer';
 import { isPresent } from '@/utils/isPresent';
-import { getProducts } from '@/data';
+import { PuentifyApi } from '@/lib/puentifyApi';
 
-const Search = (props) => {
+const Search = (props: any) => {
   const { products } = props;
   const router = useRouter();
   const { query } = router.query;
   const [activeFilters, setFilter] = React.useState({});
-  console.log(products);
   const toggleFilter = (id: string) => {
     setFilter({ ...activeFilters, [id]: !activeFilters[id] });
   };
-
-  // const handleClick = (id: string) => {
-  //   router.push(`/product/${id}`);
-  // };
 
   return (
     <div>
@@ -85,22 +80,11 @@ export default Search;
 
 export async function getServerSideProps(context) {
   const { query } = context?.query;
-  const result = getProducts();
-  const products = result?.products;
-  const filteredProducts = products.filter((product) => {
-    if (!query) return true;
-    if (product.title.toLowerCase().includes(query.toLowerCase())) {
-      return true;
-    }
-    if (product.description.toLowerCase().includes(query.toLowerCase())) {
-      return true;
-    }
-    return false;
-  });
+  const products = await PuentifyApi.search(query);
 
   return {
     props: {
-      products: filteredProducts,
+      products: products ?? [],
     },
   };
 }

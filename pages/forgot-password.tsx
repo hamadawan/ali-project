@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-import { PuenteApi } from '@/lib/puenteApi';
+import { PuentifyApi } from '@/lib/puentifyApi';
 import { useRouter } from 'next/router';
 import { isEmpty } from '@/utils/isEmpty';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const [success, setSuccess] = useState<string | null>();
   const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.forgotPassword(email);
+    const response = await PuentifyApi.forgotPassword(email);
 
     if (!isEmpty(response?.error)) {
       setErrors([response?.error]);

@@ -2,7 +2,7 @@ import removeAuthCookies from '@/auth/removeAuthCookies';
 import settings from '@/config/settings';
 
 const host = settings.apiUrl;
-export const PuenteApi = {
+export const PuentifyApi = {
   signup: async (values: any) => {
     const response = await fetch(host + '/auth', {
       method: 'POST',

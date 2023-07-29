@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-import { PuenteApi } from '@/lib/puenteApi';
+import { PuentifyApi } from '@/lib/puentifyApi';
 import { useRouter } from 'next/router';
 import { isEmpty } from '@/utils/isEmpty';
 import setAuthCookies from '@/auth/setAuthCookies';
@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const response = await PuenteApi.signin(email, password);
+    const response = await PuentifyApi.signin(email, password);
 
     if (!isEmpty(response?.errors)) {
       setErrors(response?.errors);
@@ -99,7 +99,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      
+
     </div>
   );
 };
