@@ -11,7 +11,7 @@ export const PuentifyApi = {
       },
       body: JSON.stringify({ ...values, confirm_success_url: host + '/confirm' }),
     });
-    console.log(response);
+
     return response.json();
   },
   signin: async (email: string, password: string) => {
@@ -55,6 +55,15 @@ export const PuentifyApi = {
       body: JSON.stringify({ password, confirmedPassword, token }),
     });
     removeAuthCookies();
+    return response.json();
+  },
+  search: async (query: string) => {
+    const response = await fetch(host + '/search?query=' + query, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     return response.json();
   },
 };

@@ -11,7 +11,7 @@ const Search = (props: any) => {
   const { products } = props;
   const router = useRouter();
   const { query } = router.query;
-  const [activeFilters, setFilter] = React.useState({});
+  const [activeFilters, setFilter] = React.useState<any>({});
   const toggleFilter = (id: string) => {
     setFilter({ ...activeFilters, [id]: !activeFilters[id] });
   };
@@ -55,7 +55,7 @@ const Search = (props: any) => {
               No products found. Try searching for other products
             </div>
           )}
-          {products.map((product) => (
+          {products.map((product: { id: React.Key | null | undefined; title: string; description: string; price: number; rating: number; thumbnail: string; category: string; brand: string; }) => (
             <InfoCard
               key={product.id}
               id={product.id}
