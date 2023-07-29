@@ -1,3 +1,4 @@
+import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
 import * as React from 'react';
 import { useState } from 'react';
 import { FaHome, FaBoxOpen, FaClipboardList, FaEnvelope, FaCog } from 'react-icons/fa';
@@ -5,6 +6,7 @@ import Products from '@/components/Products';
 import Orders from '@/components/Orders';
 import Header from '@/components/Header';
 import Onboarding from '@/pages/dashboard/onboarding';
+import PuentifyLoader from '@/components/PuentifyLoader';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type NavItem = {
@@ -43,10 +45,19 @@ const navItems: NavItem[] = [
 
 const Dashboard = () => {
   const [activeNavItemIndex, setActiveNavItemIndex] = useState<number>(0);
+  const { data, loading } = useCurrentUserQuery();
 
   const handleNavItemOnClick = (index: number) => {
     setActiveNavItemIndex(index);
   };
+
+  if (loading) {
+    return <PuentifyLoader />;
+  }
+
+  if (!data && !loading) return (
+    <div>You need to be logged in</div>
+  );
 
   return (
     <div>
