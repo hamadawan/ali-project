@@ -27,8 +27,6 @@ const ManufacturerInformation: React.FunctionComponent<{
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('handleSubmit');
-    console.log('submiiiiiit')
     const result = await updateManufacturer({
       variables: {
         manufacturerId,
@@ -53,7 +51,6 @@ const ManufacturerInformation: React.FunctionComponent<{
     }
   };
 
-  console.log('manufacturerId', manufacturerId)
   return (
     <>
       {errors && (

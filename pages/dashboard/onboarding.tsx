@@ -11,7 +11,6 @@ export interface StepProps {
   isActive: boolean;
   title: string;
   handleStepClick: Function;
-  setManufacturerId: Function;
   manufacturerId: string;
   slug: string;
   setSlug: Function;
@@ -44,32 +43,29 @@ const Step = ({
   manufacturerId,
   slug,
   setSlug,
-}: StepProps) => {
-  console.log('manufacturerId', manufacturerId)
-  return (
-    <div className={'py-6 bg-white'}>
-      <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
-        <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
-        <span>
+}: StepProps) => (
+  <div className={'py-6 bg-white'}>
+    <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
+      <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
+      <span>
         {isActive ? (
           <Image src="/icons/minus.svg" alt="minus image" width={14} height={2} />
         ) : (
           <Image src="/icons/plus.svg" alt="plus image" width={14} height={14} />
         )}
       </span>
-      </div>
-      <div className={`mt-2 ${isActive ? '' : 'hidden'}`}>
-        <Content
-          handleStepClick={handleStepClick}
-          manufacturerId={manufacturerId}
-          slug={slug}
-          setSlug={setSlug}
-        />
-      </div>
-      <hr className="border-gray-100 mt-4" />
     </div>
-  );
-}
+    <div className={`mt-2 ${isActive ? '' : 'hidden'}`}>
+      <Content
+        handleStepClick={handleStepClick}
+        manufacturerId={manufacturerId}
+        slug={slug}
+        setSlug={setSlug}
+      />
+    </div>
+    <hr className="border-gray-100 mt-4" />
+  </div>
+);
 
 const Onboarding = () => {
   const { data: currentUserData } = useCurrentUserQuery();
