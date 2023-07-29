@@ -5,6 +5,7 @@ import Step3 from '@/components/ManufacturerInformation/Step3';
 import Step4 from '@/components/ManufacturerInformation/Step4';
 import Image from 'next/image';
 import { StepProps } from './step.interface';
+import { Button } from '@/components/ui/button';
 
 const steps = [
   { title: '1. Informacion de fabricante', content: Step1 },
@@ -17,12 +18,22 @@ const ProgressBar = ({ completion }: { completion: number }) => (
   <div className="h-4 w-full bg-gray-200 rounded-lg">
     <div
       className="h-4 bg-secondary rounded-lg"
-      style={{ width: `${(completion / steps.length) * 100}%` }}
+      style={{ width: `${(Math.min(completion, 4) / steps.length) * 100}%` }}
     ></div>
   </div>
 );
 
-const Step = ({ title, content: Content, isActive, onClick, handleStepClick, setManufacturerId }: StepProps) => (
+const Step = ({
+  title,
+  content: Content,
+  isActive,
+  onClick,
+  handleStepClick,
+  setManufacturerId,
+  manufacturerId,
+  slug,
+  setSlug,
+}: StepProps) => (
   <div className={'py-6 bg-white'}>
     <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
       <h2 className="md:font-bold text-lg md:text-2xl leading-8 text-[#170F49]">{title}</h2>
@@ -35,7 +46,13 @@ const Step = ({ title, content: Content, isActive, onClick, handleStepClick, set
       </span>
     </div>
     <div className={`mt-2 ${isActive ? '' : 'hidden'}`}>
-      <Content handleStepClick={handleStepClick} setManufacturerId={setManufacturerId} />
+      <Content
+        handleStepClick={handleStepClick}
+        manufacturerId={manufacturerId}
+        setManufacturerId={setManufacturerId}
+        slug={slug}
+        setSlug={setSlug}
+      />
     </div>
     <hr className="border-gray-100 mt-4" />
   </div>
@@ -43,7 +60,8 @@ const Step = ({ title, content: Content, isActive, onClick, handleStepClick, set
 
 const Onboarding = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [, setManufacturerId] = useState('');
+  const [manufacturerId, setManufacturerId] = useState('');
+  const [slug, setSlug] = useState('');
 
   const handleStepClick = (index: number) => {
     setActiveStep(index);
@@ -69,8 +87,21 @@ const Onboarding = () => {
           onClick={() => handleStepClick(index)}
           handleStepClick={handleStepClick}
           setManufacturerId={setManufacturerId}
+          manufacturerId={manufacturerId}
+          slug={slug}
+          setSlug={setSlug}
         />
       ))}
+      {activeStep === 4 && (
+        <div>
+          <p className="py-5 text-center text-lg leading-8 text-[#170F49]">
+            ¡Tu tienda ha sido publicada con éxito!
+          </p>
+          <Button variant="secondary" className="mt-6 mb-8">
+            Visitar tienda
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
