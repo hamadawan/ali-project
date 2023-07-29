@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-import { PuenteApi } from '@/lib/puenteApi';
+import { PuentifyApi } from '@/lib/puentifyApi';
 import { useRouter } from 'next/router';
 import { isEmpty } from '@/utils/isEmpty';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const [confirmedPassword, setConfirmedPassword] = useState<string>();
   const [errors, setErrors] = useState<string[]>([]);
   const [success, setSuccess] = useState<string | null>();
-  
+
   const clearPasswords = () => {
     setPassword('');
     setConfirmedPassword('');
@@ -27,7 +27,7 @@ const ResetPassword = () => {
       return;
     }
     const token = getResetPasswordToken();
-    const response = await PuenteApi.resetPassword({
+    const response = await PuentifyApi.resetPassword({
       password,
       confirmedPassword,
       token,

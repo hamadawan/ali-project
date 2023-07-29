@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-import { PuenteApi } from '@/lib/puenteApi';
+import { PuentifyApi } from '@/lib/puentifyApi';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -17,7 +17,7 @@ const SignUp = () => {
 
   const handleSubmit = async (event:any) => {
     event.preventDefault();
-    const response = await PuenteApi.signup({
+    const response = await PuentifyApi.signup({
       email,
       password,
       first_name: firstName,
