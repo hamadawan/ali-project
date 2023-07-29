@@ -5,7 +5,7 @@ export interface SelectProps extends React.InputHTMLAttributes<HTMLSelectElement
   id: string;
 }
 
-const ManufacturerUsers = ({ manufacturerId, onChange, ...props }: SelectProps) => {
+const UserSelect = ({ manufacturerId, onChange, ...props }: SelectProps) => {
   const { data } = useManufacturerUsersQuery(manufacturerId);
   return (
     <select onChange={onChange} {...props}>
@@ -17,4 +17,4 @@ const ManufacturerUsers = ({ manufacturerId, onChange, ...props }: SelectProps) 
   );
 };
 
-export default ManufacturerUsers;
+export default UserSelect;

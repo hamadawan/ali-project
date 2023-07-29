@@ -1,3 +1,4 @@
+import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
 import React, { MouseEventHandler, useState } from 'react';
 import Image from 'next/image';
 import Step1 from '@/components/ManufacturerInformation/Step1';
@@ -10,7 +11,6 @@ export interface StepProps {
   isActive: boolean;
   title: string;
   handleStepClick: Function;
-  setManufacturerId: Function;
   manufacturerId: string;
   slug: string;
   setSlug: Function;
@@ -40,7 +40,6 @@ const Step = ({
   isActive,
   onClick,
   handleStepClick,
-  setManufacturerId,
   manufacturerId,
   slug,
   setSlug,
@@ -60,7 +59,6 @@ const Step = ({
       <Content
         handleStepClick={handleStepClick}
         manufacturerId={manufacturerId}
-        setManufacturerId={setManufacturerId}
         slug={slug}
         setSlug={setSlug}
       />
@@ -70,8 +68,8 @@ const Step = ({
 );
 
 const Onboarding = () => {
+  const { data: currentUserData } = useCurrentUserQuery();
   const [activeStep, setActiveStep] = useState(0);
-  const [manufacturerId, setManufacturerId] = useState('');
   const [slug, setSlug] = useState('');
 
   const handleStepClick = (index: number) => {
@@ -97,8 +95,7 @@ const Onboarding = () => {
           isActive={index === activeStep}
           onClick={() => handleStepClick(index)}
           handleStepClick={handleStepClick}
-          setManufacturerId={setManufacturerId}
-          manufacturerId={manufacturerId}
+          manufacturerId={currentUserData?.currentUser?.currentManufacturer?.id}
           slug={slug}
           setSlug={setSlug}
         />
