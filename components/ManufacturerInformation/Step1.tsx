@@ -22,8 +22,8 @@ const ManufacturerInformation: React.FunctionComponent<{
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [zipCode, setZipCode] = useState('');
-  const [errors, setErrors] = useState<any>(null);
   const [pointOfContactId, setPointOfContactId] = useState<number | null>(null);
+  const [errors, setErrors] = useState<any>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
