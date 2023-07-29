@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
+import Image from 'next/image';
 import Step1 from '@/components/ManufacturerInformation/Step1';
 import Step2 from '@/components/ManufacturerInformation/Step2';
 import Step3 from '@/components/ManufacturerInformation/Step3';
 import Step4 from '@/components/ManufacturerInformation/Step4';
-import Image from 'next/image';
-import { StepProps } from './step.interface';
 import { Button } from '@/components/ui/button';
+
+export interface StepProps {
+  isActive: boolean;
+  title: string;
+  handleStepClick: Function;
+  setManufacturerId: Function;
+  manufacturerId: string;
+  slug: string;
+  setSlug: Function;
+  onClick: MouseEventHandler<HTMLDivElement>;
+  content: any;
+}
 
 const steps = [
   { title: '1. Informacion de fabricante', content: Step1 },
