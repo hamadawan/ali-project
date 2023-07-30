@@ -43,6 +43,7 @@ const Products = () => {
         <AddProductModal isOpen={isOpen} setIsOpen={setIsModalOpen} />
     </div>
     </div>
+    
   );
 };
 
