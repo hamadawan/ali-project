@@ -55,9 +55,9 @@ const Dashboard = () => {
     return <PuentifyLoader />;
   }
 
-  // if (!data && !loading) return (
-  //   <div>You need to be logged in</div>
-  // );
+  if (!data && !loading) return (
+    <div>You need to be logged in</div>
+  );
 
   return (
     <div>
