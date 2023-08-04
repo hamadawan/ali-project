@@ -3,8 +3,8 @@ import PuentifyLoader from '@/components/PuentifyLoader';
 import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
 import { useRouter } from 'next/router';
 
-const withAuth = WrappedComponent => {
-  const Wrapper = props => {
+const withAuth: any = (WrappedComponent: JSX.IntrinsicAttributes) => {
+  const Wrapper = (props: any) => {
     const router = useRouter();
     const { data, loading } = useCurrentUserQuery();
 
