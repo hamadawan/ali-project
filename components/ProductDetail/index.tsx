@@ -2,10 +2,11 @@ import * as React from "react";
 import { Input } from "../ui/input";
 import UserSelect from "../UserSelect";
 
+
 const ProductDetail: React.FunctionComponent = () => {
   return (
-    <div>
-      <div className="font-[Raleway] text-2xl font-bold leading-8 mb-5 text-[#170F49]">
+    <div className="mt-9">
+      <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         Detalles del producto
       </div>
       <div className="w-[750px] h-[411px] rounded-[20px] bg-[#FFF]">

@@ -3,8 +3,8 @@ import { Input } from "../ui/input";
 
 const ProductPrice: React.FunctionComponent = () => {
   return (
-    <div>
-      <div className="font-[Raleway] text-2xl font-bold leading-8 mb-5 text-[#170F49]">
+    <div className="mt-12">
+      <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         Precio
       </div>
       <div className="w-[750px] h-[251px] rounded-[20px] bg-[#FFF] mt-5">

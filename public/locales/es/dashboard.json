@@ -1,13 +1,17 @@
 {
     "companyName":"Nombre de la empresa",
+    "enterCompanyName":"Introducir nombre de la empresa",
     "manufacturerUsers":"Manufacturer Users",
-    "companySize":"Nombre de contácto",
+    "companySize":"Tamaño de la empresa",
+    "median":"Mediana",
     "industry":"Industria",
+    "textile":"Textil",
     "street":"Calle",
     "operationYear":"Año de funcionamiento",
     "city":"Ciudad",
     "state":"Estado",
-    "country":"Pais",
     "zipCode":"Codigo postal",
     "buttonText":"Guardar"
+    
+
 }

@@ -3,6 +3,7 @@ import { useProductsQuery } from '@/graphql/queries/useProductsQuery';
 import ProductsList from '@/components/Products/ProductsList';
 import AddProductModal from '@/components/Products/AddProductModal';
 
+
 type ViewMode = 'card' | 'table';
 
 const Products = () => {
@@ -43,7 +44,8 @@ const Products = () => {
         <AddProductModal isOpen={isOpen} setIsOpen={setIsModalOpen} />
     </div>
     </div>
-    
+
+
   );
 };
 

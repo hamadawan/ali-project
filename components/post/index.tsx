@@ -3,7 +3,7 @@ import { Input } from "../ui/input";
 
 const Post: React.FunctionComponent = () => {
   return (
-    <div>
+    <div className="mt-9">
       <div className="font-[Raleway] text-2xl font-bold leading-8 mb-5 text-[#170F49]">
         Publicar
       </div>
