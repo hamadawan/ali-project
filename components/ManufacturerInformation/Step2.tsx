@@ -29,6 +29,8 @@ const ManufacturerInformation: React.FunctionComponent<{
       setErrors(['Something went wrong!']);
     }
   };
+
+  console.log('nombre de mi tienda', slug)
   return (
     <form onSubmit={handleSubmit}>
       {errors && (
@@ -47,8 +49,7 @@ const ManufacturerInformation: React.FunctionComponent<{
         </div>
       )}
       <div className="mt-[25px] font-[Roboto] text-sm font-extrabold leading-[21px] text-[#170F49]">
-        https://www.puentify.com/
-        <span className="font-normal text-[#0860C6]">nombre-de-mi-tienda</span>
+        <p>https://www.puentify.com/{slug.length > 0 ? slug : 'nombre-de-mi-tienda'}</p>
       </div>
       <Input
         required={true}
