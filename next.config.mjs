@@ -10,6 +10,7 @@ const nextConfig = {
       "https://links.papareact.com",
       "links.papareact.com",
       "i.dummyjson.com",
+      "via.placeholder.com"
     ],
   },
   typescript: {

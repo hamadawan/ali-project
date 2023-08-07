@@ -18,9 +18,11 @@ const ProductCard: React.FC<ProductProps> = ({
     <div className="bg-white shadow-md rounded-lg p-4">
       <a href={`/product/${id}`}>
         <Image
-          className="w-full h-48 object-cover rounded-lg"
+          className="w-3 object-cover rounded-lg"
           src={imageUrl || 'https://via.placeholder.com/300x200'}
           alt={name}
+          width="200"
+          height="200"
         />
       </a>
       <div className="flex justify-between mt-2">
