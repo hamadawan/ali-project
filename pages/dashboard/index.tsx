@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { FaHome, FaBoxOpen, FaClipboardList, FaEnvelope, FaCog } from 'react-icons/fa';
-import Orders from '@/components/Orders';
 import withAuth from '@/components/AuthenticationWrapper/AuthenticationWrapper';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import logo from '@/public/logo-white.svg';
@@ -31,13 +30,11 @@ const navItems: NavItem[] = [
     id: 'orders',
     name: 'Orders',
     icon: <FaClipboardList className="w-6 h-6" />,
-    content: <Orders />,
   },
   {
     id: 'messages',
     name: 'Messages',
     icon: <FaEnvelope className="w-6 h-6" />,
-    content: <div className="text-gray-700">Messages content goes here</div>,
   },
   {
     id: 'settings',
