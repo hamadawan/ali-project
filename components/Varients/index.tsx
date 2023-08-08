@@ -3,6 +3,8 @@ import { Input } from "../ui/input";
 import Image from "next/image";
 
 const Varients: React.FunctionComponent = () => {
+  const [options, setOptions] = React.useState([{name: "Color 1", value: "#456765", price: 123}])
+  
   return (
     <div className="">
       <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
@@ -22,92 +24,43 @@ const Varients: React.FunctionComponent = () => {
           Opciones
         </div>
         <div>
-          <div className="grid grid-cols-3 gap-5">
-            <Input
-              required={true}
-              type="Option"
-              id="Option"
-              label="Opciones 1"
-              name="Option"
-              placeholder="color 1"
-            />
-            <div>
-              <Input
-                className=""
-                required={true}
-                type="Worth"
-                id="Worth"
-                label="Valor"
-                name="Worth"
-                placeholder=""
-              />
-              <div className="bg-[#EB232A] w-5 h-5 rounded-[5px]  ml-2 mt-1"></div>
-            </div>
-            <Input
-              required={true}
-              type="Price"
-              id="Price"
-              label="Precio"
-              name="Price"
-              placeholder="$10.00"
-            />
-             {/* <Image src="/bin.svg" alt="" width={21} height={20} /> */}
-            <Input
-              required={true}
-              type="Option"
-              id="Option"
-              label="Opciones 1"
-              name="Option"
-              placeholder="color 1"
-            />
-            <div>
-              <Input
-                required={true}
-                type="Worth"
-                id="Worth"
-                label="Valor"
-                name="Worth"
-                placeholder="#7242f5"
-              />
-              <div className="bg-[#7242F5] w-5 h-5 rounded-[5px]  ml-2 mt-1"></div>
-            </div>
-            <Input
-              required={true}
-              type="Price"
-              id="Price"
-              label="Precio"
-              name="Price"
-              placeholder="$10.00"
-            />
-
-            <Input
-              required={true}
-              type="Option"
-              id="Option"
-              label="Opciones 1"
-              name="Option"
-              placeholder="color 1"
-            />
-            <div>
-              <Input
-                required={true}
-                type="Worth"
-                id="Worth"
-                label="Valor"
-                name="Worth"
-                placeholder="#acdb79"
-              />
-              <div className="bg-[#ACDB79] w-5 h-5 rounded-[5px]  ml-2 mt-1"></div>
-            </div>
-            <Input
-              required={true}
-              type="Price"
-              id="Price"
-              label="Precio"
-              name="Price"
-              placeholder="$10.00"
-            />
-          </div>
+          {
+            options.map(option => {
+              return <div className="flex flex-row gap-5">
+                <Input
+                  required={true}
+                  type="Option"
+                  id="Option"
+                  label="Opciones 1"
+                  name="Option"
+                  placeholder="color 1"
+                  value={option.name}
+                />
+                <div className="relative">
+                  <Input
+                    className="pl-12"
+                    required={true}
+                    type="Worth"
+                    id="Worth"
+                    label="Valor"
+                    name="Worth"
+                    placeholder=""
+                    value={option.value}
+                  />
+                  <div className="absolute left-4 top-11 w-5 h-5 rounded-[5px]" style={{background: option.value}}></div>
+                </div>
+                <Input
+                  required={true}
+                  type="Price"
+                  id="Price"
+                  label="Precio"
+                  name="Price"
+                  placeholder="$10.00"
+                />
+                <Image src="/bin.svg" alt="" width={21} height={20} />
+              </div>
+            })
+          }
         </div>
       </div>
     </div>
