@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Varients from '@/components/Varients';
+import Estatus from '@/components/Estatus'
 
 const Login = () => {
   const router = useRouter();
@@ -99,6 +101,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Varients />
+      <Estatus />
     </div>
   );
 };
