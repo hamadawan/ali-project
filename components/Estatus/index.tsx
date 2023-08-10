@@ -4,7 +4,7 @@ import Select from "../ui/Select";
 
 const Footer: React.FunctionComponent = () => {
   return (
-    <div>
+    <div >
       <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         Estatus
       </div>

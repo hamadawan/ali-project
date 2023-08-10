@@ -2,11 +2,27 @@ import * as React from "react";
 import { Input } from "../ui/input";
 import Image from "next/image";
 
-const Varients: React.FunctionComponent = () => {
-  const [options, setOptions] = React.useState([{name: "Color 1", value: "#456765", price: 123}])
-  
+const Varients: React.FunctionComponent<{
+  varientName:string;
+  setVarientName : Function;
+}> = ({
+  varientName,
+  setVarientName,
+}) => {
+  const [options, setOptions] = React.useState([
+    { name: "Color 1", value: "#456765", price: 123 },
+  ]);
+  const addRow = () => {
+    setOptions([...options ,{name: "", value: "", price:0}])
+  };
+  const removeRow = (i) => {
+    const newForm = [...options]
+    newForm.splice(i, 1)
+    setOptions(newForm)
+  }
+
   return (
-    <div className="">
+    <div>
       <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         Variantes
       </div>
@@ -14,19 +30,33 @@ const Varients: React.FunctionComponent = () => {
         <Input
           className="mb-4"
           required={true}
-          type="Color"
-          id="Color"
+          type="varientName"
+          id="varient"
           label="Nombre variante"
-          name="Color"
+          name="varient"
           placeholder="Color"
+          onChange={(e) => setVarientName(e.target.value)}
+          value={varientName}
         />
-        <div className="font-[DM Sans] font-medium text-2xl leading-[28px] text-[#26B9F1] mb-5">
-          Opciones
+        <div>
+          <div className="relative font-[DM Sans] font-medium text-2xl leading-[28px] text-[#26B9F1] mb-5">
+            Opciones
+            <div className="flex justify-end">
+              <button className=" absolute mt-[-14px] pl-6" onClick={addRow}>
+                <Image
+                  src="/icons/plus.svg"
+                  alt="plus image"
+                  width={14}
+                  height={14}
+                />
+              </button>
+            </div>
+          </div>
         </div>
         <div>
-          {
-            options.map(option => {
-              return <div className="flex flex-row gap-5">
+          {options.map((option,i) => {
+            return (
+              <div className="flex flex-row gap-5 mb-5">
                 <Input
                   required={true}
                   type="Option"
@@ -44,10 +74,14 @@ const Varients: React.FunctionComponent = () => {
                     id="Worth"
                     label="Valor"
                     name="Worth"
-                    placeholder=""
+                    placeholder="#232323"
                     value={option.value}
                   />
-                  <div className="absolute left-4 top-11 w-5 h-5 rounded-[5px]" style={{background: option.value}}></div>
+                  <div
+                    className="absolute left-4 top-11 w-5 h-5 rounded-[5px]"
+                    style={{ background: option.value }}
+                    
+                  ></div>
                 </div>
                 <Input
                   required={true}
@@ -56,11 +90,14 @@ const Varients: React.FunctionComponent = () => {
                   label="Precio"
                   name="Price"
                   placeholder="$10.00"
+                  value={option.price}
                 />
+                <button onClick={()=>removeRow(i)}>
                 <Image src="/bin.svg" alt="" width={21} height={20} />
+                </button>
               </div>
-            })
-          }
+            );
+          })}
         </div>
       </div>
     </div>

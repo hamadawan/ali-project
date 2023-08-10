@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ProductDetail from "@/components/ProductDetail";
 import Images from "@/components/Images";
+import Varients from "@/components/Varients";
+import Estatus from "@/components/Estatus";
 import ProductPrice from "@/components/ProductPrice";
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +11,7 @@ const NewProduct: React.FunctionComponent = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [images, setImages] = useState<string[]>([]);
+  const [varientName,setVarientName]= useState("");
 
   const categories = [
     { name: "Option", value: "1" },
@@ -50,11 +53,16 @@ const NewProduct: React.FunctionComponent = () => {
               categories={categories}
             />
             <Images className="mt-9" images={images} setImages={setImages} />
+            <Varients
+            varientName={varientName}
+            setVarientName={setVarientName}
+            />
             <Button variant="primary" className="mb-3 mt-9" type="submit">
               Publicar producto
             </Button>
           </div>
           <div className="col-span-12 md:col-span-4 pr-6">
+            <Estatus />
             <ProductPrice
               className="mt-9"
               price={price}
