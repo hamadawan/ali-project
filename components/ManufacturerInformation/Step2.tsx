@@ -30,7 +30,6 @@ const ManufacturerInformation: React.FunctionComponent<{
     }
   };
 
-  console.log('nombre de mi tienda', slug)
   return (
     <form onSubmit={handleSubmit}>
       {errors && (

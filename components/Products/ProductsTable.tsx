@@ -30,6 +30,8 @@ const ProductTable: React.FC<ProductTableProps> = ({ products }) => {
               src={product.imageUrl || 'https://via.placeholder.com/100x75'}
               alt={product.name}
               className="w-16 h-12 object-cover"
+              width="200"
+              height="200"
             />
           </td>
           <td className="px-4 py-2">{product.name}</td>

@@ -1,8 +1,11 @@
 query getProducts {
     products {
-    id
-    name
-    description
-    reviews
+      id
+      name
+      description
+      reviews
+      productVariants {
+          id
+      }
     }
 }

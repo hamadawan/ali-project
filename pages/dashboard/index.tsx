@@ -1,12 +1,9 @@
 import DashboardHeader from '@/components/DashboardHeader';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-import { useState } from 'react';
 import { FaHome, FaBoxOpen, FaClipboardList, FaEnvelope, FaCog } from 'react-icons/fa';
-import Products from '@/components/Products';
-import Orders from '@/components/Orders';
-import Onboarding from '@/pages/dashboard/onboarding';
 import withAuth from '@/components/AuthenticationWrapper/AuthenticationWrapper';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import logo from '@/public/logo-white.svg';
@@ -15,33 +12,29 @@ type NavItem = {
   id: string;
   name: string;
   icon: JSX.Element;
-  content: JSX.Element;
+  content?: JSX.Element;
 };
 
 const navItems: NavItem[] = [
   {
-    id: 'home',
+    id: 'onboarding',
     name: 'Home',
     icon: <FaHome className="w-6 h-6" />,
-    content: <Onboarding />,
   },
   {
     id: 'products',
     name: 'Products',
     icon: <FaBoxOpen className="w-6 h-6" />,
-    content: <Products />,
   },
   {
     id: 'orders',
     name: 'Orders',
     icon: <FaClipboardList className="w-6 h-6" />,
-    content: <Orders />,
   },
   {
     id: 'messages',
     name: 'Messages',
     icon: <FaEnvelope className="w-6 h-6" />,
-    content: <div className="text-gray-700">Messages content goes here</div>,
   },
   {
     id: 'settings',
@@ -51,13 +44,8 @@ const navItems: NavItem[] = [
   },
 ];
 
-const Dashboard = () => {
-  const [activeNavItemIndex, setActiveNavItemIndex] = useState<string>('home');
+const Dashboard: React.Component = ({ children }) => {
   const router = useRouter();
-
-  const handleNavItemOnClick = (index: string) => {
-    setActiveNavItemIndex(index);
-  };
 
   return (
     <div>
@@ -69,18 +57,18 @@ const Dashboard = () => {
             </div>
             <div className="w-full flex-grow mt-8">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.id}
+                  href={`/dashboard/${item.id}`}
                   className={`${
-                    activeNavItemIndex === item.id
+                    router.pathname.includes(item.id)
                       ? 'w-full bg-secondary text-white'
                       : 'w-full hover:bg-secondary/40'
                   } flex items-center px-4 py-4 mb-2 rounded-md transition-colors duration-300`}
-                  onClick={() => handleNavItemOnClick(item.id)}
                 >
                   <span className="mr-2">{item.icon}</span>
                   <span className="">{item.name}</span>
-                </button>
+                </Link>
               ))}
             </div>
           </nav>
@@ -89,7 +77,7 @@ const Dashboard = () => {
           <DashboardHeader />
           <div className="p-5 md:p-8 bg-gray-100">
             <div className="bg-white shadow-md p-2 md:p-8 rounded-md">
-              {navItems.find((item) => item.id === activeNavItemIndex)?.content}
+              { children }
             </div>
           </div>
         </div>

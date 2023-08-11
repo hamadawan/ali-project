@@ -1,4 +1,5 @@
 import { useCurrentUserQuery } from '@/graphql/queries/useCurrentUserQuery';
+import Dashboard from '@/pages/dashboard/index';
 import React, { MouseEventHandler, useState } from 'react';
 import Image from 'next/image';
 import Step1 from '@/components/ManufacturerInformation/Step1';
@@ -77,40 +78,42 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="p-4 mx-auto max-w-3xl">
-      <div className="h-30 mb-8">
-        <h1 className="font-bold text-2xl mb-6 text-center text-secondary">Comienza a vender</h1>
-        <p className="text-center pb-4">
-          <span className="font-bold"> {`${activeStep} de ${steps.length} `}</span>
-          tareas completadas
-        </p>
-        <ProgressBar completion={activeStep + 1} />
-      </div>
-      <hr className="border-gray-100 mt-4" />
-      {steps.map((step, index) => (
-        <Step
-          key={index}
-          title={step.title}
-          content={step.content}
-          isActive={index === activeStep}
-          onClick={() => handleStepClick(index)}
-          handleStepClick={handleStepClick}
-          manufacturerId={currentUserData?.currentUser?.currentManufacturer?.id}
-          slug={slug}
-          setSlug={setSlug}
-        />
-      ))}
-      {activeStep === 4 && (
-        <div>
-          <p className="py-5 text-center text-lg leading-8 text-[#170F49]">
-            ¡Tu tienda ha sido publicada con éxito!
+    <Dashboard>
+      <div className="p-4 mx-auto max-w-3xl">
+        <div className="h-30 mb-8">
+          <h1 className="font-bold text-2xl mb-6 text-center text-secondary">Comienza a vender</h1>
+          <p className="text-center pb-4">
+            <span className="font-bold"> {`${activeStep} de ${steps.length} `}</span>
+            tareas completadas
           </p>
-          <Button variant="secondary" className="mt-6 mb-8">
-            Visitar tienda
-          </Button>
+          <ProgressBar completion={activeStep + 1} />
         </div>
-      )}
-    </div>
+        <hr className="border-gray-100 mt-4" />
+        {steps.map((step, index) => (
+          <Step
+            key={index}
+            title={step.title}
+            content={step.content}
+            isActive={index === activeStep}
+            onClick={() => handleStepClick(index)}
+            handleStepClick={handleStepClick}
+            manufacturerId={currentUserData?.currentUser?.currentManufacturer?.id}
+            slug={slug}
+            setSlug={setSlug}
+          />
+        ))}
+        {activeStep === 4 && (
+          <div>
+            <p className="py-5 text-center text-lg leading-8 text-[#170F49]">
+              ¡Tu tienda ha sido publicada con éxito!
+            </p>
+            <Button variant="secondary" className="mt-6 mb-8">
+              Visitar tienda
+            </Button>
+          </div>
+        )}
+      </div>
+    </Dashboard>
   );
 };
 
