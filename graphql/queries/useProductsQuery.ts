@@ -1,4 +1,4 @@
-import {gql, useQuery} from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 
 const GET_PRODUCTS = gql`
 	query GetProducts {
@@ -6,6 +6,20 @@ const GET_PRODUCTS = gql`
 			id
 			name
 			description
+			reviews {
+				id
+			}
+			productVariants {
+				id
+				variant {
+					id
+					name
+				}
+				variantValue {
+					id
+					value
+				}
+			}
 		}
 	}
 `;
@@ -13,10 +27,10 @@ const GET_PRODUCTS = gql`
 
 export const useProductsQuery = () => {
   const result = useQuery(GET_PRODUCTS);
-	const { data, loading, error } = result;
+  const { data, loading, error } = result;
   return {
     data,
     loading,
     error,
   };
-}
+};
