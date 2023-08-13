@@ -9,6 +9,7 @@ import ProductPrice from "@/components/ProductPrice";
 import { Button } from "@/components/ui/button";
 import { useCategories } from "@/graphql/queries/useCategories";
 import { useAddProductMutation } from "@/graphql/mutations/useAddProductMutation";
+import { PuentifyApi } from '@/lib/puentifyApi';
 
 const AddProductPage = () => {
   const { data: categoriesData } = useCategories();
@@ -45,6 +46,8 @@ const AddProductPage = () => {
         },
       },
     });
+    result.data?.createProduct.id
+    await PuentifyApi.uploadProductImages(result.data?.createProduct?.id ?? "", images)
     console.log(result, "here");
   };
 
