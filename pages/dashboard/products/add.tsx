@@ -7,38 +7,50 @@ import Varients from "@/components/Varients";
 import Estatus from "@/components/Estatus";
 import ProductPrice from "@/components/ProductPrice";
 import { Button } from "@/components/ui/button";
+import { useCategories } from "@/graphql/queries/useCategories";
+import { useAddProductMutation } from "@/graphql/mutations/useAddProductMutation";
 
 const AddProductPage = () => {
+  const { data: categoriesData } = useCategories();
+  const [createProduct] = useAddProductMutation();
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [images, setImages] = useState<string[]>([]);
-  const [varientName, setVarientName] = useState("");
-
-  const categories = [
-    { name: "Option", value: "1" },
-    { name: "Option 2", value: "2" },
-  ];
-
+  const [varients, setVarients] = useState([]);
+  const [status, setStatus] = useState<string>('active');
   const [price, setPrice] = useState<number>(0);
-  const [unitPrice, setUnitPrice] = useState<number>(0);
+  const [currency, setCurrency] = useState<string>("");
 
-  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const categories = categoriesData?.categories?.map((category) => ({
+    name: category.name,
+    value: category.id,
+  }));
+
+  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const product = {
       name,
       category,
       description,
-      images,
       price,
-      unitPrice,
+      currency,
+      status,
+      productVariants: varients,
     };
-    console.log("Call add product API", product);
+    const result = await createProduct({
+      variables: {
+        input: {
+          ...product,
+        },
+      },
+    });
+    console.log(result, "here");
   };
 
   return (
     <Dashboard>
-      <div className="bg-[#EDEFF2]">
+      <div className="bg-[#EDEFF2] pt-2">
         <div className="ml-12">
           <div className="font-[Raleway] mt-9  text-5xl font-bold leading-[63px] text-[#170F49]">
             Nuevo producto
@@ -56,23 +68,19 @@ const AddProductPage = () => {
                 categories={categories}
               />
               <Images className="mt-9" images={images} setImages={setImages} />
-              <Varients
-                className="mt-9"
-                varientName={varientName}
-                setVarientName={setVarientName}
-              />
+              <Varients className="mt-9" varients={varients} setVarients={setVarients} />
               <Button variant="primary" className="mb-3 mt-9" type="submit">
                 Publicar producto
               </Button>
             </div>
             <div className="col-span-12 md:col-span-4 pr-6">
-              <Estatus />
+              <Estatus className="mt-9" status={status} setStatus={setStatus} />
               <ProductPrice
                 className="mt-9"
                 price={price}
                 setPrice={setPrice}
-                unitPrice={unitPrice}
-                setUnitPrice={setUnitPrice}
+                currency={currency}
+                setCurrency={setCurrency}
               />
             </div>
           </form>

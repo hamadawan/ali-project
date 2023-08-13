@@ -75,11 +75,11 @@ const Dashboard: React.Component = ({ children }) => {
         </div>
         <div className="flex-1">
           <DashboardHeader />
-          <div className="p-5 md:p-8 bg-gray-100">
-            <div className="bg-white shadow-md p-2 md:p-8 rounded-md">
+          {/* <div className="p-5 md:p-8 bg-gray-100">
+            <div className="bg-white shadow-md p-2 md:p-8 rounded-md"> */}
               { children }
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </div>
       </div>
     </div>

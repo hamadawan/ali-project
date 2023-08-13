@@ -1,5 +1,5 @@
 export interface SelectProps extends React.InputHTMLAttributes<HTMLSelectElement> {
-  options: { name: string; value: string }[];
+  options: { name: string; value: string | number }[];
 }
 
 const Select = ({ options, onChange, value, ...props }: SelectProps) => {

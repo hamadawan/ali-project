@@ -4,26 +4,25 @@ import Image from "next/image";
 
 const Varients: React.FunctionComponent<{
   className: string;
-  varientName: string;
-  setVarientName: Function;
-}> = ({ className, varientName, setVarientName }) => {
-  const [options, setOptions] = React.useState([{ name: "Color 1", value: "#456765", price: 123 }]);
+  varients: [];
+  setVarients: Function;
+}> = ({ className, varients, setVarients }) => {
 
   const addRow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-    setOptions([...options, { name: "", value: "", price: 0 }]);
+    setVarients([...varients, { name: "", value: "", price: 0 }]);
   };
 
   const removeRow = (i: number) => {
-    const newForm = [...options];
+    const newForm = [...varients];
     newForm.splice(i, 1);
-    setOptions(newForm);
+    setVarients(newForm);
   };
 
   const handleOption = (value: string | number, option: string, i: number) => {
-    const opts = [...options];
-    opts[i] = { ...options[i], [option]: value };
-    setOptions([...opts]);
+    const opts = [...varients];
+    opts[i] = { ...varients[i], [option]: value };
+    setVarients([...opts]);
   };
 
   return (
@@ -40,8 +39,6 @@ const Varients: React.FunctionComponent<{
           label="Nombre variante"
           name="varient"
           placeholder="Color"
-          onChange={(e) => setVarientName(e.target.value)}
-          value={varientName}
         />
         <div>
           <div className="relative font-[DM Sans] font-medium text-2xl leading-[28px] text-[#26B9F1] mb-5">
@@ -54,7 +51,7 @@ const Varients: React.FunctionComponent<{
           </div>
         </div>
         <div>
-          {options.map((option, i) => {
+          {varients.map((option, i) => {
             return (
               <div className="flex flex-row gap-5 mb-5">
                 <Input

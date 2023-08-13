@@ -1,11 +1,23 @@
 import { gql, useMutation } from '@apollo/client';
 
 interface AddProductMutationVariables {
+  input: {
+    name: string;
+    description: string;
+    price: number;
+    status: number;
+    currency: string;
+    productVariants: ProductVariant[];
+  }
+}
+
+interface ProductVariant {
   name: string;
-  price: number;
   description: string;
-  minQuantity: number;
-  maxQuantity: number;
+  price: number;
+  status: number;
+  currency: string;
+  productVariants: ProductVariant[];
 }
 
 interface AddProductMutationData {
@@ -14,27 +26,22 @@ interface AddProductMutationData {
     name: string;
     price: number;
     description: string;
-    image: string;
+    status: number;
   }
 }
 
 const ADD_PRODUCT_MUTATION = gql`
   mutation AddProductMutation($input: ProductInput!) {
-    createProduct(input: $input) {
+    createProduct(attributes: $input) {
       id
       name
       price
       description
-      image
-      minQuantity
-      maxQuantity
+      status
     }
   }
 `;
 
-export const useAddProductMutation = (input) => {
-  const [mutate, result] = useMutation<AddProductMutationData, AddProductMutationVariables>(ADD_PRODUCT_MUTATION);
-  const createProduct = () => mutate(input);
-
-  return [createProduct, result]
+export const useAddProductMutation = () => {
+  return useMutation<AddProductMutationData, AddProductMutationVariables>(ADD_PRODUCT_MUTATION);
 }
