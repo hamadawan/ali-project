@@ -72,7 +72,7 @@ export const PuentifyApi = {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ productId, images }),
+      body: JSON.stringify({ id: productId, images, klass: "product"}),
     });
     removeAuthCookies();
     return response.json();
