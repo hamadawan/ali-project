@@ -11,11 +11,13 @@ import { useAddProductMutation } from '@/graphql/mutations/useAddProductMutation
 import { PuentifyApi } from '@/lib/puentifyApi';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { useUpdateProductMutation } from '@/graphql/mutations/useUpdateProductMutation';
 
 const AddProductPage = () => {
   const { data: categoriesData } = useCategories();
   const [createProduct] = useAddProductMutation();
-  const [productId, setProductId] = useState('');
+  const [updateProduct] = useUpdateProductMutation();
+  const [productId, setProductId] = useState<number>();
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
@@ -42,6 +44,7 @@ const AddProductPage = () => {
       price,
       currency,
       status,
+      productVariants: varients,
     };
     const result = await createProduct({
       variables: {
@@ -50,9 +53,8 @@ const AddProductPage = () => {
         },
       },
     });
-    setProductId(result.data?.createProduct?.id ?? '');
+    !!result.data?.createProduct?.id && setProductId(+result.data?.createProduct?.id);
   };
-
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,14 +67,17 @@ const AddProductPage = () => {
       status,
       productVariants: varients,
     };
-    const result = await createProduct({
+    const result = await updateProduct({
       variables: {
+        id: productId ?? 0,
         input: {
           ...product,
         },
       },
     });
-    await PuentifyApi.uploadProductImages(productId, images);
+    if (result.data?.updateProduct && productId) {
+      await PuentifyApi.uploadProductImages(productId, images);
+    }
   };
 
   return (

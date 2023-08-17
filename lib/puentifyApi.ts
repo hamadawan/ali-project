@@ -66,7 +66,7 @@ export const PuentifyApi = {
     });
     return response.json();
   },
-  uploadProductImages: async (productId: string, images: string[]) => {
+  uploadProductImages: async (productId: number, images: string[]) => {
     const response = await fetch(host + '/uploads', {
       method: 'POST',
       headers: {

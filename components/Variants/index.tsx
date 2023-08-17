@@ -10,7 +10,7 @@ const Variants: React.FunctionComponent<{
 }> = ({ varients, setVarients, className }) => {
   const { t } = useTranslation('add-product');
   const addRow = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setVarients([...varients, { name: '', value: '', price: 0 }]);
   };
   const removeRow = (i: number) => {

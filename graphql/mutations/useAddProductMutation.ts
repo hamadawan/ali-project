@@ -5,7 +5,7 @@ interface AddProductMutationVariables {
     name: string;
     description: string;
     price: number;
-    status: number;
+    status: string;
     currency: string;
     productVariants: ProductVariant[];
   }
@@ -15,7 +15,7 @@ interface ProductVariant {
   name: string;
   description: string;
   price: number;
-  status: number;
+  status: string;
   currency: string;
   productVariants: ProductVariant[];
 }
@@ -26,7 +26,7 @@ interface AddProductMutationData {
     name: string;
     price: number;
     description: string;
-    status: number;
+    status: string;
   }
 }
 

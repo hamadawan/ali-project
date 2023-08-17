@@ -6,7 +6,7 @@ interface UpdateProductMutationVariables {
     name: string;
     description: string;
     price: number;
-    status: number;
+    status: string;
     currency: string;
     productVariants: ProductVariant[];
   }
@@ -16,24 +16,24 @@ interface ProductVariant {
   name: string;
   description: string;
   price: number;
-  status: number;
+  status: string;
   currency: string;
   productVariants: ProductVariant[];
 }
 
 interface UpdateProductMutationData {
-  createProduct: {
+  updateProduct: {
     id: string;
     name: string;
     price: number;
     description: string;
-    status: number;
+    status: string;
   }
 }
 
 const UPDATE_PRODUCT_MUTATION = gql`
   mutation AddProductMutation($id: ID, $input: ProductInput!) {
-    createProduct(id: $id ,attributes: $input) {
+    updateProduct(id: $id ,attributes: $input) {
       id
       name
       price
@@ -43,6 +43,6 @@ const UPDATE_PRODUCT_MUTATION = gql`
   }
 `;
 
-export const useAddProductMutation = () => {
+export const useUpdateProductMutation = () => {
   return useMutation<UpdateProductMutationData, UpdateProductMutationVariables>(UPDATE_PRODUCT_MUTATION);
 }
