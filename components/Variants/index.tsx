@@ -9,7 +9,8 @@ const Variants: React.FunctionComponent<{
   setVarients: Function;
 }> = ({ varients, setVarients, className }) => {
   const { t } = useTranslation('add-product');
-  const addRow = () => {
+  const addRow = (e) => {
+    e.preventDefault()
     setVarients([...varients, { name: '', value: '', price: 0 }]);
   };
   const removeRow = (i: number) => {
@@ -26,7 +27,7 @@ const Variants: React.FunctionComponent<{
 
   return (
     <div className={className}>
-      <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
+      <div className=" text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         {t('variants')}
       </div>
       <div className="w-100 min-h-[467px] p-7 rounded-[20px] bg-[#FFF] ">

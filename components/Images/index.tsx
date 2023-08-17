@@ -40,7 +40,7 @@ const Images: React.FunctionComponent<{
 
   return (
     <div className={className}>
-      <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
+      <div className=" text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         {t('images')}
       </div>
       <input

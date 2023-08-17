@@ -25,7 +25,7 @@ const ProductDetail: React.FunctionComponent<{
   const { t } = useTranslation('add-product');
   return (
     <div className={className}>
-      <div className="font-[Raleway] text-2xl font-bold leading-8 mb-5 text-[#170F49]">
+      <div className=" text-2xl font-bold leading-8 mb-5 text-[#170F49]">
         {t('productDetails')}
       </div>
       <div className="w-100 p-7 h-[411px] rounded-[20px] bg-[#FFF]">

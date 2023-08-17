@@ -79,7 +79,7 @@ const AddProductPage = () => {
     <Dashboard>
       <div className="bg-[#EDEFF2] pt-2">
         <div className="ml-12">
-          <div className="font-[Raleway] mt-9  text-5xl font-bold leading-[63px] text-[#170F49]">
+          <div className=" mt-9  text-5xl font-bold leading-[63px] text-[#170F49]">
             {t('addNewProduct')}
           </div>
           <form className="grid grid-cols-12 gap-x-8" onSubmit={handleForm}>

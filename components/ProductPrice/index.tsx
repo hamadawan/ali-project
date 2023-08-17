@@ -13,7 +13,7 @@ const ProductPrice: React.FunctionComponent<{
   const { t } = useTranslation('add-product');
   return (
     <div className={className}>
-      <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
+      <div className=" text-2xl font-bold leading-8  mb-5 text-[#170F49]">
         {t('price')}
       </div>
       <div className="w-100 p-7 min-h-[251px] rounded-[20px] bg-[#FFF] mt-5">
