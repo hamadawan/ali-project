@@ -29,7 +29,7 @@ const ProductStatus: React.FunctionComponent<{
             { name: 'Pending', value: 'pending' },
           ]}
           value={status}
-          onChange={(e) => setStatus(+e.target.value)}
+          onChange={(e) => setStatus(e.target.value)}
           placeholder={t('asset')}
           className="w-full border px-4 py-4 mb-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
         />
