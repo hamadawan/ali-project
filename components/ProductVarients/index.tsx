@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Input } from "../ui/input";
+import * as React from 'react';
+import { Input } from '../ui/input';
 
 const ProductVarients: React.FunctionComponent<{
   className: string;

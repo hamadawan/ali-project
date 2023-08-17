@@ -1,38 +1,64 @@
-import Dashboard from "@/pages/dashboard";
-
-import React, { useState } from "react";
-import ProductDetail from "@/components/ProductDetail";
-import Images from "@/components/Images";
-import Varients from "@/components/Varients";
-import Estatus from "@/components/Estatus";
-import ProductPrice from "@/components/ProductPrice";
-import { Button } from "@/components/ui/button";
-import { useCategories } from "@/graphql/queries/useCategories";
-import { useAddProductMutation } from "@/graphql/mutations/useAddProductMutation";
+import Dashboard from '@/pages/dashboard';
+import React, { useEffect, useState } from 'react';
+import ProductDetail from '@/components/ProductDetail';
+import Images from '@/components/Images';
+import Variants from '@/components/Variants';
+import ProductStatus from '@/components/ProductStatus';
+import ProductPrice from '@/components/ProductPrice';
+import { Button } from '@/components/ui/button';
+import { useCategories } from '@/graphql/queries/useCategories';
+import { useAddProductMutation } from '@/graphql/mutations/useAddProductMutation';
 import { PuentifyApi } from '@/lib/puentifyApi';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 const AddProductPage = () => {
   const { data: categoriesData } = useCategories();
   const [createProduct] = useAddProductMutation();
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [description, setDescription] = useState("");
+  const [productId, setProductId] = useState('');
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
+  const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([]);
   const [varients, setVarients] = useState([]);
   const [status, setStatus] = useState<string>('active');
   const [price, setPrice] = useState<number>(0);
-  const [currency, setCurrency] = useState<string>("");
+  const [currency, setCurrency] = useState<string>('');
+  const { t } = useTranslation('add-product');
 
-  const categories = categoriesData?.categories?.map((category) => ({
-    name: category.name,
-    value: category.id,
+  const categories = categoriesData?.categories?.map((cat: any) => ({
+    name: cat.name,
+    value: cat.id,
   }));
+
+  useEffect(() => {
+    handleCreateProduct();
+  }, []);
+
+  const handleCreateProduct = async () => {
+    const product = {
+      name,
+      description,
+      price,
+      currency,
+      status,
+    };
+    const result = await createProduct({
+      variables: {
+        input: {
+          ...product,
+        },
+      },
+    });
+    setProductId(result.data?.createProduct?.id ?? '');
+  };
+
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const product = {
       name,
-      category,
+      categoryId: category,
       description,
       price,
       currency,
@@ -46,9 +72,7 @@ const AddProductPage = () => {
         },
       },
     });
-    result.data?.createProduct.id
-    await PuentifyApi.uploadProductImages(result.data?.createProduct?.id ?? "", images)
-    console.log(result, "here");
+    await PuentifyApi.uploadProductImages(productId, images);
   };
 
   return (
@@ -56,7 +80,7 @@ const AddProductPage = () => {
       <div className="bg-[#EDEFF2] pt-2">
         <div className="ml-12">
           <div className="font-[Raleway] mt-9  text-5xl font-bold leading-[63px] text-[#170F49]">
-            Nuevo producto
+            {t('addNewProduct')}
           </div>
           <form className="grid grid-cols-12 gap-x-8" onSubmit={handleForm}>
             <div className="col-span-12 md:col-span-8">
@@ -71,13 +95,13 @@ const AddProductPage = () => {
                 categories={categories}
               />
               <Images className="mt-9" images={images} setImages={setImages} />
-              <Varients className="mt-9" varients={varients} setVarients={setVarients} />
+              <Variants className="mt-9" varients={varients} setVarients={setVarients} />
               <Button variant="primary" className="mb-3 mt-9" type="submit">
-                Publicar producto
+                {t('publishProduct')}
               </Button>
             </div>
             <div className="col-span-12 md:col-span-4 pr-6">
-              <Estatus className="mt-9" status={status} setStatus={setStatus} />
+              <ProductStatus className="mt-9" status={status} setStatus={setStatus} />
               <ProductPrice
                 className="mt-9"
                 price={price}
@@ -92,5 +116,11 @@ const AddProductPage = () => {
     </Dashboard>
   );
 };
+
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['add-product'])),
+  },
+});
 
 export default AddProductPage;

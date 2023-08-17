@@ -1,18 +1,17 @@
-import * as React from "react";
-import { Input } from "../ui/input";
-import Image from "next/image";
+import * as React from 'react';
+import { Input } from '../ui/input';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
-const Varients: React.FunctionComponent<{
+const Variants: React.FunctionComponent<{
   className: string;
   varients: [];
   setVarients: Function;
-}> = ({ className, varients, setVarients }) => {
-
-  const addRow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
-    setVarients([...varients, { name: "", value: "", price: 0 }]);
+}> = ({ varients, setVarients, className }) => {
+  const { t } = useTranslation('add-product');
+  const addRow = () => {
+    setVarients([...varients, { name: '', value: '', price: 0 }]);
   };
-
   const removeRow = (i: number) => {
     const newForm = [...varients];
     newForm.splice(i, 1);
@@ -28,7 +27,7 @@ const Varients: React.FunctionComponent<{
   return (
     <div className={className}>
       <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
-        Variantes
+        {t('variants')}
       </div>
       <div className="w-100 min-h-[467px] p-7 rounded-[20px] bg-[#FFF] ">
         <Input
@@ -36,13 +35,13 @@ const Varients: React.FunctionComponent<{
           required={true}
           type="varientName"
           id="varient"
-          label="Nombre variante"
+          label={t('variantName')}
           name="varient"
           placeholder="Color"
         />
         <div>
           <div className="relative font-[DM Sans] font-medium text-2xl leading-[28px] text-[#26B9F1] mb-5">
-            Opciones
+            {t('options')}
             <div className="flex justify-end">
               <button className=" absolute mt-[-14px] pl-6" onClick={addRow}>
                 <Image src="/icons/plus.svg" alt="plus image" width={14} height={14} />
@@ -53,16 +52,16 @@ const Varients: React.FunctionComponent<{
         <div>
           {varients.map((option, i) => {
             return (
-              <div className="flex flex-row gap-5 mb-5">
+              <div className="flex flex-row gap-5 mb-5" key={i}>
                 <Input
                   required={true}
                   type="Option"
                   id="Option"
-                  label="Opciones 1"
+                  label={t('option1')}
                   name="Option"
                   placeholder="color 1"
                   value={option.name}
-                  onChange={(e) => handleOption(e.target.value, "name", i)}
+                  onChange={(e) => handleOption(e.target.value, 'name', i)}
                 />
                 <div className="relative">
                   <Input
@@ -70,11 +69,11 @@ const Varients: React.FunctionComponent<{
                     required={true}
                     type="Worth"
                     id="Worth"
-                    label="Valor"
+                    label={t('worth')}
                     name="Worth"
                     placeholder="#232323"
                     value={option.value}
-                    onChange={(e) => handleOption(e.target.value, "value", i)}
+                    onChange={(e) => handleOption(e.target.value, 'value', i)}
                   />
                   <div
                     className="absolute left-4 top-11 w-5 h-5 rounded-[5px]"
@@ -85,11 +84,11 @@ const Varients: React.FunctionComponent<{
                   required={true}
                   type="Price"
                   id="Price"
-                  label="Precio"
+                  label={t('price')}
                   name="Price"
                   placeholder="$10.00"
                   value={option.price}
-                  onChange={(e) => handleOption(e.target.value, "price", i)}
+                  onChange={(e) => handleOption(e.target.value, 'price', i)}
                 />
                 <button onClick={() => removeRow(i)}>
                   <Image src="/bin.svg" alt="" width={21} height={20} />
@@ -103,4 +102,4 @@ const Varients: React.FunctionComponent<{
   );
 };
 
-export default Varients;
+export default Variants;

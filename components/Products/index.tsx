@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useProductsQuery } from '@/graphql/queries/useProductsQuery';
 import ProductsList from '@/components/Products/ProductsList';
 import AddProductModal from '@/components/Products/AddProductModal';
+import { useRouter } from 'next/router';
 
 
 type ViewMode = 'card' | 'table';
@@ -10,6 +11,8 @@ const Products = () => {
   const { data } = useProductsQuery();
   const [isOpen, setIsModalOpen] = React.useState(false);
   const [viewMode, setViewMode] = React.useState<ViewMode>('card');
+  const router = useRouter();
+
 
   return (
     <div>
@@ -34,7 +37,7 @@ const Products = () => {
             </button>
           </div>
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => router.push('/dashboard/products/add')}
             className="bg-[#26b9f1] text-white px-6 py-2 rounded-md"
           >
             Add Product

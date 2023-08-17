@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Input } from "../ui/input";
-import UserSelect from "../UserSelect";
-import Select from "../ui/Select";
+import * as React from 'react';
+import { Input } from '../ui/input';
+import Select from '../ui/Select';
+import { useTranslation } from 'next-i18next';
 
 const ProductDetail: React.FunctionComponent<{
   className: string;
@@ -22,10 +22,11 @@ const ProductDetail: React.FunctionComponent<{
   setDescription,
   categories,
 }) => {
+  const { t } = useTranslation('add-product');
   return (
     <div className={className}>
       <div className="font-[Raleway] text-2xl font-bold leading-8 mb-5 text-[#170F49]">
-        Detalles del producto
+        {t('productDetails')}
       </div>
       <div className="w-100 p-7 h-[411px] rounded-[20px] bg-[#FFF]">
         <Input
@@ -33,24 +34,24 @@ const ProductDetail: React.FunctionComponent<{
           required={true}
           type="text"
           id="name"
-          label="Nombre"
+          label={t('name')}
           name="name"
           onChange={(e) => setName(e.target.value)}
           value={name}
-          placeholder="Nombre del producto"
+          placeholder={t('productName')}
         />
         <div>
           <label
             htmlFor="Category"
             className="block font-normal text-sm mb-2 leading-5 text-[#6F6C90]"
           >
-            Categoría
+            {t('category')}
           </label>
           <Select
             id="category"
             required={true}
             name="category"
-            placeholder="Seleccionar categoría"
+            placeholder={t('selectCategory')}
             value={category}
             options={categories}
             onChange={(e) => setCategory(e.target.value)}
@@ -62,7 +63,7 @@ const ProductDetail: React.FunctionComponent<{
             htmlFor="Description"
             className="block font-normal text-sm mb-2 leading-5 text-[#6F6C90]"
           >
-            Description
+            {t('description')}
           </label>
           <textarea
             className="mb-4 w-full h-[130px] px-5 py-3 rounded-[10px] border border-solid border-[#D2DAE2]"
@@ -71,7 +72,7 @@ const ProductDetail: React.FunctionComponent<{
             name="name"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Description"
+            placeholder={t('description')}
           />
         </div>
       </div>
