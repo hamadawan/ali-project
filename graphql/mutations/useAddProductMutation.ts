@@ -4,10 +4,11 @@ interface AddProductMutationVariables {
   input: {
     name: string;
     description: string;
-    price: number;
-    status: string;
-    currency: string;
-    productVariants: ProductVariant[];
+    categoryId: string;
+    price?: number;
+    status?: string;
+    currency?: string;
+    productVariants?: ProductVariant[];
   }
 }
 
@@ -26,7 +27,6 @@ interface AddProductMutationData {
     name: string;
     price: number;
     description: string;
-    status: string;
   }
 }
 
@@ -37,7 +37,6 @@ const ADD_PRODUCT_MUTATION = gql`
       name
       price
       description
-      status
     }
   }
 `;

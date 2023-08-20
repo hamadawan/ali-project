@@ -1,5 +1,5 @@
 import Dashboard from '@/pages/dashboard';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ProductDetail from '@/components/ProductDetail';
 import Images from '@/components/Images';
 import Variants from '@/components/Variants';
@@ -12,20 +12,25 @@ import { PuentifyApi } from '@/lib/puentifyApi';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useUpdateProductMutation } from '@/graphql/mutations/useUpdateProductMutation';
+import { useRouter } from 'next/router';
 
 const AddProductPage = () => {
+  const router = useRouter();
+
   const { data: categoriesData } = useCategories();
   const [createProduct] = useAddProductMutation();
   const [updateProduct] = useUpdateProductMutation();
-  const [productId, setProductId] = useState<number>();
+  const [productId, setProductId] = useState<string>();
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
   const [varients, setVarients] = useState([]);
   const [status, setStatus] = useState<string>('active');
   const [price, setPrice] = useState<number>(0);
   const [currency, setCurrency] = useState<string>('');
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation('add-product');
 
   const categories = categoriesData?.categories?.map((cat: any) => ({
@@ -33,18 +38,14 @@ const AddProductPage = () => {
     value: cat.id,
   }));
 
-  useEffect(() => {
-    handleCreateProduct();
-  }, []);
-
-  const handleCreateProduct = async () => {
+  const handleCreateProduct = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const product = {
       name,
       description,
-      price,
-      currency,
-      status,
-      productVariants: varients,
+      categoryId: category,
+      price: 0,
+      currency: 'USD',
     };
     const result = await createProduct({
       variables: {
@@ -53,7 +54,7 @@ const AddProductPage = () => {
         },
       },
     });
-    !!result.data?.createProduct?.id && setProductId(+result.data?.createProduct?.id);
+    !!result.data?.createProduct?.id && setProductId(result.data?.createProduct?.id);
   };
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,17 +68,20 @@ const AddProductPage = () => {
       status,
       productVariants: varients,
     };
+    setLoading(true);
     const result = await updateProduct({
       variables: {
-        id: productId ?? 0,
+        id: productId,
         input: {
           ...product,
         },
       },
     });
     if (result.data?.updateProduct && productId) {
-      await PuentifyApi.uploadProductImages(productId, images);
+      await PuentifyApi.uploadProductImages(productId, files);
     }
+    setLoading(false);
+    router.push('/dashboard/products');
   };
 
   return (
@@ -99,9 +103,20 @@ const AddProductPage = () => {
                 setDescription={setDescription}
                 categories={categories}
               />
-              <Images className="mt-9" images={images} setImages={setImages} />
+              {!productId && (
+                <Button variant="primary" className="mb-3 mt-4" onClick={handleCreateProduct}>
+                  {t('createProduct')}
+                </Button>
+              )}
+              <Images className="mt-9" images={images} setImages={setImages} setFiles={setFiles} />
               <Variants className="mt-9" varients={varients} setVarients={setVarients} />
-              <Button variant="primary" className="mb-3 mt-9" type="submit">
+
+              <Button
+                disabled={!productId || loading}
+                variant="primary"
+                className="mb-3 mt-9"
+                type="submit"
+              >
                 {t('publishProduct')}
               </Button>
             </div>

@@ -1,7 +1,7 @@
 import { gql, useMutation } from '@apollo/client';
 
 interface UpdateProductMutationVariables {
-  id: number;
+  id: any;
   input: {
     name: string;
     description: string;
@@ -32,7 +32,7 @@ interface UpdateProductMutationData {
 }
 
 const UPDATE_PRODUCT_MUTATION = gql`
-  mutation AddProductMutation($id: ID, $input: ProductInput!) {
+  mutation UpdateProductMutation($id: ID!, $input: ProductInput!) {
     updateProduct(id: $id ,attributes: $input) {
       id
       name
