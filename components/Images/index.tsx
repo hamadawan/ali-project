@@ -12,7 +12,8 @@ const Images: React.FunctionComponent<{
   const { t } = useTranslation('add-product');
   const file = useRef(null);
 
-  const openImageDialog = () => {
+  const openImageDialog = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
     file?.current?.click();
   };
 
