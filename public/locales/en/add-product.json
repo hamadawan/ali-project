@@ -1,0 +1,23 @@
+{
+  "addNewProduct": "Add new product",
+  "productDetails": "Product details",
+  "name": "Name",
+  "productName": "Product name",
+  "category": "Category",
+  "selectCategory": "Select Category",
+  "description": "Description",
+  "images": "Images",
+  "uploadPhotos": "Upload photos",
+  "dragFiles": "Drag your files here",
+  "variants": "Variants",
+  "variantName": "Variant name",
+  "options": "Options",
+  "option1": "Option 1",
+  "worth": "Worth",
+  "status": "Status",
+  "asset": "Asset",
+  "price": "Price",
+  "currency": "Currency",
+  "publishProduct": "Publish product",
+  "createProduct": "Create Product"
+}

@@ -1,15 +1,19 @@
-import React, { ChangeEvent, useRef, useState } from "react";
-import { Button } from "../ui/button";
-import Image from "next/image";
+import React, { ChangeEvent, useRef } from 'react';
+import { Button } from '../ui/button';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 const Images: React.FunctionComponent<{
   className: string;
   images: string[];
   setImages: Function;
-}> = ({ className, images, setImages }) => {
+  setFiles: Function;
+}> = ({ className, images, setImages, setFiles }) => {
+  const { t } = useTranslation('add-product');
   const file = useRef(null);
 
-  const openImageDialog = () => {
+  const openImageDialog = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
     file?.current?.click();
   };
 
@@ -17,8 +21,11 @@ const Images: React.FunctionComponent<{
     event.preventDefault();
     const files = event.target.files;
     if (files) {
-      const imageArray = Array.from(files).map((file) => URL.createObjectURL(file));
+      const imageArray = Array.from(files).map((fileObj) =>
+        URL.createObjectURL(fileObj),
+      );
       setImages(imageArray);
+      setFiles(files);
     }
   };
 
@@ -27,27 +34,35 @@ const Images: React.FunctionComponent<{
     const files = event.dataTransfer.files;
 
     if (files) {
-      const imageArray = Array.from(files).map((file) => URL.createObjectURL(file));
+      const imageArray = Array.from(files).map((fileObj) =>
+        URL.createObjectURL(fileObj),
+      );
       setImages(imageArray);
     }
   };
 
   return (
     <div className={className}>
-      <div className="font-[Raleway] text-2xl font-bold leading-8  mb-5 text-[#170F49]">
-        Imágenes
+      <div className=" text-2xl font-bold leading-8  mb-5 text-[#170F49]">
+        {t('images')}
       </div>
-      <input ref={file} type="file" multiple className="hidden" onChange={handleImageChange} />
+      <input
+        ref={file}
+        type="file"
+        multiple
+        className="hidden"
+        onChange={handleImageChange}
+      />
       <div className="w-100 p-7 min-h-[382px] rounded-[20px] bg-[#FFF]">
         <div className="pb-6 flex flex-wrap gap-3">
           {images.map((image, index) => {
             return (
               <Image
                 key={index}
-                className="rounded-lg shadow"
+                className="rounded-lg shadow min-h-[50px]"
                 src={image}
                 width="50"
-                height="50"
+                height="60"
                 alt="smaple"
               />
             );
@@ -55,8 +70,14 @@ const Images: React.FunctionComponent<{
         </div>
         <div className="w-100">
           <Button variant="primary" className="mb-3" onClick={openImageDialog}>
-            <img src="/camera.svg" alt="" className="mr-2" />
-            Subir fotos
+            <Image
+              src="/camera.svg"
+              alt=""
+              className="mr-2"
+              width={23.119}
+              height={18}
+            />
+            {t('uploadPhotos')}
           </Button>
           <div
             onDrop={handleDrop}
@@ -65,7 +86,7 @@ const Images: React.FunctionComponent<{
           >
             <div className="border-dashed w-[ 646.055px] flex justify-center items-center h-[133px] rounded-[7px] border border-[#A8B0B7] my-5 mx-5">
               <div className="font-[Plus Jakarta Sans] text-sm font-normal leading-[22px] tracking-[0.26px] text-[#6F6C90]">
-                Arrastra tus archivos aquí
+                {t('dragFiles')}
               </div>
             </div>
           </div>

@@ -1,43 +1,51 @@
-import Dashboard from "@/pages/dashboard";
-
-import React, { useState } from "react";
-import ProductDetail from "@/components/ProductDetail";
-import Images from "@/components/Images";
-import Varients from "@/components/Varients";
-import Estatus from "@/components/Estatus";
-import ProductPrice from "@/components/ProductPrice";
-import { Button } from "@/components/ui/button";
-import { useCategories } from "@/graphql/queries/useCategories";
-import { useAddProductMutation } from "@/graphql/mutations/useAddProductMutation";
+import Dashboard from '@/pages/dashboard';
+import React, { useState } from 'react';
+import ProductDetail from '@/components/ProductDetail';
+import Images from '@/components/Images';
+import Variants from '@/components/Variants';
+import ProductStatus from '@/components/ProductStatus';
+import ProductPrice from '@/components/ProductPrice';
+import { Button } from '@/components/ui/button';
+import { useCategories } from '@/graphql/queries/useCategories';
+import { useAddProductMutation } from '@/graphql/mutations/useAddProductMutation';
 import { PuentifyApi } from '@/lib/puentifyApi';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { useUpdateProductMutation } from '@/graphql/mutations/useUpdateProductMutation';
+import { useRouter } from 'next/router';
 
 const AddProductPage = () => {
+  const router = useRouter();
+
   const { data: categoriesData } = useCategories();
   const [createProduct] = useAddProductMutation();
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [description, setDescription] = useState("");
+  const [updateProduct] = useUpdateProductMutation();
+  const [productId, setProductId] = useState<string>();
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
+  const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
   const [varients, setVarients] = useState([]);
   const [status, setStatus] = useState<string>('active');
   const [price, setPrice] = useState<number>(0);
-  const [currency, setCurrency] = useState<string>("");
+  const [currency, setCurrency] = useState<string>('');
+  const [loading, setLoading] = useState(false);
+  const { t } = useTranslation('add-product');
 
-  const categories = categoriesData?.categories?.map((category) => ({
-    name: category.name,
-    value: category.id,
+  const categories = categoriesData?.categories?.map((cat: any) => ({
+    name: cat.name,
+    value: cat.id,
   }));
 
-  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCreateProduct = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const product = {
       name,
-      category,
       description,
-      price,
-      currency,
-      status,
-      productVariants: varients,
+      categoryId: category,
+      price: 0,
+      currency: 'USD',
     };
     const result = await createProduct({
       variables: {
@@ -46,17 +54,42 @@ const AddProductPage = () => {
         },
       },
     });
-    result.data?.createProduct.id
-    await PuentifyApi.uploadProductImages(result.data?.createProduct?.id ?? "", images)
-    console.log(result, "here");
+    !!result.data?.createProduct?.id && setProductId(result.data?.createProduct?.id);
+  };
+
+  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const product = {
+      name,
+      categoryId: category,
+      description,
+      price,
+      currency,
+      status,
+      productVariants: varients,
+    };
+    setLoading(true);
+    const result = await updateProduct({
+      variables: {
+        id: productId,
+        input: {
+          ...product,
+        },
+      },
+    });
+    if (result.data?.updateProduct && productId) {
+      await PuentifyApi.uploadProductImages(productId, files);
+    }
+    setLoading(false);
+    router.push('/dashboard/products');
   };
 
   return (
     <Dashboard>
       <div className="bg-[#EDEFF2] pt-2">
         <div className="ml-12">
-          <div className="font-[Raleway] mt-9  text-5xl font-bold leading-[63px] text-[#170F49]">
-            Nuevo producto
+          <div className=" mt-9  text-5xl font-bold leading-[63px] text-[#170F49]">
+            {t('addNewProduct')}
           </div>
           <form className="grid grid-cols-12 gap-x-8" onSubmit={handleForm}>
             <div className="col-span-12 md:col-span-8">
@@ -70,14 +103,25 @@ const AddProductPage = () => {
                 setDescription={setDescription}
                 categories={categories}
               />
-              <Images className="mt-9" images={images} setImages={setImages} />
-              <Varients className="mt-9" varients={varients} setVarients={setVarients} />
-              <Button variant="primary" className="mb-3 mt-9" type="submit">
-                Publicar producto
+              {!productId && (
+                <Button variant="primary" className="mb-3 mt-4" onClick={handleCreateProduct}>
+                  {t('createProduct')}
+                </Button>
+              )}
+              <Images className="mt-9" images={images} setImages={setImages} setFiles={setFiles} />
+              <Variants className="mt-9" varients={varients} setVarients={setVarients} />
+
+              <Button
+                disabled={!productId || loading}
+                variant="primary"
+                className="mb-3 mt-9"
+                type="submit"
+              >
+                {t('publishProduct')}
               </Button>
             </div>
             <div className="col-span-12 md:col-span-4 pr-6">
-              <Estatus className="mt-9" status={status} setStatus={setStatus} />
+              <ProductStatus className="mt-9" status={status} setStatus={setStatus} />
               <ProductPrice
                 className="mt-9"
                 price={price}
@@ -92,5 +136,11 @@ const AddProductPage = () => {
     </Dashboard>
   );
 };
+
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['add-product'])),
+  },
+});
 
 export default AddProductPage;

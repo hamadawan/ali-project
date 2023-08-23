@@ -66,15 +66,17 @@ export const PuentifyApi = {
     });
     return response.json();
   },
-  uploadProductImages: async (productId: string, images: string[]) => {
+  uploadProductImages: async (productId: string, images: File[]) => {
+    const formData = new FormData();
+    formData.append('id', productId);
+    formData.append('type', 'Product');
+    for (let i = 0; i < images.length; i++) {
+      formData.append('files[]', images[i], images[i].name);
+    }
     const response = await fetch(host + '/uploads', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: productId, images, klass: "product"}),
+      body: formData,
     });
-    removeAuthCookies();
     return response.json();
   },
 };
