@@ -17,14 +17,15 @@ const ProductPrice: React.FunctionComponent<{
   setPrice: Function;
   currency: string;
   setCurrency: Function;
-}> = ({ className, price, setPrice, currency, setCurrency }) => {
+  errors: Record<string, string>
+}> = ({ className, price, setPrice, currency, setCurrency, errors }) => {
   const { t } = useTranslation('add-product');
   return (
     <div className={className}>
       <div className=" text-2xl font-bold leading-8  mb-5 text-[#170F49]">{t('price')}</div>
       <div className="w-100 p-7 min-h-[251px] rounded-[20px] bg-[#FFF] mt-5">
         <Input
-          className="mb-4"
+          containerClass="mb-4"
           required={true}
           type="number"
           id="price"
@@ -33,6 +34,7 @@ const ProductPrice: React.FunctionComponent<{
           value={price}
           onChange={(e) => setPrice(+e.target.value)}
           placeholder="$ 0.00"
+          error={errors?.price}
         />
         <label
           htmlFor="EStatus"
@@ -48,7 +50,9 @@ const ProductPrice: React.FunctionComponent<{
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
           placeholder="USD"
-          className="w-full border px-4 py-4 mb-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
+          className="w-full border px-4 py-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
+          error={errors?.currency}
+          containerClass='mb-4'
         />
       </div>
     </div>

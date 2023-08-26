@@ -6,7 +6,8 @@ const ProductStatus: React.FunctionComponent<{
   className: string;
   status: string;
   setStatus: Function;
-}> = ({ className, status, setStatus }) => {
+  errors: Record<string, string>
+}> = ({ className, status, setStatus, errors }) => {
   const { t } = useTranslation('add-product');
   return (
     <div className={className}>
@@ -32,6 +33,7 @@ const ProductStatus: React.FunctionComponent<{
           onChange={(e) => setStatus(e.target.value)}
           placeholder={t('asset')}
           className="w-full border px-4 py-4 mb-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
+          error={errors?.status}
         />
       </div>
     </div>

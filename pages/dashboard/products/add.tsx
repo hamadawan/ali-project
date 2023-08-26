@@ -13,6 +13,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useUpdateProductMutation } from '@/graphql/mutations/useUpdateProductMutation';
 import { useRouter } from 'next/router';
+import { checkProductForm } from '@/validation/product';
 
 const AddProductPage = () => {
   const router = useRouter();
@@ -28,10 +29,11 @@ const AddProductPage = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [varients, setVarients] = useState([]);
   const [status, setStatus] = useState<string>('active');
-  const [price, setPrice] = useState<number>(0);
+  const [price, setPrice] = useState<number>(1);
   const [currency, setCurrency] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation('add-product');
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const categories = categoriesData?.categories?.map((cat: any) => ({
     name: cat.name,
@@ -44,17 +46,23 @@ const AddProductPage = () => {
       name,
       description,
       categoryId: category,
-      price: 0,
+      price: price,
       currency: 'USD',
     };
-    const result = await createProduct({
-      variables: {
-        input: {
-          ...product,
+    const err = await checkProductForm(product);
+    if (err) {
+      setErrors(err);
+    } else {
+      setErrors({});
+      const result = await createProduct({
+        variables: {
+          input: {
+            ...product,
+          },
         },
-      },
-    });
-    !!result.data?.createProduct?.id && setProductId(result.data?.createProduct?.id);
+      });
+      !!result.data?.createProduct?.id && setProductId(result.data?.createProduct?.id);
+    }
   };
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,20 +76,27 @@ const AddProductPage = () => {
       status,
       productVariants: varients,
     };
-    setLoading(true);
-    const result = await updateProduct({
-      variables: {
-        id: productId,
-        input: {
-          ...product,
+
+    const err = await checkProductForm(product);
+    if (err) {
+      setErrors(err);
+      debugger;
+    } else {
+      setLoading(true);
+      const result = await updateProduct({
+        variables: {
+          id: productId,
+          input: {
+            ...product,
+          },
         },
-      },
-    });
-    if (result.data?.updateProduct && productId) {
-      await PuentifyApi.uploadProductImages(productId, files);
+      });
+      if (result.data?.updateProduct && productId) {
+        await PuentifyApi.uploadProductImages(productId, files);
+      }
+      setLoading(false);
+      router.push('/dashboard/products');
     }
-    setLoading(false);
-    router.push('/dashboard/products');
   };
 
   return (
@@ -102,6 +117,7 @@ const AddProductPage = () => {
                 description={description}
                 setDescription={setDescription}
                 categories={categories}
+                errors={errors}
               />
               {!productId && (
                 <Button variant="primary" className="mb-3 mt-4" onClick={handleCreateProduct}>
@@ -121,8 +137,14 @@ const AddProductPage = () => {
               </Button>
             </div>
             <div className="col-span-12 md:col-span-4 pr-6">
-              <ProductStatus className="mt-9" status={status} setStatus={setStatus} />
+              <ProductStatus
+                errors={errors}
+                className="mt-9"
+                status={status}
+                setStatus={setStatus}
+              />
               <ProductPrice
+                errors={errors}
                 className="mt-9"
                 price={price}
                 setPrice={setPrice}
