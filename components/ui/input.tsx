@@ -35,10 +35,11 @@ export interface InputProps
   asChild?: boolean;
   label?: string;
   containerClass?: string;
+  error?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ id, containerClass, label, className, variant, asChild = false, ...props }, ref) => {
+  ({ id, containerClass, label, className, variant, error, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'input';
     return (
       <div className={containerClass}>
@@ -48,6 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </label>
         )}
         <Comp id={id} className={inputVariants({ variant, className })} ref={ref} {...props} />
+        {error && <p className='text-red-600 pt-1'>{error}</p>}
       </div>
     );
   },

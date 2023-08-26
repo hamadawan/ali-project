@@ -18,5 +18,6 @@
   "asset": "Asset",
   "price": "Price",
   "currency": "Currency",
-  "publishProduct": "Publish product"
+  "publishProduct": "Publish product",
+  "createProduct": "Create Product"
 }

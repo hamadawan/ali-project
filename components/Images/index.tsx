@@ -7,11 +7,13 @@ const Images: React.FunctionComponent<{
   className: string;
   images: string[];
   setImages: Function;
-}> = ({ className, images, setImages }) => {
+  setFiles: Function;
+}> = ({ className, images, setImages, setFiles }) => {
   const { t } = useTranslation('add-product');
   const file = useRef(null);
 
-  const openImageDialog = () => {
+  const openImageDialog = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
     file?.current?.click();
   };
 
@@ -23,6 +25,7 @@ const Images: React.FunctionComponent<{
         URL.createObjectURL(fileObj),
       );
       setImages(imageArray);
+      setFiles(files);
     }
   };
 
@@ -56,10 +59,10 @@ const Images: React.FunctionComponent<{
             return (
               <Image
                 key={index}
-                className="rounded-lg shadow"
+                className="rounded-lg shadow min-h-[50px]"
                 src={image}
                 width="50"
-                height="50"
+                height="60"
                 alt="smaple"
               />
             );

@@ -12,6 +12,7 @@ const ProductDetail: React.FunctionComponent<{
   description: string;
   setDescription: Function;
   categories: { name: string; value: string }[];
+  errors: Record<string, string>
 }> = ({
   className,
   name,
@@ -21,6 +22,7 @@ const ProductDetail: React.FunctionComponent<{
   description,
   setDescription,
   categories,
+  errors,
 }) => {
   const { t } = useTranslation('add-product');
   return (
@@ -28,9 +30,9 @@ const ProductDetail: React.FunctionComponent<{
       <div className=" text-2xl font-bold leading-8 mb-5 text-[#170F49]">
         {t('productDetails')}
       </div>
-      <div className="w-100 p-7 h-[411px] rounded-[20px] bg-[#FFF]">
+      <div className="w-100 p-7 min-h-[411px] rounded-[20px] bg-[#FFF]">
         <Input
-          className="mb-4"
+          containerClass="mb-4"
           required={true}
           type="text"
           id="name"
@@ -39,6 +41,7 @@ const ProductDetail: React.FunctionComponent<{
           onChange={(e) => setName(e.target.value)}
           value={name}
           placeholder={t('productName')}
+          error={errors?.name}
         />
         <div>
           <label
@@ -55,7 +58,9 @@ const ProductDetail: React.FunctionComponent<{
             value={category}
             options={categories}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full border px-4 py-4 mb-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
+            error={errors?.categoryId}
+            className="w-full border px-4 py-4 rounded-[10px] text-sm font-normal leading-5 bg-[#fff] border-[#D2DAE2] text-[#576D99] focus:border-[#D2DAE2] focus:outline-none"
+            containerClass='mb-4'
           />
         </div>
         <div>
