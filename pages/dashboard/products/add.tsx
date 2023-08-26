@@ -33,18 +33,11 @@ const AddProductPage = () => {
     value: cat.id,
   }));
 
-  useEffect(() => {
-    handleCreateProduct();
-  }, []);
-
   const handleCreateProduct = async () => {
     const product = {
       name,
       description,
-      price,
-      currency,
-      status,
-      productVariants: varients,
+      categoryId:category
     };
     const result = await createProduct({
       variables: {
@@ -99,9 +92,12 @@ const AddProductPage = () => {
                 setDescription={setDescription}
                 categories={categories}
               />
+              <Button variant="primary" className="mb-3 mt-8" type="submit" onClick={handleCreateProduct}>
+                {t('publishProduct')}
+              </Button>
               <Images className="mt-9" images={images} setImages={setImages} />
               <Variants className="mt-9" varients={varients} setVarients={setVarients} />
-              <Button variant="primary" className="mb-3 mt-9" type="submit">
+              <Button variant="primary" className="mt-9" type="submit">
                 {t('publishProduct')}
               </Button>
             </div>
