@@ -12,10 +12,10 @@ const withAuth: any = (WrappedComponent: JSX.IntrinsicAttributes) => {
       return <PuentifyLoader />;
     }
 
-    // if (!data && !loading) {
-    //   if (router) router.push('/login');
-    //   return null;
-    // }
+    if (!data && !loading) {
+      if (router) router.push('/login');
+      return null;
+    }
 
     return <WrappedComponent {...props} />;
   };
