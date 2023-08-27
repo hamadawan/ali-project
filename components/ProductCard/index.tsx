@@ -5,7 +5,7 @@ const ProductCard: React.FunctionComponent<{
   className?: string;
   name: string;
   image: string;
-}> = ({ className, name, image = '/shirt-img.svg' }) => {
+}> = ({ className, name, image = '/assets/product.png' }) => {
   return (
     <div className={`${className} rounded-lg`}>
       <div className="w-full flex flex-col justify-center items-center min-w-[280px] h-[363px] rounded-[20px] bg-[#FFFFFF] px-3 py-4">

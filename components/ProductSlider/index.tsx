@@ -32,12 +32,12 @@ const ProductSlider: React.FunctionComponent = ({ className }: any) => {
   return (
     <div className={`${className}`}>
       <Slider {...settings}>
-        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
-        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
-        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
-        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
-        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
-        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
+        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
+        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
+        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
+        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
+        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
       </Slider>
     </div>
   );

@@ -7,7 +7,7 @@ import StarRating from '@/components/StatRating/StarRating';
 const StoreBanner: React.FunctionComponent = () => {
   return (
     <div className="min-h-[512px] relative rounded-lg">
-      <div className='bg-[url("/shutterstock.svg")] bg-no-repeat bg-[size:100%_100%] absolute top-0 bottom-0 left-0 right-0 rounded-lg'></div>
+      <div className='bg-[url("/assets/store-banner.png")] bg-no-repeat bg-[size:100%_100%] absolute top-0 bottom-0 left-0 right-0 rounded-lg'></div>
       <div
         style={{ background: 'linear-gradient(90deg, #0860C6 0%, rgba(8, 96, 198, 0.00) 100%)' }}
         className="absolute top-0 bottom-0 left-0 right-0 rounded-lg"
