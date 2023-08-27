@@ -9,7 +9,7 @@ const StoreInfo: React.FunctionComponent = () => {
         <Image className=" ml-[50px]" src="/map.svg" alt="" width={551} height={344} />
         <Image className="mt-4 absolute " src="/MapPin.png" alt="" width={45} height={65} />
       </div>
-      <div className="font-[DM Sans] text-5xl font-[bold] leading-normal text-[#FFFFFF]">
+      <div className="text-5xl font-[bold] leading-normal text-[#FFFFFF]">
         Información de la empresa
       </div>
       <div className="flex mt-6 font-[Roboto] text-3xl font-dark leading-[42px] text-[#FFFFFF]">

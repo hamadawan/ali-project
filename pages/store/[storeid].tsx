@@ -2,6 +2,7 @@ import Head from "next/head";
 import StoreBanner from "@/components/store/StoreBanner";
 import ProductSlider from "@/components/ProductSlider";
 import StoreInfo from "@/components/store/CompanyInfo";
+import DashboardHeader from "@/components/DashboardHeader";
 export default function Home() {
   return (
     <div>
@@ -11,7 +12,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container mx-auto">
+      <DashboardHeader />
+      <div className="container mx-auto py-6">
         <StoreBanner />
         <ProductSlider />
         <StoreInfo />
