@@ -1,10 +1,11 @@
-import * as React from "react";
-import Image from "next/image";
-import { Button } from "../../ui/button";
+import * as React from 'react';
+import Image from 'next/image';
+import { Button } from '../../ui/button';
+import StarRating from '@/components/StatRating/StarRating';
 
 const StoreInfo: React.FunctionComponent = () => {
   return (
-    <div className="w-[1260px] h-[763px] bg-[#0860C6] px-[36px] py-[76px]">
+    <div className="h-[763px] bg-[#0860C6] px-[36px] py-[76px]">
       <div className="relative float-right">
         <Image className=" ml-[50px]" src="/map.svg" alt="" width={551} height={344} />
         <Image className="mt-4 absolute " src="/MapPin.png" alt="" width={45} height={65} />
@@ -14,10 +15,8 @@ const StoreInfo: React.FunctionComponent = () => {
       </div>
       <div className="flex mt-6 font-[Roboto] text-3xl font-dark leading-[42px] text-[#FFFFFF]">
         4.75
-        <Image className="ml-2" src="/stars.svg" alt="" width={125} height={25} />
-        <div className="font-[DM SDans] text-lg font-bold leading-[42px] ml-2">
-          Ver todas las reseñas
-        </div>
+        <StarRating className="pl-2" rating={4} width={'30px'} height={'30px'} />
+        <div className="text-lg font-bold leading-[42px] ml-2">Ver todas las reseñas</div>
       </div>
       <p className="text-[#FFFFFF] mt-7 font-[Roboto] text-base font-semibold w-[643px] h-[169px] leading-[25.5px] tracking-[0.16px]">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies ipsum tortor, eu

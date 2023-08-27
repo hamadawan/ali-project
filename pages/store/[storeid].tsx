@@ -1,11 +1,11 @@
-import Head from "next/head";
-import StoreBanner from "@/components/store/StoreBanner";
-import ProductSlider from "@/components/ProductSlider";
-import StoreInfo from "@/components/store/CompanyInfo";
-import DashboardHeader from "@/components/DashboardHeader";
+import Head from 'next/head';
+import StoreBanner from '@/components/store/StoreBanner';
+import ProductSlider from '@/components/ProductSlider';
+import StoreInfo from '@/components/store/CompanyInfo';
+import DashboardHeader from '@/components/DashboardHeader';
 export default function Home() {
   return (
-    <div>
+    <div className=" bg-[#F7F8FA]">
       <Head>
         <title>Puentify</title>
         <meta name="description" content="Puente - Your Bridge to Mexican Manufacturing" />
@@ -15,7 +15,7 @@ export default function Home() {
       <DashboardHeader />
       <div className="container mx-auto py-6">
         <StoreBanner />
-        <ProductSlider />
+        <ProductSlider className="py-24" />
         <StoreInfo />
       </div>
     </div>

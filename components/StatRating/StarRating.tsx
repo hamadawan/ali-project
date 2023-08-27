@@ -8,9 +8,9 @@ const StarRating = ({ rating, color, width, height, className }: any) => {
       {Array.from({ length: fullStars }, (_, index) => (
         <svg
           key={`star-${index}`}
-          className={`${color ?? "text-yellow-400"}`}
+          className={`${color ?? 'text-yellow-400'}`}
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 24"
           fill="currentColor"
           width={width}
           height={height}
@@ -20,9 +20,9 @@ const StarRating = ({ rating, color, width, height, className }: any) => {
       ))}
       {hasHalfStar && (
         <svg
-          className={`${color ?? "text-yellow-400"}`}
+          className={`${color ?? 'text-yellow-400'}`}
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 24"
           fill="currentColor"
           width={width}
           height={height}
@@ -35,7 +35,7 @@ const StarRating = ({ rating, color, width, height, className }: any) => {
           key={`empty-star-${index}`}
           className="text-gray-400"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 24"
           fill="currentColor"
           width={width}
           height={height}

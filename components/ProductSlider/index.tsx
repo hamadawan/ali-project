@@ -1,53 +1,44 @@
-import * as React from "react";
-import Image from "next/image";
+import React, { useState } from 'react';
+import ProductCard from '../ProductCard';
+import Slider from 'react-slick';
 
-const ProductSlider: React.FunctionComponent = () => {
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+const ProductSlider: React.FunctionComponent = ({ className }: any) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    afterChange: (current) => {
+      setCurrentSlide(current);
+    },
+    customPaging: (i) => (
+      <div className="mt-10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="14"
+          viewBox="0 0 15 14"
+          fill="none"
+        >
+          <circle cx="7.5" cy="7" r="7" fill={i === currentSlide ? '#0860C6' : '#D9D9D9'} />
+        </svg>
+      </div>
+    ),
+  };
   return (
-    <div className="flex md:gap-[43px] gap-3">
-      <div>
-        <div className="w-[280px] h-[363px] rounded-[20px] bg-[#FFFFFF] px-[10px] pt-[43px]">
-          <Image src="/shirt-img.svg" alt="" width={260} height={260} />
-        </div>
-        <div className="mt-3 font-[DM Sans] text-lg font-medium leading-normal text-[#576D99]">
-          Product name
-        </div>
-        <div className="font-[DM Sans] text-lg font-medium leading-normal text-[#1e1e1e80]">
-          $60.00 - $120.00
-        </div>
-      </div>
-      <div>
-        <div className="w-[280px] h-[363px] rounded-[20px] bg-[#FFFFFF] px-[10px] pt-5">
-          <Image src="/shirt-img2.svg" alt="" width={300} height={343} />
-        </div>
-        <div className="mt-3 font-[DM Sans] text-lg font-medium leading-normal text-[#576D99]">
-          Product name
-        </div>
-        <div className="font-[DM Sans] text-lg font-medium leading-normal text-[#1e1e1e80]">
-          $60.00 - $120.00
-        </div>
-      </div>
-      <div>
-        <div className="w-[280px] h-[363px] rounded-[20px] bg-[#FFFFFF] px-[10px] pt-7">
-          <Image src="/shirt-img3.svg" alt="" width={270} height={308} />
-        </div>
-        <div className="mt-3 font-[DM Sans] text-lg font-medium leading-normal text-[#576D99]">
-          Product name
-        </div>
-        <div className="font-[DM Sans] text-lg font-medium leading-normal text-[#1e1e1e80]">
-          $60.00 - $120.00
-        </div>
-      </div>
-      <div>
-        <div className="w-[280px] h-[363px] rounded-[20px] bg-[#FFFFFF] px-[10px] pt-7">
-          <Image src="/shirt-img4.svg" alt="" width={280} height={320} />
-        </div>
-        <div className="mt-3 font-[DM Sans] text-lg font-medium leading-normal text-[#576D99]">
-          Product name
-        </div>
-        <div className="font-[DM Sans] text-lg font-medium leading-normal text-[#1e1e1e80]">
-          $60.00 - $120.00
-        </div>
-      </div>
+    <div className={`${className}`}>
+      <Slider {...settings}>
+        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+        <ProductCard className="px-2" name="Product hhhh" image="/shirt-img.svg" />
+      </Slider>
     </div>
   );
 };

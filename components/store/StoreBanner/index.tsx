@@ -1,15 +1,15 @@
-import * as React from "react";
-import Image from "next/image";
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
-import StarRating from "@/components/StatRating/StarRating";
+import * as React from 'react';
+import Image from 'next/image';
+import { Button } from '../../ui/button';
+import { Input } from '../../ui/input';
+import StarRating from '@/components/StatRating/StarRating';
 
 const StoreBanner: React.FunctionComponent = () => {
   return (
-    <div className="max-w-[1248px] mx-auto min-h-[512px] relative rounded-lg">
-      <div className='bg-[url("/shutterstock.svg")] bg-no-repeat absolute top-0 bottom-0 left-0 right-0 rounded-lg'></div>
+    <div className="min-h-[512px] relative rounded-lg">
+      <div className='bg-[url("/shutterstock.svg")] bg-no-repeat bg-[size:100%_100%] absolute top-0 bottom-0 left-0 right-0 rounded-lg'></div>
       <div
-        style={{ background: "linear-gradient(90deg, #0860C6 0%, rgba(8, 96, 198, 0.00) 100%)" }}
+        style={{ background: 'linear-gradient(90deg, #0860C6 0%, rgba(8, 96, 198, 0.00) 100%)' }}
         className="absolute top-0 bottom-0 left-0 right-0 rounded-lg"
       ></div>
       <div className="absolute top-0 bottom-0 left-0 right-0 p-24 rounded-lg">
@@ -19,9 +19,9 @@ const StoreBanner: React.FunctionComponent = () => {
           <StarRating
             className="pl-4"
             rating={4}
-            width={"24px"}
-            height={"24px"}
-            color={"text-white"}
+            width={'24px'}
+            height={'24px'}
+            color={'text-white'}
           />
         </div>
         <div className="flex w-fit items-center mt-6 gap-x-6">
