@@ -7,14 +7,14 @@ import StarRating from '@/components/StatRating/StarRating';
 const StoreBanner: React.FunctionComponent = () => {
   return (
     <div className="min-h-[512px] relative rounded-lg">
-      <div className='bg-[url("/assets/store-banner.png")] bg-no-repeat bg-[size:100%_100%] absolute top-0 bottom-0 left-0 right-0 rounded-lg'></div>
+      <div className='container bg-[url("/assets/store-banner.png")] bg-no-repeat bg-[size:100%_100%] absolute top-0 bottom-0 left-0 right-0 rounded-lg'></div>
       <div
         style={{ background: 'linear-gradient(90deg, #0860C6 0%, rgba(8, 96, 198, 0.00) 100%)' }}
         className="absolute top-0 bottom-0 left-0 right-0 rounded-lg"
       ></div>
       <div className="absolute top-0 bottom-0 left-0 right-0 p-24 rounded-lg">
         <div className="text-[64px] font-[bold] leading-[64px] text-[#FFFFFF]">HS Uniforms</div>
-        <div className="flex mt-6 font-[Roboto] text-3xl font-dark leading-[42px] text-[#FFFFFF]">
+        <div className="flex mt-6 text-3xl font-dark leading-[42px] text-[#FFFFFF]">
           4.75
           <StarRating
             className="pl-4"

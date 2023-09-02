@@ -31,6 +31,7 @@ const ProductSlider: React.FunctionComponent = ({ className }: any) => {
   };
   return (
     <div className={`${className}`}>
+      <div className='text-center mb-[61px] text-[56px] font-bold leading-normal'>Productos</div>
       <Slider {...settings}>
         <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
         <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
