@@ -24,7 +24,7 @@ const ProductSlider: React.FunctionComponent = ({ className }: any) => {
           viewBox="0 0 15 14"
           fill="none"
         >
-          <circle cx="7.5" cy="7" r="7" fill={i === currentSlide ? '#0860C6' : '#D9D9D9'} />
+          <circle cx="7.5" cy="7" r="7" fill={i === currentSlide ? '#26B9F1' : '#0860C6'} />
         </svg>
       </div>
     ),

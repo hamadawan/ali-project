@@ -3,6 +3,7 @@ import Image from "next/image";
 import Select from "../../ui/Select";
 import { Button } from "../../ui/button";
 import Breadcrumb from "@/components/Breadcrumb";
+import UserReview from "@/components/UserReview";
 
 const AboutProduct: React.FunctionComponent = () => {
   return (
@@ -63,29 +64,13 @@ const AboutProduct: React.FunctionComponent = () => {
           <Button className="w-[270px] h-[73.6px] text-white mb-[97px]">Quiero esto</Button>
         </div>
         <hr />
-        <div>
-          <div className="mt-8 flex float-left">
-            <Image src="/user.png" alt="" width={48} height={48} />
-            <div className="font-[Roboto] text-base font-medium leading-[42px] ml-2 tracking-[0.16px] text-[#474747]">
-              Username
-            </div>
-          </div>
-          <div className="mt-8 flex float-right">
-            <Image src="/fillStar.png" alt="" width={38} height={38} />
-            <Image src="/fillStar.png" alt="" width={38} height={38} />
-            <Image src="/fillStar.png" alt="" width={38} height={38} />
-            <Image src="/fillStar.png" alt="" width={38} height={38} />
-            <Image src="/star.png" alt="" width={38} height={38} />
-          </div>
-        </div>
-        <div className="mt-[85px] ml-[57px]">
-          <p className="font-[Roboto] text-[#474747] text-sm font-medium leading-normal tracking-[0.14px]">
-            Lorem Ipsum
-          </p>
-          <p className="font-[Roboto] text-[#C4C4C4] text-xs font-normal leading-normal tracking-[0.12px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </div>
+        <UserReview
+          name={"Abcd"}
+          rating={4}
+          review={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis."
+          }
+        />
         <div className="float-right mt-5 font-[DM sans] text-lg font-medium leading-normal text-[#26B9F1]">
           View all reviews
         </div>

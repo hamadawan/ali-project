@@ -5,9 +5,9 @@ import StarRating from "@/components/StatRating/StarRating";
 
 const StoreInfo: React.FunctionComponent = () => {
   return (
-    <div className="h-[763px] bg-[#0860C6] px-[36px] py-[76px]">
-      <div className="container grid grid-cols-12 gap-x-4">
-        <div className="col-span-6">
+    <div className="h-[763px] bg-[#0860C6] py-[76px]">
+      <div className="container mx-auto grid grid-cols-12 gap-x-16">
+        <div className="col-span-7">
           <div className="text-5xl font-[bold] leading-normal text-[#FFFFFF]">
             Información de la empresa
           </div>
@@ -23,7 +23,7 @@ const StoreInfo: React.FunctionComponent = () => {
               Ver todas las reseñas
             </div>
           </div>
-          <p className="text-[#FFFFFF] mt-7 text-base font-semibold w-[603px] h-[169px] leading-[25.5px] tracking-[0.16px]">
+          <p className="text-[#FFFFFF] mt-7 text-base font-semibold h-[169px] leading-[25.5px] tracking-[0.16px]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
             ultricies ipsum tortor, eu malesuada turpis sollicitudin at. Aliquam
             erat volutpat. Donec condimentum libero ut consequat elementum.
@@ -66,7 +66,7 @@ const StoreInfo: React.FunctionComponent = () => {
             </Button>
           </div>
         </div>
-        <div className="ml-[48px] col-span-6">
+        <div className="col-span-5">
           <Image className=" " src="/map.svg" alt="" width={551} height={344} />
           <div className="w-[448px] text-[#FFF]">
             <div className="flex mt-[44px] gap-x-[33px]">

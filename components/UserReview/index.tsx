@@ -7,7 +7,7 @@ const UserReview: React.FunctionComponent<{name:string , rating:number , review:
     <div className="w-full rounded-lg border border-solid border-[#DBDFE8]">
       <div className="px-4 py-8 flex gap-x-4">
         <Image src="/avatar.svg" alt="logo" width={44} height={44} />
-        <div>
+        <div className="w-full">
           <div className="flex justify-between">
             <div className="text-lg font-semibold leading-7"> {name}</div>
             <StarRating
