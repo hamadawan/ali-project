@@ -47,7 +47,7 @@ const StoreInfo: React.FunctionComponent = () => {
             <Button className="text-[#FFF] tracking-[0.16px] font-[Roboto] text-base font-semibold bg-[#26B9F1] w-[270px] h-[73px] rounded-[10px] mt-[78px]">
               <Image
                 className="mr-2"
-                src="/message-square.svg"
+                src="/message-square.png"
                 alt=" "
                 width={24}
                 height={24}
@@ -57,7 +57,7 @@ const StoreInfo: React.FunctionComponent = () => {
             <Button className="ml-4 text-[#FFF] tracking-[0.16px] font-[Roboto] text-base font-semibold bg-[#26B9F1] w-[270px] h-[73px] rounded-[10px] mt-[78px]">
               <Image
                 className="mr-2"
-                src="/message-square.svg"
+                src="/message-square.png"
                 alt=" "
                 width={24}
                 height={24}
