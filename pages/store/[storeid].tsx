@@ -5,6 +5,7 @@ import ProductSlider from "@/components/ProductSlider";
 import StoreInfo from "@/components/store/CompanyInfo";
 import DashboardHeader from "@/components/DashboardHeader";
 import Reviews from "@/components/Reviews";
+import StoreFooter from "@/components/StoreFooter";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <div className="container mx-auto py-6">
         <Reviews />
       </div>
+      <StoreFooter />
     </div>
   );
 }
