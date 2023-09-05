@@ -1,7 +1,7 @@
-import Head from "next/head";
-import DashboardHeader from "@/components/DashboardHeader";
-import AboutProduct from "@/components/Product/AboutProduct";
-import StoreHeader from "@/components/StoreHeader";
+import Head from 'next/head';
+import DashboardHeader from '@/components/DashboardHeader';
+import AboutProduct from '@/components/Product/AboutProduct';
+import StoreHeader from '@/components/StoreHeader';
 export default function Home() {
   return (
     <div className=" bg-[#F7F8FA]">

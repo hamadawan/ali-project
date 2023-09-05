@@ -1,19 +1,19 @@
-import * as React from "react";
-import Progressbar from "../Progressbar";
-import UserReview from "../UserReview";
-import Image from "next/image";
-import { Button } from "../ui/button";
+import * as React from 'react';
+import Progressbar from '../Progressbar';
+import UserReview from '../UserReview';
+import Image from 'next/image';
+import { Button } from '../ui/button';
 
 const Reviews: React.FunctionComponent = () => {
   const itemsData = [
     {
-      name: "Username",
+      name: 'Username',
       rating: 4,
       review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis.',
     },
-    { name: "Username", rating: 4, review: "lorem ipsum dolar sit amet ,consecteture adipiscing elit. Vivamus quis ex non magna tristique" },
-    { name: "Username", rating: 4, review: "lorem" },
+    { name: 'Username', rating: 4, review: 'lorem ipsum dolar sit amet ,consecteture adipiscing elit. Vivamus quis ex non magna tristique' },
+    { name: 'Username', rating: 4, review: 'lorem' },
   ];
   const reviews = [
     { noOfusers: 5, percentage: 90 },
@@ -33,7 +33,7 @@ const Reviews: React.FunctionComponent = () => {
           </div>
           <div className="w-full">
             {reviews.map((review) => (
-              <Progressbar number={review.noOfusers} percentage={review.percentage} />
+              <Progressbar key={review.noOfusers} number={review.noOfusers} percentage={review.percentage} />
             ))}
           </div>
         </div>

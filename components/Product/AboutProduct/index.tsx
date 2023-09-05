@@ -1,14 +1,14 @@
-import * as React from "react";
-import Image from "next/image";
-import Select from "../../ui/Select";
-import { Button } from "../../ui/button";
-import Breadcrumb from "@/components/Breadcrumb";
-import UserReview from "@/components/UserReview";
+import * as React from 'react';
+import Image from 'next/image';
+import Select from '../../ui/Select';
+import { Button } from '../../ui/button';
+import Breadcrumb from '@/components/Breadcrumb';
+import UserReview from '@/components/UserReview';
 
 const AboutProduct: React.FunctionComponent = () => {
   return (
     <div className="w-full">
-      <Breadcrumb options={["Home", "Sales", "Hoodie"]} />
+      <Breadcrumb options={['Home', 'Sales', 'Hoodie']} />
       <div className="float-left">
         <Image className="mt-7" src="/T-shirt.svg" alt="" width={523} height={523} />
         <div className="flex gap-x-6 mt-6">
@@ -65,10 +65,10 @@ const AboutProduct: React.FunctionComponent = () => {
         </div>
         <hr />
         <UserReview
-          name={"Abcd"}
+          name={'Abcd'}
           rating={4}
           review={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis."
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis.'
           }
         />
         <div className="float-right mt-5 font-[DM sans] text-lg font-medium leading-normal text-[#26B9F1]">

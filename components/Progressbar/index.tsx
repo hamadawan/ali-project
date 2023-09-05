@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from 'react';
 
 const Progressbar: React.FunctionComponent<{ number: number; percentage: number }> = ({
   percentage,

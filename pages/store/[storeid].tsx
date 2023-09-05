@@ -1,11 +1,10 @@
-import Head from "next/head";
-import StoreHeader from "@/components/StoreHeader";
-import StoreBanner from "@/components/store/StoreBanner";
-import ProductSlider from "@/components/ProductSlider";
-import StoreInfo from "@/components/store/CompanyInfo";
-import DashboardHeader from "@/components/DashboardHeader";
-import Reviews from "@/components/Reviews";
-import StoreFooter from "@/components/StoreFooter";
+import Head from 'next/head';
+import StoreHeader from '@/components/StoreHeader';
+import ProductSlider from '@/components/ProductSlider';
+import StoreInfo from '@/components/store/CompanyInfo';
+import DashboardHeader from '@/components/DashboardHeader';
+import Reviews from '@/components/Reviews';
+import StoreFooter from '@/components/StoreFooter';
 
 export default function Home() {
   return (

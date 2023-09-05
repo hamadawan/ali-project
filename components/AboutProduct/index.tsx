@@ -1,8 +1,8 @@
-import * as React from "react";
-import Image from "next/image";
-import Select from "../ui/Select";
-import { Button } from "../ui/button";
-import Breadcrumb from "../Breadcrumb";
+import * as React from 'react';
+import Image from 'next/image';
+import Select from '../ui/Select';
+import { Button } from '../ui/button';
+import Breadcrumb from '../Breadcrumb';
 
 const AboutProduct: React.FunctionComponent = () => {
   return (

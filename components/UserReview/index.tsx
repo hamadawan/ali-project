@@ -1,8 +1,8 @@
-import * as React from "react";
-import Image from "next/image";
-import StarRating from "@/components/StatRating/StarRating";
+import * as React from 'react';
+import Image from 'next/image';
+import StarRating from '@/components/StatRating/StarRating';
 
-const UserReview: React.FunctionComponent<{name:string , rating:number , review:string}> = ({name,rating,review}) => {
+const UserReview: React.FunctionComponent<{ name:string, rating:number, review:string }> = ({ name, rating, review }) => {
   return (
     <div className="w-full rounded-lg border border-solid border-[#DBDFE8]">
       <div className="px-4 py-8 flex gap-x-4">
@@ -13,8 +13,8 @@ const UserReview: React.FunctionComponent<{name:string , rating:number , review:
             <StarRating
               className="pl-2"
               rating={rating}
-              width={"30px"}
-              height={"30px"}
+              width={'30px'}
+              height={'30px'}
             />
           </div>
           <p className="text-lg font-normal leading-7">

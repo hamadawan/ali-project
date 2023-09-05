@@ -1,8 +1,8 @@
-import * as React from "react";
-import Image from "next/image";
-import StarRating from "@/components/StatRating/StarRating";
+import * as React from 'react';
+import Image from 'next/image';
+import StarRating from '@/components/StatRating/StarRating';
 
-const StoreHeader: React.FunctionComponent<{name:string,rating:number,products:number,customers:number}> = ({name,rating,products,customers}) => {
+const StoreHeader: React.FunctionComponent<{ name:string, rating:number, products:number, customers:number }> = ({ name, rating, products, customers }) => {
   return (
     <div className="w-full bg-[#0860C6] ">
       <div className="container flex items-center justify-between mx-auto">
@@ -16,9 +16,9 @@ const StoreHeader: React.FunctionComponent<{name:string,rating:number,products:n
             <StarRating
               className="pl-4"
               rating={4}
-              width={"24px"}
-              height={"24px"}
-              color={"text-white"}
+              width={'24px'}
+              height={'24px'}
+              color={'text-white'}
             />
           </div>
           <div className="flex w-fit items-center gap-x-6">

@@ -1,7 +1,7 @@
-import * as React from "react";
-import Image from "next/image";
-import { Button } from "../../ui/button";
-import StarRating from "@/components/StatRating/StarRating";
+import * as React from 'react';
+import Image from 'next/image';
+import { Button } from '../../ui/button';
+import StarRating from '@/components/StatRating/StarRating';
 
 const StoreInfo: React.FunctionComponent = () => {
   return (
@@ -16,8 +16,8 @@ const StoreInfo: React.FunctionComponent = () => {
             <StarRating
               className="pl-2"
               rating={4}
-              width={"30px"}
-              height={"30px"}
+              width={'30px'}
+              height={'30px'}
             />
             <div className="text-lg font-bold leading-[42px] ml-2">
               Ver todas las reseñas

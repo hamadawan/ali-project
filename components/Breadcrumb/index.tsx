@@ -1,6 +1,4 @@
-import * as React from "react";
-import Image from "next/image";
-import banner from "../../public/banner.png";
+import * as React from 'react';
 
 const Breadcrumb: React.FunctionComponent<{ options: string[] }> = ({ options }) => {
   return (
