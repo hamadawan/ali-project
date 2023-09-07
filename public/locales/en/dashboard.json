@@ -1,13 +1,16 @@
 {
     "companyName":"Company name",
+    "enterCompanyName":"Enter company name",
     "manufacturerUsers":"Manufacturer Users",
     "companySize":"Size of the company",
+    "median":"Median",
     "industry":"Industry",
+    "textile":"Textile",
     "street":"Street",
     "operationYear":"Year of operation",
     "city":"City",
     "state":"State",
-    "country":"Country",
     "zipCode":"Zip Code",
     "buttonText":"Keep"
+    
 }

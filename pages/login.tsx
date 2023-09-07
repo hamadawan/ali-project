@@ -21,6 +21,10 @@ const Login = () => {
     event.preventDefault();
     const response = await PuentifyApi.signin(email, password);
 
+    if (response.status === 500) {
+      setErrors(['There was an error logging in']);
+    }
+
     if (!isEmpty(response?.errors)) {
       setErrors(response?.errors);
     }
@@ -46,7 +50,6 @@ const Login = () => {
               className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
               role="alert"
             >
-              <strong className="font-bold">Please fix the following:</strong>
               <ul>
                 {errors?.map((error: any) => (
                   <span key={error} className="block sm:inline">
@@ -57,7 +60,9 @@ const Login = () => {
             </div>
           )}
           <form onSubmit={handleSubmit}>
-            <h2 className="text-3xl font-bold mb-6 leading-10">{t('heading')}</h2>
+            <h2 className="text-3xl font-bold mb-6 leading-10">
+              {t('heading')}
+            </h2>
             <Input
               required={true}
               type="email"
@@ -99,7 +104,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
