@@ -79,4 +79,13 @@ export const PuentifyApi = {
     });
     return response.json();
   },
+  storeFront: async (slug: string) => {
+    const response = await fetch(host + `/store/${slug}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  }
 };

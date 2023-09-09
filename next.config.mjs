@@ -10,7 +10,8 @@ const nextConfig = {
       "https://links.papareact.com",
       "links.papareact.com",
       "i.dummyjson.com",
-      "via.placeholder.com"
+      "via.placeholder.com",
+      "puentify-dev.s3.us-east-2.amazonaws.com"
     ],
   },
   typescript: {
