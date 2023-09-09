@@ -12,6 +12,8 @@ const Reviews: React.FunctionComponent = () => {
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis.',
     },
+    { name: "Username", rating: 4, review: "lorem" },
+    { name: "Username", rating: 4, review: "lorem" },
     { name: 'Username', rating: 4, review: 'lorem ipsum dolar sit amet ,consecteture adipiscing elit. Vivamus quis ex non magna tristique' },
     { name: 'Username', rating: 4, review: 'lorem' },
   ];
