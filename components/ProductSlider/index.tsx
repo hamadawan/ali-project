@@ -24,7 +24,7 @@ const ProductSlider: React.FunctionComponent<{ className: string; products: Prod
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: products.length > 4 ? 4 : products.length,
     slidesToScroll: 1,
     afterChange: (current) => {
       setCurrentSlide(current);
