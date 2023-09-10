@@ -87,5 +87,5 @@ export const PuentifyApi = {
       },
     });
     return response.json();
-  }
+  },
 };

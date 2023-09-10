@@ -80,7 +80,6 @@ const AddProductPage = () => {
     const err = await checkProductForm(product);
     if (err) {
       setErrors(err);
-      debugger;
     } else {
       setLoading(true);
       const result = await updateProduct({

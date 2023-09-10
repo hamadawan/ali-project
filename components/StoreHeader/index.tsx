@@ -12,10 +12,10 @@ const StoreHeader: React.FunctionComponent<{ name:string, rating:number, product
         </div>
         <div className="flex gap-x-6">
           <div className=" flex items-center text-3xl font-bold leading-normal text-white">
-            {rating}
+            {rating ?? 1}
             <StarRating
               className="pl-4"
-              rating={4}
+              rating={rating ?? 1}
               width={'24px'}
               height={'24px'}
               color={'text-white'}

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import ProductCard from "../ProductCard";
-import Slider from "react-slick";
+import React, { useState } from 'react';
+import ProductCard from '../ProductCard';
+import Slider from 'react-slick';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useRouter } from "next/router";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useRouter } from 'next/router';
 
 export interface Product {
   id: number;
@@ -38,7 +38,7 @@ const ProductSlider: React.FunctionComponent<{ className: string; products: Prod
           viewBox="0 0 15 14"
           fill="none"
         >
-          <circle cx="7.5" cy="7" r="7" fill={i === currentSlide ? "#26B9F1" : "#0860C6"} />
+          <circle cx="7.5" cy="7" r="7" fill={i === currentSlide ? '#26B9F1' : '#0860C6'} />
         </svg>
       </div>
     ),

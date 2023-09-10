@@ -1,13 +1,13 @@
-import Head from "next/head";
-import StoreHeader from "@/components/StoreHeader";
-import ProductSlider from "@/components/ProductSlider";
-import StoreInfo from "@/components/store/CompanyInfo";
-import DashboardHeader from "@/components/DashboardHeader";
-import Reviews from "@/components/Reviews";
-import StoreFooter from "@/components/StoreFooter";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { PuentifyApi } from "@/lib/puentifyApi";
+import Head from 'next/head';
+import StoreHeader from '@/components/StoreHeader';
+import ProductSlider from '@/components/ProductSlider';
+import StoreInfo from '@/components/store/CompanyInfo';
+import DashboardHeader from '@/components/DashboardHeader';
+import Reviews from '@/components/Reviews';
+import StoreFooter from '@/components/StoreFooter';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { PuentifyApi } from '@/lib/puentifyApi';
 
 const Store: React.FunctionComponent = () => {
   const router = useRouter();
@@ -31,13 +31,21 @@ const Store: React.FunctionComponent = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashboardHeader />
-      <StoreHeader name={store?.manufacturer?.name} rating={4.5} products={store?.products?.length} customers={100} />
+      <StoreHeader
+        name={store?.manufacturer?.name}
+        rating={store?.manufacturer?.overall_rating}
+        products={store?.products?.length}
+        customers={store?.manufacturer?.customer_count}
+      />
       <div className="container mx-auto py-8">
         <ProductSlider products={store?.products} className="pb-24" />
       </div>
-      <StoreInfo />
+      <StoreInfo manufacturer={store?.manufacturer} />
       <div className="container mx-auto py-6">
-        <Reviews />
+        <Reviews
+          overall_rating={store?.manufacturer?.overall_rating}
+          reviews={store?.manufacturer?.reviews}
+        />
       </div>
       <StoreFooter />
     </div>
