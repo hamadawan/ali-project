@@ -1,27 +1,13 @@
-import Head from 'next/head';
-import StoreHeader from '@/components/StoreHeader';
-import ProductSlider from '@/components/ProductSlider';
-import StoreInfo from '@/components/store/CompanyInfo';
-import DashboardHeader from '@/components/DashboardHeader';
-import Reviews from '@/components/Reviews';
-import StoreFooter from '@/components/StoreFooter';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { PuentifyApi } from '@/lib/puentifyApi';
+import Head from "next/head";
+import StoreHeader from "@/components/StoreHeader";
+import ProductSlider from "@/components/ProductSlider";
+import StoreInfo from "@/components/store/CompanyInfo";
+import DashboardHeader from "@/components/DashboardHeader";
+import Reviews from "@/components/Reviews";
+import StoreFooter from "@/components/StoreFooter";
+import { PuentifyApi } from "@/lib/puentifyApi";
 
-const Store: React.FunctionComponent = () => {
-  const router = useRouter();
-  const storeSlug: string = router.query.storeId as string;
-  const [store, setStore] = useState();
-  useEffect(() => {
-    (async function () {
-      if (storeSlug) {
-        const data = await PuentifyApi.storeFront(storeSlug);
-        setStore(data);
-      }
-    })();
-  }, [storeSlug]);
-
+const Store: React.FunctionComponent = ({ store }) => {
   return (
     <div className=" bg-[#F7F8FA]">
       <Head>
@@ -51,5 +37,17 @@ const Store: React.FunctionComponent = () => {
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  const router = context.req.url;
+  const storeSlug = router.split("/").pop();
+  const data = await PuentifyApi.storeFront(storeSlug);
+
+  return {
+    props: {
+      store: data,
+    },
+  };
+}
 
 export default Store;

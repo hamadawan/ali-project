@@ -6,9 +6,9 @@ const StoreHeader: React.FunctionComponent<{ name:string, rating:number, product
   return (
     <div className="w-full bg-[#0860C6] ">
       <div className="container flex items-center justify-between mx-auto">
-        <div className="items-center flex gap-x-6 text-[56px] font-bold leading-normal text-white">
+        <div className="max-w-full items-center flex gap-x-6 text-[56px] font-bold leading-normal text-white">
           <Image src="/HSLogo.svg" alt="logo" width={64} height={64} />
-          <div>{name}</div>
+          <div className='truncate'>{name}</div>
         </div>
         <div className="flex gap-x-6">
           <div className=" flex items-center text-3xl font-bold leading-normal text-white">

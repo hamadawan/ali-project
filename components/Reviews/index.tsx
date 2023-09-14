@@ -41,7 +41,7 @@ const Reviews: React.FunctionComponent<{ reviews: [], overall_rating: number }> 
           {reviews && reviews.map((item, index) => (
             <UserReview
               key={index}
-              name={item?.buyer?.name}
+              name={item?.reviewer?.name}
               rating={item.rating}
               review={item.body}
             />
