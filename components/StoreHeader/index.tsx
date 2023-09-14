@@ -5,7 +5,7 @@ import StarRating from '@/components/StatRating/StarRating';
 const StoreHeader: React.FunctionComponent<{ name:string, rating:number, products:number, customers:number }> = ({ name, rating, products, customers }) => {
   return (
     <div className="w-full bg-[#0860C6] ">
-      <div className="container flex items-center justify-between mx-auto">
+      <div className="container flex items-center justify-between mx-auto px-3 md:px-0">
         <div className="max-w-full items-center flex gap-x-6 text-[56px] font-bold leading-normal text-white">
           <Image src="/HSLogo.svg" alt="logo" width={64} height={64} />
           <div className='truncate'>{name}</div>

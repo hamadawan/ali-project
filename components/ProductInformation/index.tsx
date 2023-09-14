@@ -1,6 +1,6 @@
-import * as React from "react";
-import Select from "../ui/Select";
-import { Button } from "../ui/button";
+import * as React from 'react';
+import Select from '../ui/Select';
+import { Button } from '../ui/button';
 
 const ProductInformation: React.FunctionComponent = () => {
   return (

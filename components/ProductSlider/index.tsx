@@ -38,10 +38,41 @@ const ProductSlider: React.FunctionComponent<{ className: string; products: Prod
           viewBox="0 0 15 14"
           fill="none"
         >
-          <circle cx="7.5" cy="7" r="7" fill={i === Math.floor(currentSlide/4) ? '#26B9F1' : '#0860C6'} />
+          <circle
+            cx="7.5"
+            cy="7"
+            r="7"
+            fill={i === Math.floor(currentSlide / 4) ? '#26B9F1' : '#0860C6'}
+          />
         </svg>
       </div>
     ),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className={`${className}`}>

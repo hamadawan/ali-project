@@ -12,7 +12,7 @@ const Reviews: React.FunctionComponent<{ reviews: [], overall_rating: number }> 
       starCounts[rating - 1]++;
     });
     const totalUsers = reviewsList.length;
-    const result = starCounts.map((count) => {
+    const result = starCounts.sort().map((count) => {
       const percentage = (count / totalUsers) * 100;
       return { noOfusers: count, percentage };
     });

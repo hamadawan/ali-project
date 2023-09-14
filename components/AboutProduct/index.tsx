@@ -1,17 +1,15 @@
-import * as React from "react";
-import Image from "next/image";
-import Breadcrumb from "../Breadcrumb";
-import UserReview from "../UserReview";
-import ProductInformation from "../ProductInformation";
-import Imagegallery from "../Imagegallery";
+import * as React from 'react';
+import UserReview from '../UserReview';
+import ProductInformation from '../ProductInformation';
+import Imagegallery from '../Imagegallery';
 
 const AboutProduct: React.FunctionComponent = () => {
   const itemsData = [
     {
-      name: "Username",
+      name: 'Username',
       rating: 4,
       review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex non magna tristique pharetra a quis libero. Donec imperdiet justo sapien, vel tincidunt ante aliquet quis.',
     },
   ];
   return (
