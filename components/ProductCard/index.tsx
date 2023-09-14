@@ -10,10 +10,9 @@ const ProductCard: React.FunctionComponent<{
 }> = ({ className, id, onClick }) => {
   const { data } = useProductQuery(id);
   const product = data?.product;
-  console.log(data);
   return (
     <div className={`${className} rounded-lg`} onClick={onClick}>
-      <div className="w-full flex flex-col justify-center items-center min-w-[280px] h-[363px] rounded-[20px] bg-[#FFFFFF] px-3 py-4">
+      <div className="w-full flex flex-col justify-center items-center h-[363px] rounded-[20px] bg-[#FFFFFF] px-3 py-4">
         <Image src={product?.images?.[0] ?? '/assets/product.png'} alt="" width={260} height={260} />
       </div>
       <div className="mt-3 font-[DM Sans] text-lg font-medium leading-normal text-[#576D99]">
