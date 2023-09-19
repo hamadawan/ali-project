@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import ProductCard from '../ProductCard';
-import Slider from 'react-slick';
+import React, { useState } from "react";
+import ProductCard from "../ProductCard";
+import Slider from "react-slick";
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const ProductSlider: React.FunctionComponent = ({ className }: any) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const settings = {
@@ -24,21 +24,49 @@ const ProductSlider: React.FunctionComponent = ({ className }: any) => {
           viewBox="0 0 15 14"
           fill="none"
         >
-          <circle cx="7.5" cy="7" r="7" fill={i === currentSlide ? '#26B9F1' : '#0860C6'} />
+          <circle
+            cx="7.5"
+            cy="7"
+            r="7"
+            fill={i === currentSlide ? "#26B9F1" : "#0860C6"}
+          />
         </svg>
       </div>
     ),
   };
   return (
     <div className={`${className}`}>
-      <div className='text-center mb-[61px] text-[56px] font-bold leading-normal'>Productos</div>
       <Slider {...settings}>
-        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
-        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
-        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
-        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
-        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
-        <ProductCard className="px-2" name="Product hhhh" image="/assets/product.png" />
+        <ProductCard
+          className="px-2"
+          name="Product hhhh"
+          image="/assets/product.png"
+        />
+        <ProductCard
+          className="px-2"
+          name="Product hhhh"
+          image="/assets/product.png"
+        />
+        <ProductCard
+          className="px-2"
+          name="Product hhhh"
+          image="/assets/product.png"
+        />
+        <ProductCard
+          className="px-2"
+          name="Product hhhh"
+          image="/assets/product.png"
+        />
+        <ProductCard
+          className="px-2"
+          name="Product hhhh"
+          image="/assets/product.png"
+        />
+        <ProductCard
+          className="px-2"
+          name="Product hhhh"
+          image="/assets/product.png"
+        />
       </Slider>
     </div>
   );
