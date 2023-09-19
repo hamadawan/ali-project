@@ -22,6 +22,7 @@ const ProductSlider: React.FunctionComponent<{ className: string; products: Prod
   const router = useRouter();
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: products?.length > 4 ? 4 : products?.length,

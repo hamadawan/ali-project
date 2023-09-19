@@ -25,13 +25,13 @@ const StoreInfo: React.FunctionComponent<{ manufacturer: any }> = ({ manufacture
             {manufacturer?.description}
           </p>
           <div className="mt-12 flex gap-2">
-            <button className="rounded-[10px] text-base font-semibold text-[#FFF] w-[167px] h-[54px] border border-solid border-[#FFF] ">
+            <button className="rounded-[10px] text-base font-semibold text-[#FFF] h-[54px] border border-solid border-[#FFF] ">
               Fundada en 2002
             </button>
-            <button className="rounded-[10px] text-base font-semibold text-[#FFF] w-[197px] h-[54px] border border-solid border-[#FFF] ">
+            <button className="rounded-[10px] text-base font-semibold text-[#FFF] h-[54px] border border-solid border-[#FFF] ">
               100 - 200 Empleados
             </button>
-            <button className="rounded-[10px] text-base font-semibold text-[#FFF] w-[130px] h-[54px] border border-solid border-[#FFF] ">
+            <button className="rounded-[10px] text-base font-semibold text-[#FFF] h-[54px] border border-solid border-[#FFF] ">
               425 clientes
             </button>
           </div>
@@ -47,8 +47,8 @@ const StoreInfo: React.FunctionComponent<{ manufacturer: any }> = ({ manufacture
           </div>
         </div>
         <div className="col-span-5">
-          <Image className=" " src="/map.svg" alt="" width={551} height={344} />
-          <div className="w-[448px] text-[#FFF]">
+          {/* <Image className=" " src="/map.svg" alt="" width={251} height={344} /> */}
+          <div className="w-full text-[#FFF]">
             <div className="flex mt-[44px] gap-x-[33px]">
               <Image className="" src="/map-pin.svg" alt=" " width={24} height={24} />
               <p>
