@@ -2,10 +2,24 @@ import React, { useState } from "react";
 import ProductCard from "../ProductCard";
 import Slider from "react-slick";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-const ProductSlider: React.FunctionComponent = ({ className }: any) => {
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useRouter } from 'next/router';
+
+export interface Product {
+  id: number;
+  name: string;
+  images: string[];
+  price: number;
+  currency: string;
+}
+
+const ProductSlider: React.FunctionComponent<{ className: string; products: Product[] }> = ({
+  className,
+  products,
+}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
   const settings = {
     dots: true,
     infinite: true,
@@ -36,37 +50,16 @@ const ProductSlider: React.FunctionComponent = ({ className }: any) => {
   };
   return (
     <div className={`${className}`}>
+      <div className="text-center mb-[61px] text-[56px] font-bold leading-normal">Productos</div>
       <Slider {...settings}>
-        <ProductCard
-          className="px-2"
-          name="Product hhhh"
-          image="/assets/product.png"
-        />
-        <ProductCard
-          className="px-2"
-          name="Product hhhh"
-          image="/assets/product.png"
-        />
-        <ProductCard
-          className="px-2"
-          name="Product hhhh"
-          image="/assets/product.png"
-        />
-        <ProductCard
-          className="px-2"
-          name="Product hhhh"
-          image="/assets/product.png"
-        />
-        <ProductCard
-          className="px-2"
-          name="Product hhhh"
-          image="/assets/product.png"
-        />
-        <ProductCard
-          className="px-2"
-          name="Product hhhh"
-          image="/assets/product.png"
-        />
+        {products?.map((product) => (
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            className="px-2 cursor-pointer"
+            onClick={() => router.push(`/product/${product.id}`)}
+          />
+        ))}
       </Slider>
     </div>
   );

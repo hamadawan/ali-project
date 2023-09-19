@@ -4,9 +4,9 @@ const Table: React.FunctionComponent = () => {
   return (
     <div className="mt-14">
       <div className="flex gap-x-8  text-[#0860C6] cursor-pointer text-2xl font-bold justify-center">
-        <div className="hover:text-[#26B9F1] hover:border-[#DBDFE8] hover:border rounded-t-[20px]  p-4 ">
+        <button className="focus:text-[#26B9F1] focus:border-[#DBDFE8] focus:border rounded-t-[20px]  p-4 ">
           Detalles del producto
-        </div>
+        </button>
         <div className="hover:text-[#26B9F1] hover:border-[#DBDFE8] hover:border rounded-t-[20px]  p-4">
           Reseñas
         </div>

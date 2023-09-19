@@ -3,6 +3,7 @@ import DashboardHeader from "@/components/DashboardHeader";
 import StoreHeader from "@/components/StoreHeader";
 import AboutProduct from "@/components/AboutProduct";
 import StoreFooter from "@/components/StoreFooter";
+import ProductSlider from "@/components/ProductSlider";
 export default function Home() {
   return (
     <div className=" bg-[#F7F8FA]">
@@ -24,6 +25,7 @@ export default function Home() {
       />
       <div className="container mx-auto py-6">
         <AboutProduct />
+        <ProductSlider />
       </div>
       <div className="mt-16">
         <StoreFooter />
