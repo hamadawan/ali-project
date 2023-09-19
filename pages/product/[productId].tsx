@@ -4,6 +4,7 @@ import StoreHeader from "@/components/StoreHeader";
 import AboutProduct from "@/components/AboutProduct";
 import StoreFooter from "@/components/StoreFooter";
 import ProductSlider from "@/components/ProductSlider";
+import Breadcrumb from "@/components/Breadcrumb";
 export default function Home() {
   return (
     <div className=" bg-[#F7F8FA]">
@@ -24,6 +25,7 @@ export default function Home() {
         customers={100}
       />
       <div className="container mx-auto py-6">
+        <Breadcrumb options={["Home","Sales","Hoodie"]}/>
         <AboutProduct />
         <ProductSlider />
       </div>

@@ -7,7 +7,7 @@ const Imagegallery: React.FunctionComponent = () => {
   }
 
   const imgGallery = [
-    // {src:"/T-shirt.png"},
+    {src:"/T-shirt.png"},
     { src: "/t-shirt1.png" },
     { src: "/t-shirt2.png" },
     { src: "/t-shirt3.png" },
