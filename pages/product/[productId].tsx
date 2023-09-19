@@ -25,9 +25,9 @@ export default function Home() {
         customers={100}
       />
       <div className="container mx-auto py-6">
-        <Breadcrumb options={["Home","Sales","Hoodie"]}/>
+        <Breadcrumb options={["Home","Sales","Hoodie"]} className="pb-7"/>
         <AboutProduct />
-        <ProductSlider />
+        <ProductSlider className="mt-8" />
       </div>
       <div className="mt-16">
         <StoreFooter />

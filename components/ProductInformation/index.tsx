@@ -37,7 +37,7 @@ const ProductInformation: React.FunctionComponent = () => {
             required={true}
             id="cantidad"
             type="number"
-            className="border-transparent"
+            className="border-none bg-transparent"
           />
         </div>
         <div className="text-[#7D7D7D] text-base font-semibold uppercase text-center pt-3 w-[103px] h-[74px] rounded-[10px] border border-solid border-[#00000033] ">
@@ -46,7 +46,7 @@ const ProductInformation: React.FunctionComponent = () => {
             required={true}
             id="color"
             type="text"
-            className="border-none"
+            className="border-none bg-transparent"
           />
         </div>
         <div className="text-[#7D7D7D] text-base font-semibold uppercase text-center pt-3 w-[103px] h-[74px] rounded-[10px] border border-solid border-[#00000033]">
@@ -55,7 +55,7 @@ const ProductInformation: React.FunctionComponent = () => {
             required={true}
             id="talla"
             type="text"
-            className="border-none"
+            className="border-none bg-transparent"
           />
         </div>
         <Button className="w-[270px] h-[73.6px] text-white mb-1">
