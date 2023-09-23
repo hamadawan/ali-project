@@ -8,7 +8,9 @@ import Table from "../../Table";
 import Tabs from "@/components/Tabs";
 const TABS = ["Detalles del producto", "Reseñas", "Información del fabricante"];
 import Reviews from "@/components/Reviews";
+import CompanyInfo from "@/components/store/CompanyInfo"
 import PdfView from "@/components/PdfView";
+import { PuentifyApi } from '@/lib/puentifyApi';
 
 const AboutProduct: React.FunctionComponent = ({store}) => {
   const itemsData = [
@@ -52,9 +54,21 @@ const AboutProduct: React.FunctionComponent = ({store}) => {
           overall_rating={store?.manufacturer?.overall_rating}
           reviews={store?.manufacturer?.reviews}
         /></>}
-      {tab === TABS[2] && <StoreInfo manufacturer={store?.manufacturer} />}
+      {tab === TABS[2] && <CompanyInfo manufacturer={store?.manufacturer} />}
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  const router = context.req.url;
+  const storeSlug = router.split('/').pop();
+  const data = await PuentifyApi.storeFront(storeSlug);
+
+  return {
+    props: {
+      store: data,
+    },
+  };
+}
 
 export default AboutProduct;

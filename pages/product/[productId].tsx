@@ -1,3 +1,4 @@
+"use client"
 import Head from "next/head";
 import DashboardHeader from "@/components/DashboardHeader";
 import StoreHeader from "@/components/StoreHeader";
