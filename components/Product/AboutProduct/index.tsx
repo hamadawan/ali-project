@@ -1,18 +1,20 @@
 import * as React from "react";
-import Image from "next/image";
 import { Button } from "../../ui/button";
 import UserReview from "../../UserReview";
 import ProductInformation from "../../ProductInformation";
 import Imagegallery from "../../Imagegallery";
 import Table from "../../Table";
 import Tabs from "@/components/Tabs";
-const TABS = ["Detalles del producto", "Reseñas", "Información del fabricante"];
 import Reviews from "@/components/Reviews";
-import CompanyInfo from "@/components/store/CompanyInfo"
+import CompanyInfo from "@/components/store/CompanyInfo";
 import PdfView from "@/components/PdfView";
-import { PuentifyApi } from '@/lib/puentifyApi';
+import { PuentifyApi } from "@/lib/puentifyApi";
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 
-const AboutProduct: React.FunctionComponent = ({store}) => {
+const TABS = ["Detalles del producto", "Reseñas", "Información del fabricante"];
+
+const AboutProduct: React.FunctionComponent = ({ store }) => {
   const itemsData = [
     {
       name: "Username",
@@ -41,8 +43,9 @@ const AboutProduct: React.FunctionComponent = ({store}) => {
       {tab === TABS[0] && (
         <>
           <Table />
-          {/* <Image className="mt-8 mx-auto" src="/image10.png" alt="" width={1280} height={1731} /> */}
-          <PdfView  />
+          <div className="max-w-[8] mt-5 rounded-2xl p-1 bg-white">
+            <PdfView pdf="/sample.pdf"/>
+          </div>
           <div className="flex justify-center mt-28">
             <Button variant="primary" className="w-[270px]" type="submit">
               Ver más
@@ -50,18 +53,22 @@ const AboutProduct: React.FunctionComponent = ({store}) => {
           </div>
         </>
       )}
-      {tab === TABS[1] && <><Reviews
-          overall_rating={store?.manufacturer?.overall_rating}
-          reviews={store?.manufacturer?.reviews}
-        /></>}
-      {tab === TABS[2] && <CompanyInfo manufacturer={store?.manufacturer} />}
+      {tab === TABS[1] && (
+        <>
+          <Reviews
+            overall_rating={store?.manufacturer?.overall_rating}
+            reviews={store?.manufacturer?.reviews}
+          />
+        </>
+      )}
+      {tab === TABS[2] && <CompanyInfo className="text-[#576D99] mt-[60px] border-[#576D99]" manufacturer={store?.manufacturer} />}
     </div>
   );
 };
 
 export async function getServerSideProps(context) {
   const router = context.req.url;
-  const storeSlug = router.split('/').pop();
+  const storeSlug = router.split("/").pop();
   const data = await PuentifyApi.storeFront(storeSlug);
 
   return {

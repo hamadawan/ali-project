@@ -1,11 +1,11 @@
-import Head from 'next/head';
-import StoreHeader from '@/components/StoreHeader';
-import ProductSlider from '@/components/ProductSlider';
-import StoreInfo from '@/components/store/CompanyInfo';
-import DashboardHeader from '@/components/DashboardHeader';
-import Reviews from '@/components/Reviews';
-import StoreFooter from '@/components/StoreFooter';
-import { PuentifyApi } from '@/lib/puentifyApi';
+import Head from "next/head";
+import StoreHeader from "@/components/StoreHeader";
+import ProductSlider from "@/components/ProductSlider";
+import StoreInfo from "@/components/store/CompanyInfo";
+import DashboardHeader from "@/components/DashboardHeader";
+import Reviews from "@/components/Reviews";
+import StoreFooter from "@/components/StoreFooter";
+import { PuentifyApi } from "@/lib/puentifyApi";
 
 const Store: React.FunctionComponent = ({ store }) => {
   return (
@@ -26,7 +26,9 @@ const Store: React.FunctionComponent = ({ store }) => {
       <div className="container mx-auto py-8">
         <ProductSlider products={store?.products} className="pb-24" />
       </div>
-      <StoreInfo manufacturer={store?.manufacturer} />
+      <div className="h-[763px] bg-[#0860C6] py-[76px]">
+        <StoreInfo className="text-[#FFF] border-[#fff]" manufacturer={store?.manufacturer} />
+      </div>
       <div className="container mx-auto py-6">
         <Reviews
           overall_rating={store?.manufacturer?.overall_rating}
@@ -40,7 +42,7 @@ const Store: React.FunctionComponent = ({ store }) => {
 
 export async function getServerSideProps(context) {
   const router = context.req.url;
-  const storeSlug = router.split('/').pop();
+  const storeSlug = router.split("/").pop();
   const data = await PuentifyApi.storeFront(storeSlug);
 
   return {
