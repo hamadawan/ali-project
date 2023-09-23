@@ -18,6 +18,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   i18n: i18nextConfig.i18n,
+  webpack: (config) => {
+      config.module.rules.push({
+       test: /\.node/,
+       use: 'raw-loader',
+      });
+    
+      return config;
+     },
 };
 
 export default nextConfig;

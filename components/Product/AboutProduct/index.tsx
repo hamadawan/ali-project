@@ -7,8 +7,10 @@ import Imagegallery from "../../Imagegallery";
 import Table from "../../Table";
 import Tabs from "@/components/Tabs";
 const TABS = ["Detalles del producto", "Reseñas", "Información del fabricante"];
+import Reviews from "@/components/Reviews";
+import PdfView from "@/components/PdfView";
 
-const AboutProduct: React.FunctionComponent = () => {
+const AboutProduct: React.FunctionComponent = ({store}) => {
   const itemsData = [
     {
       name: "Username",
@@ -37,7 +39,8 @@ const AboutProduct: React.FunctionComponent = () => {
       {tab === TABS[0] && (
         <>
           <Table />
-          <Image className="mt-8 mx-auto" src="/image10.png" alt="" width={1280} height={1731} />
+          {/* <Image className="mt-8 mx-auto" src="/image10.png" alt="" width={1280} height={1731} /> */}
+          <PdfView  />
           <div className="flex justify-center mt-28">
             <Button variant="primary" className="w-[270px]" type="submit">
               Ver más
@@ -45,8 +48,11 @@ const AboutProduct: React.FunctionComponent = () => {
           </div>
         </>
       )}
-      {tab === TABS[1] && <></>}
-      {tab === TABS[2] && <></>}
+      {tab === TABS[1] && <><Reviews
+          overall_rating={store?.manufacturer?.overall_rating}
+          reviews={store?.manufacturer?.reviews}
+        /></>}
+      {tab === TABS[2] && <StoreInfo manufacturer={store?.manufacturer} />}
     </div>
   );
 };
