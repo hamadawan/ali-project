@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
   const router = context.req.url;
   const productId = router.split('/').pop();
   const data = await PuentifyApi.getProduct(productId);
-  console.log(data)
+  console.log(data);
 
   return {
     props: {

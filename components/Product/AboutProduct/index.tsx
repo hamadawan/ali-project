@@ -27,7 +27,6 @@ const AboutProduct: React.FunctionComponent<{ product: iProduct }> = ({ product 
       }),
     );
   };
-  console.log('product', product)
 
   return (
     <div>

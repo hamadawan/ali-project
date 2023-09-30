@@ -25,8 +25,8 @@ const ProductVariantSelect: React.FC<ProductVariantSelectProps> = ({
       { label }
       <Select
         onChange={handleChange}
-        required={true}
-        id="cantidad"
+        id={id}
+        value={value}
         type="number"
         className="border-none bg-transparent"
         options={options}
