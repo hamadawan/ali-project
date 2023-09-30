@@ -1,20 +1,19 @@
 import * as React from 'react';
 import Select from '../ui/Select';
 import { Button } from '../ui/button';
+import { iProduct } from '@/interface/iProduct';
 
-const ProductInformation: React.FunctionComponent = () => {
+const ProductInformation: React.FunctionComponent<{ product: iProduct }> = ({ product }) => {
   return (
     <div>
       <div className="text-[#170F49] text-[42px] font-bold tracking-[0.42px]">
-        Playera de polyester
+        {product.name}
       </div>
       <div className="mt-6 text-base font-medium uppercase text-[#26B9F1]">
-        DE STORE NAME
+        {product?.manufacturer?.name}
       </div>
       <p className="mt-7 text-lg font-normal text-[#576D99]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et est
-        quam. Duis sit amet imperdiet odio. Donec eget semper lacus, eget
-        convallis dolor.
+        {product.description}
       </p>
       <div className="flex gap-x-[60px] mt-7">
         <div className="text-base font-semibold text-[#26B9F1]">

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Breadcrumb: React.FunctionComponent<{ options: string[]; className: string }> = ({
   options,

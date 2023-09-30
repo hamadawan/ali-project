@@ -1,11 +1,13 @@
-import Head from "next/head";
-import DashboardHeader from "@/components/DashboardHeader";
-import StoreHeader from "@/components/StoreHeader";
-import AboutProduct from "@/components/Product/AboutProduct";
-import StoreFooter from "@/components/StoreFooter";
-import ProductSlider from "@/components/ProductSlider";
-import Breadcrumb from "@/components/Breadcrumb";
-export default function Home() {
+import Head from 'next/head';
+import DashboardHeader from '@/components/DashboardHeader';
+import StoreHeader from '@/components/StoreHeader';
+import AboutProduct from '@/components/Product/AboutProduct';
+import StoreFooter from '@/components/StoreFooter';
+import ProductSlider from '@/components/ProductSlider';
+import Breadcrumb from '@/components/Breadcrumb';
+import { PuentifyApi } from '@/lib/puentifyApi';
+export default function Home({ product }) {
+  console.log(product, 'product');
   return (
     <div className=" bg-[#F7F8FA]">
       <Head>
@@ -19,14 +21,14 @@ export default function Home() {
       </Head>
       <DashboardHeader />
       <StoreHeader
-        name="HS Uniforms"
-        rating={4.5}
+        name={product?.manufacturer?.name}
+        rating={product?.manufacturer?.overall_rating}
         products={50}
-        customers={100}
+        customers={product?.manufacturer?.customer_count}
       />
       <div className="container mx-auto py-6">
-        <Breadcrumb options={["Home","Sales","Hoodie"]} className="pb-7"/>
-        <AboutProduct />
+        <Breadcrumb options={['Home', 'Sales', 'Hoodie']} className="pb-7"/>
+        <AboutProduct product={product}/>
         <ProductSlider className="mt-8" />
       </div>
       <div className="mt-16">
@@ -34,4 +36,17 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const router = context.req.url;
+  const productId = router.split('/').pop();
+  const data = await PuentifyApi.getProduct(productId);
+
+  return {
+    props: {
+      product: data.product,
+      error: data?.message || '',
+    },
+  };
 }

@@ -1,24 +1,21 @@
-import { useState } from "react";
-
 const Tabs: React.FunctionComponent<{
-  options: string[];
+  options: any[];
   className?: string;
-  selected: string;
-  setSelected: Function;
-}> = ({ options, className, selected, setSelected }) => {
+  onClick: Function;
+}> = ({ options, className, onClick }) => {
   return (
     <div
       className={`${className} flex gap-x-8 text-[#0860C6] cursor-pointer text-2xl font-bold justify-center`}
     >
-      {options.map((option) => (
+      {options.map((option, index) => (
         <div
-          key={option}
-          onClick={() => setSelected(option)}
+          key={option.id}
+          onClick={() => onClick(index)}
           className={`hover:text-[#26B9F1] hover:border-[#DBDFE8] border rounded-t-[20px] p-4 ${
-            selected === option && "text-[#26B9F1]"
+            option.active && 'text-[#26B9F1]'
           }`}
         >
-          {option}
+          {option.name}
         </div>
       ))}
     </div>

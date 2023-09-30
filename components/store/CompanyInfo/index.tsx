@@ -1,7 +1,7 @@
-import * as React from "react";
-import Image from "next/image";
-import { Button } from "../../ui/button";
-import StarRating from "@/components/StatRating/StarRating";
+import * as React from 'react';
+import Image from 'next/image';
+import { Button } from '../../ui/button';
+import StarRating from '@/components/StatRating/StarRating';
 
 const StoreInfo: React.FunctionComponent<{ manufacturer: any; className?: string }> = ({
   manufacturer,
@@ -16,8 +16,8 @@ const StoreInfo: React.FunctionComponent<{ manufacturer: any; className?: string
           <StarRating
             className="pl-2"
             rating={manufacturer?.overall_rating ?? 0}
-            width={"30px"}
-            height={"30px"}
+            width={'30px'}
+            height={'30px'}
           />
           <div className="text-lg font-bold leading-[42px] ml-2">Ver todas las reseñas</div>
         </div>
@@ -52,7 +52,7 @@ const StoreInfo: React.FunctionComponent<{ manufacturer: any; className?: string
           <div className="flex mt-[44px] gap-x-[33px]">
             <Image className="" src="/map-pin.svg" alt=" " width={24} height={24} />
             <p>
-              Dirección:{" "}
+              Dirección:{' '}
               {`${manufacturer?.city}, ${manufacturer?.zip_code}, ${manufacturer?.state}, ${manufacturer?.city}`}
             </p>
           </div>
@@ -62,7 +62,7 @@ const StoreInfo: React.FunctionComponent<{ manufacturer: any; className?: string
           </div>
           <div className="pt-7 flex gap-x-[33px]">
             
-            <Image style={{fill: 'red'}} src="/mail.svg" alt=" " width={24} height={24} />
+            <Image style={{ fill: 'red' }} src="/mail.svg" alt=" " width={24} height={24} />
             <p>Email: {manufacturer?.email}</p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Table: React.FunctionComponent<{ className?: string }> = ({ className }) => {
   return (
