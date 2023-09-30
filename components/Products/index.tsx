@@ -37,7 +37,7 @@ const Products = () => {
             </button>
           </div>
           <button
-            onClick={() => router.push("/dashboard/products/add")}
+            onClick={() => router.push('/dashboard/products/add')}
             className="bg-[#26b9f1] text-white px-6 py-2 rounded-md"
           >
             Add Product
