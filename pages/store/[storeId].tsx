@@ -31,7 +31,7 @@ const Store: React.FunctionComponent = ({ store }) => {
       </div>
       <div className="container mx-auto py-6">
         <Reviews
-          overall_rating={store?.manufacturer?.overall_rating}
+          averageRating={store?.manufacturer?.overall_rating}
           reviews={store?.manufacturer?.reviews}
         />
       </div>

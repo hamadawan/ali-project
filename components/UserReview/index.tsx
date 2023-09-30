@@ -2,11 +2,25 @@ import * as React from 'react';
 import Image from 'next/image';
 import StarRating from '@/components/StatRating/StarRating';
 
-const UserReview: React.FunctionComponent<{ name:string, rating:number, review:string }> = ({ name, rating, review }) => {
+
+interface UserReviewProps {
+  name: string;
+  avatarUrl?: string;
+  rating: number;
+  title?: string;
+  body: string;
+}
+
+const UserReview: React.FunctionComponent<UserReviewProps> = ({
+  name,
+  avatarUrl,
+  rating,
+  body,
+}) => {
   return (
     <div className="w-full rounded-lg border border-solid border-[#DBDFE8]">
       <div className="px-4 py-8 flex gap-x-4">
-        <Image src="/avatar.svg" alt="logo" width={44} height={44} />
+        <Image src={avatarUrl ? avatarUrl : '/avatar.svg'} alt="logo" width={44} height={44} />
         <div className="w-full">
           <div className="flex justify-between">
             <div className="text-lg font-semibold leading-7"> {name}</div>
@@ -18,7 +32,7 @@ const UserReview: React.FunctionComponent<{ name:string, rating:number, review:s
             />
           </div>
           <p className="text-lg font-normal leading-7">
-            {review}
+            {body}
           </p>
         </div>
       </div>
