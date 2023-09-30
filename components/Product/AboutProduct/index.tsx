@@ -27,6 +27,7 @@ const AboutProduct: React.FunctionComponent<{ product: iProduct }> = ({ product 
       }),
     );
   };
+  console.log('product', product)
 
   return (
     <div>
@@ -35,8 +36,13 @@ const AboutProduct: React.FunctionComponent<{ product: iProduct }> = ({ product 
         <div>
           <ProductInformation product={product} />
           <div className="mt-7">
-            {product.reviews.map((item, index) => (
-              <UserReview key={index} name={item.name} rating={item.rating} review={item.review} />
+            {product.reviews.slice(0, 1).map((item, index) => (
+              <UserReview
+                key={index}
+                name={item?.reviewer?.name ?? 'Juan Perez'}
+                rating={item.rating}
+                body={item.body}
+              />
             ))}
           </div>
         </div>

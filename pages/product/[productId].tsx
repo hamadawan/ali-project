@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import DashboardHeader from '@/components/DashboardHeader';
+import Header from '@/components/Header';
 import StoreHeader from '@/components/StoreHeader';
 import AboutProduct from '@/components/Product/AboutProduct';
 import StoreFooter from '@/components/StoreFooter';
@@ -19,7 +19,7 @@ export default function Home({ product }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DashboardHeader />
+      <Header />
       <StoreHeader
         name={product?.manufacturer?.name}
         rating={product?.manufacturer?.overall_rating}
@@ -42,6 +42,7 @@ export async function getServerSideProps(context) {
   const router = context.req.url;
   const productId = router.split('/').pop();
   const data = await PuentifyApi.getProduct(productId);
+  console.log(data)
 
   return {
     props: {

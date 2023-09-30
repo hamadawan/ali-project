@@ -1,9 +1,13 @@
 export interface iProduct {
-    id: number;
+  id: number;
+  name: string;
+  description: string;
+  manufacturer: any;
+  images: string[]
+  reviews: []
+  overall_rating: number
+  formatted_variants: {
     name: string;
-    description: string;
-    manufacturer: any;
-    images: string[]
-    reviews: []
-    overall_rating: number
+    values: string[]
+  }[]
 }
