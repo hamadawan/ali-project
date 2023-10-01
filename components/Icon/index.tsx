@@ -3,7 +3,15 @@ import InboxIcon from '@heroicons/react/solid/InboxIcon';
 import StarIcon from '@heroicons/react/outline/StarIcon';
 import UserGroupIcon from '@heroicons/react/outline/UserGroupIcon';
 import HeartIcon from '@heroicons/react/outline/HeartIcon';
-import { GlobeAltIcon, ChatIcon, PaperAirplaneIcon } from '@heroicons/react/outline';
+import {
+  GlobeAltIcon,
+  ChatIcon,
+  PaperAirplaneIcon,
+  PhoneIcon,
+  LocationMarkerIcon,
+  MailIcon,
+  ChatAltIcon,
+} from '@heroicons/react/outline';
 import { IconProps } from './Icon.interfaces';
 
 const Icon: React.FunctionComponent<IconProps> = ({ type, className }) => {
@@ -22,6 +30,14 @@ const Icon: React.FunctionComponent<IconProps> = ({ type, className }) => {
       return <GlobeAltIcon className={className ?? 'h-5'} />;
     case 'chat':
       return <ChatIcon className={className ?? 'h-5'} />;
+    case 'phone':
+      return <PhoneIcon className={className ?? 'h-5'} />;
+    case 'location-marker':
+      return <LocationMarkerIcon className={className ?? 'h-5'} />;
+    case 'mail':
+      return <MailIcon className={className ?? 'h-5'} />;
+    case 'chat-alt':
+      return <ChatAltIcon className={className ?? 'h-5'} />;
     default:
       return <div>icon does not exist</div>;
   }

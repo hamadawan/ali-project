@@ -85,7 +85,7 @@ const Images: React.FunctionComponent<{
             className="w-full min-h-[174px] mb-8 rounded-[10px] border border-solid border-[#D2DAE2] bg-[#d2dae266]"
           >
             <div className="border-dashed w-[ 646.055px] flex justify-center items-center h-[133px] rounded-[7px] border border-[#A8B0B7] my-5 mx-5">
-              <div className="font-[Plus Jakarta Sans] text-sm font-normal leading-[22px] tracking-[0.26px] text-[#6F6C90]">
+              <div className="text-sm font-normal leading-[22px] tracking-[0.26px] text-[#6F6C90]">
                 {t('dragFiles')}
               </div>
             </div>

@@ -4,27 +4,22 @@ import UserReview from '../UserReview';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 
-
-
 interface Review {
   id: string;
   rating: number;
   title: string;
   body: string;
   reviewer: {
-    name: string
-  }
+    name: string;
+  };
 }
 
 interface ReviewsProps {
   reviews: Review[];
-  averageRating: number
+  averageRating: number;
 }
 
-const Reviews: React.FunctionComponent<ReviewsProps> = ({
-  reviews,
-  averageRating,
-}) => {
+const Reviews: React.FunctionComponent<ReviewsProps> = ({ reviews, averageRating }) => {
   const calculateStarRatings = (reviewsList) => {
     const starCounts = [0, 0, 0, 0, 0]; // Assuming ratings range from 1 to 5
     reviewsList.forEach((review) => {
@@ -32,9 +27,9 @@ const Reviews: React.FunctionComponent<ReviewsProps> = ({
       starCounts[rating - 1]++;
     });
     const totalUsers = reviewsList.length;
-    const result = starCounts.sort().map((count) => {
-      const percentage = (count / totalUsers) * 100;
-      return { noOfusers: count, percentage };
+    const result = starCounts.map((count, index) => {
+      const percentage = (count / totalUsers) * 100 || 0;
+      return { id: index + 1, percentage };
     });
     return result;
   };
@@ -49,25 +44,25 @@ const Reviews: React.FunctionComponent<ReviewsProps> = ({
             <div className="text-7xl font-bold leading-normal">{averageRating}</div>
           </div>
           <div className="w-full">
-            {reviews && calculateStarRatings(reviews).map((review) => (
-              <Progressbar
-                key={review.noOfusers}
-                number={review.noOfusers}
-                percentage={review.percentage}
-              />
-            ))}
+            {reviews &&
+              calculateStarRatings(reviews)
+                .sort((a, b) => b.id - a.id)
+                .map((review) => (
+                  <Progressbar key={review.id} number={review.id} percentage={review.percentage} />
+                ))}
           </div>
         </div>
         <div className="flex flex-col gap-y-4">
-          {reviews && reviews.map((review) => (
-            <UserReview
-              key={review.id}
-              name={review?.reviewer?.name}
-              rating={review.rating}
-              title={review.title}
-              body={review.body}
-            />
-          ))}
+          {reviews &&
+            reviews.map((review) => (
+              <UserReview
+                key={review.id}
+                name={review?.reviewer?.name}
+                rating={review.rating}
+                title={review.title}
+                body={review.body}
+              />
+            ))}
           <Button variant="primary">Cargar recientes</Button>
         </div>
       </div>

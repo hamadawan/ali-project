@@ -47,7 +47,7 @@ const ManufacturerInformation: React.FunctionComponent<{
           </ul>
         </div>
       )}
-      <div className="mt-[25px] font-[Roboto] text-sm font-extrabold leading-[21px] text-[#170F49]">
+      <div className="mt-[25px] text-sm font-extrabold leading-[21px] text-[#170F49]">
         <p>https://www.puentify.com/{slug.length > 0 ? slug : 'nombre-de-mi-tienda'}</p>
       </div>
       <Input

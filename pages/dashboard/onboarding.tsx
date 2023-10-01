@@ -7,6 +7,7 @@ import Step2 from '@/components/ManufacturerInformation/Step2';
 import Step3 from '@/components/ManufacturerInformation/Step3';
 import Step4 from '@/components/ManufacturerInformation/Step4';
 import { Button } from '@/components/ui/button';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export interface StepProps {
   isActive: boolean;
@@ -116,5 +117,10 @@ const Onboarding = () => {
     </Dashboard>
   );
 };
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['dashboard'])),
+  },
+});
 
 export default Onboarding;

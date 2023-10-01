@@ -6,7 +6,7 @@ import StoreFooter from '@/components/StoreFooter';
 import ProductSlider from '@/components/ProductSlider';
 import Breadcrumb from '@/components/Breadcrumb';
 import { PuentifyApi } from '@/lib/puentifyApi';
-export default function Home({ product }) {
+export default function Home({ product, products }) {
   console.log(product, 'product');
   return (
     <div className=" bg-[#F7F8FA]">
@@ -23,13 +23,13 @@ export default function Home({ product }) {
       <StoreHeader
         name={product?.manufacturer?.name}
         rating={product?.manufacturer?.overall_rating}
-        products={50}
+        products={products?.length}
         customers={product?.manufacturer?.customer_count}
       />
       <div className="container mx-auto py-6">
         <Breadcrumb options={['Home', 'Sales', 'Hoodie']} className="pb-7"/>
         <AboutProduct product={product}/>
-        <ProductSlider className="mt-8" />
+        <ProductSlider products={products} className="mt-8" />
       </div>
       <div className="mt-16">
         <StoreFooter />
@@ -42,11 +42,10 @@ export async function getServerSideProps(context) {
   const router = context.req.url;
   const productId = router.split('/').pop();
   const data = await PuentifyApi.getProduct(productId);
-  console.log(data);
-
   return {
     props: {
       product: data.product,
+      products: data.products,
       error: data?.message || '',
     },
   };
