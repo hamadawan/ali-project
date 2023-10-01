@@ -36,7 +36,7 @@ const StoreBanner: React.FunctionComponent = () => {
           </div>
         </div>
         <div className="flex items-center pt-9 gap-x-5">
-          <Button className="text-[#FFF] tracking-[0.16px] text-base font-semibold bg-[#26B9F1] w-[270px] h-[73px] rounded-[10px]">
+          <Button className="text-[#FFF] tracking-[0.16px] text-base font-semibold bg-secondary w-[270px] h-[73px] rounded-[10px]">
             <Image className="mr-2" src="/message-square.svg" alt="" width={24} height={24} />
             Ver información
           </Button>
@@ -48,7 +48,7 @@ const StoreBanner: React.FunctionComponent = () => {
               name=""
               placeholder="¿Qué estás buscando?"
             />
-            <div className="absolute top-2 right-2 p-5 rounded-[12px] bg-[#26B9F1]">
+            <div className="absolute top-2 right-2 p-5 rounded-[12px] bg-secondary">
               <Image src="/Search.svg" alt="" width={20} height={20} />
             </div>
           </div>

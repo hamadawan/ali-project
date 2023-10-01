@@ -41,7 +41,7 @@ const Variants: React.FunctionComponent<{
           placeholder="Color"
         />
         <div>
-          <div className="relative font-medium text-2xl leading-[28px] text-[#26B9F1] mb-5">
+          <div className="relative font-medium text-2xl leading-[28px] text-secondary mb-5">
             {t('options')}
             <div className="flex justify-end">
               <button className=" absolute mt-[-14px] pl-6" onClick={addRow}>

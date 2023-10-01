@@ -10,11 +10,11 @@ const Step: React.FunctionComponent = ({
   return (
     <div>
       {finished ? (
-        <div className="w-[30px] h-[30px] flex justify-center items-center bg-[#26B9F1] rounded-[20px]">
+        <div className="w-[30px] h-[30px] flex justify-center items-center bg-secondary rounded-[20px]">
           <Image className="w-[20px] h-[20px]" src="/checkmark.svg" alt="" />
         </div>
       ) : (
-        <div className="w-[30px] bg-white h-[30px] flex justify-center items-center text-[#26B9F1] border border-[#26B9F1] rounded-[20px]">
+        <div className="w-[30px] bg-white h-[30px] flex justify-center items-center text-secondary border border-secondary rounded-[20px]">
           {number}
         </div>
       )}

@@ -21,7 +21,7 @@ const ProductInformation: React.FunctionComponent<{ product: iProduct }> = ({ pr
       <div className="text-[#170F49] text-[42px] font-bold tracking-[0.42px]">
         {product.name}
       </div>
-      <div className="mt-6 text-base font-medium uppercase text-[#26B9F1]">
+      <div className="mt-6 text-base font-medium uppercase text-secondary">
         <Link href={`/store/${product.manufacturer.slug}`}>{product?.manufacturer?.name}</Link>
       </div>
       <p className="mt-7 text-lg font-normal text-[#576D99]">

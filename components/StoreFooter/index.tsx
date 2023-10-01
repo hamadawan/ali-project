@@ -15,14 +15,14 @@ const Footer: React.FunctionComponent = () => {
           <div>Contacto</div>
         </div>
         <div className="flex justify-center gap-x-5 mt-8">
-          <div className="w-10 h-10 bg-[#26B9F1] rounded-3xl flex justify-center items-center">
+          <div className="w-10 h-10 bg-secondary rounded-3xl flex justify-center items-center">
             <Image src="/facebook-icon.svg" alt="logo" width={16} height={16} />
           </div>
-          <div className="w-10 h-10 bg-[#26B9F1] rounded-3xl flex justify-center items-center">
+          <div className="w-10 h-10 bg-secondary rounded-3xl flex justify-center items-center">
             <Image src="/twitter-icon.svg" alt="logo" width={16} height={16} />
           </div>
         </div>
-        <div className=" bg-[#0860C6] h-[1px] mt-10"></div>
+        <div className=" bg-primary h-[1px] mt-10"></div>
         <div className="text-base font-normal text-white flex justify-center mt-10">
           Puentify © 2023
         </div>

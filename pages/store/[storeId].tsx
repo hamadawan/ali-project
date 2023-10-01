@@ -26,7 +26,7 @@ const Store: React.FunctionComponent = ({ store }) => {
       <div className="container mx-auto py-8">
         <ProductSlider products={store?.products} className="pb-24" />
       </div>
-      <div className="h-[763px] bg-[#0860C6] py-[76px]">
+      <div className="h-[763px] bg-primary py-[76px]">
         <StoreInfo className="text-[#FFF] border-[#fff]" manufacturer={store?.manufacturer} />
       </div>
       <div className="container mx-auto py-6">

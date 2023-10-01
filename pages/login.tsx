@@ -92,13 +92,13 @@ const Login = () => {
           <hr />
           <div className="mt-6 font-normal text-sm text-center text-[#6F6C90] leading-5">
             {t('forgotPasswordText')}?{' '}
-            <Link href="/forgot-password" className="underline text-[#0860C6]">
+            <Link href="/forgot-password" className="underline text-primary">
               Click here
             </Link>
           </div>
           <div className="mt-4 font-normal text-sm text-center text-[#6F6C90] leading-5">
             {t('signupText')}?{'  '}
-            <Link href="/signup" className="underline text-[#0860C6]">
+            <Link href="/signup" className="underline text-primary">
               {t('signup')}
             </Link>
           </div>

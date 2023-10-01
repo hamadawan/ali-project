@@ -31,7 +31,7 @@ const Navbar = (props) => {
                     <div>
                         <div className=' flex gap-5 items-center'>
                             <div className="items-center flex-shrink-0 hidden lg:flex font-normal">
-                                <button className=' self-center text-[#0860C6] px-6 text-[21px]'>Sign Up</button>
+                                <button className=' self-center text-primary px-6 text-[21px]'>Sign Up</button>
                                 <Button text={'Log In'} />
                             </div>
                             <div className=' hidden md:block'>

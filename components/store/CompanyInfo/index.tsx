@@ -41,11 +41,11 @@ const StoreInfo: React.FunctionComponent<{ manufacturer: any; className?: string
           </div>
         </div>
         <div className="flex">
-          <Button className="text-[#FFF] tracking-[0.16px] text-base font-semibold bg-[#26B9F1] w-[270px] h-[73px] rounded-[10px] mt-[78px]">
+          <Button className="text-[#FFF] tracking-[0.16px] text-base font-semibold bg-secondary w-[270px] h-[73px] rounded-[10px] mt-[78px]">
             <Icon type="chat-alt" className="h-5 mr-2" />
             Ver información
           </Button>
-          <Button className="ml-4 text-[#FFF] tracking-[0.16px] text-base font-semibold bg-[#26B9F1] w-[270px] h-[73px] rounded-[10px] mt-[78px]">
+          <Button className="ml-4 text-[#FFF] tracking-[0.16px] text-base font-semibold bg-secondary w-[270px] h-[73px] rounded-[10px] mt-[78px]">
             <Icon type="chat-alt" className="h-5 mr-2" />
             Ver información
           </Button>
